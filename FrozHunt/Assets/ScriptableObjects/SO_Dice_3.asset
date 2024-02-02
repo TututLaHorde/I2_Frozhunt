@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1baba683ba3fbe649b7cdc4ab4dd52eb, type: 3}
+  m_Name: SO_Dice_3
+  m_EditorClassIdentifier: 
+  m_dice:
+  - {fileID: 21300000, guid: 1b6346c404e7e1540af7112e2798cd9f, type: 3}
+  - {fileID: 21300000, guid: 440942168d03cc54d824a8ed84bfd13f, type: 3}
+  - {fileID: 21300000, guid: 81e3b0da181082441aa991628cd9d8c6, type: 3}
+  m_maxTime: 3
