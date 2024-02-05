@@ -24,6 +24,6 @@ public class Sc_PbCard : MonoBehaviour
     private IEnumerator UseCardAfterTimer()
     {
         yield return new WaitForSeconds(1f);
-        m_card.SelectedCard();
+        m_card.SelectedCard(this.gameObject);
     }
 }

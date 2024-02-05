@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Sc_EnemyCardControler : MonoBehaviour
+public class Sc_EnemyCardControler : Sc_PbCard
 {
     [Header("Card Data")]
     public So_Enemy m_CardInfo;
@@ -32,9 +32,12 @@ public class Sc_EnemyCardControler : MonoBehaviour
 
     private bool m_stun = false;
 
-    // Start is called before the first frame update
-    void Start()
+    public override void InitDisplayCard(So_Card c)
     {
+        base.InitDisplayCard(c);
+
+        m_CardInfo = c as So_Enemy;
+
         m_enemyCapacity = m_CardInfo.EnemyCapacity;
 
         m_maxHealth = m_CardInfo.HealthPoint;
@@ -53,17 +56,12 @@ public class Sc_EnemyCardControler : MonoBehaviour
         SetMyCompetence();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void TakeDamage(int damage)
     {
         m_Health -= damage;
-        if (m_Health < 0)
+        if (m_Health <= 0)
         {
+            m_Health = 0;
             Dead();
         }
         m_HPTxt.text = m_Health.ToString();
