@@ -21,6 +21,8 @@ public class Sc_EnemyCardControler : MonoBehaviour
     private int m_meat = 0;
     private int m_power = 0;
 
+    private bool m_stun = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +73,12 @@ public class Sc_EnemyCardControler : MonoBehaviour
     private void Dead()
     {
         Debug.Log("Enemy is Dead, You Win this Battle");
+    }
+
+    public bool Stun
+    {
+        get { return m_stun;}
+        set { m_stun = value; }
     }
 
     //abstract public void Competence();
