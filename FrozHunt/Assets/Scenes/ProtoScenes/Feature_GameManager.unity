@@ -941,9 +941,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1558565512}
-        m_TargetAssemblyTypeName: Sc_GameManager, Assembly-CSharp
-        m_MethodName: ToNextPhase
-        m_Mode: 1
+        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
+        m_MethodName: set_name
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1321,8 +1321,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_currentFood: 0
   m_turnCount: 1
-  m_foodMax: 20
-  m_turnCountMax: 20
   playerList: []
   m_turnText: {fileID: 384663625}
   m_foodText: {fileID: 1684699860}
