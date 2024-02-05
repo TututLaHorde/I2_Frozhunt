@@ -30,6 +30,9 @@ public class Sc_FightManager : MonoBehaviour
     {
         if (Instance == null) { Instance = this; }
         m_pop_up.SetActive(false);
+
+        //Test need to be delete
+        StartFight(m_Enemy);
     }
 
     // Update is called once per frame
@@ -42,6 +45,7 @@ public class Sc_FightManager : MonoBehaviour
     // Call when an enemy card is choose for set the enemy 
     public void StartFight(Sc_EnemyCardControler enemy)
     {
+        Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Attack);
         m_Enemy = enemy;
     }
 
@@ -70,7 +74,13 @@ public class Sc_FightManager : MonoBehaviour
 
             int result = m_diceResult.Item1 + m_diceResult.Item2;
             Debug.Log(result + "     ////    " + m_diceResult.Item2);
-            if (result < m_Enemy.GetPower() && !m_Enemy.Stun) { player.TakeDamage(m_Enemy.GetDamage()); m_lastPlayer.CanAttack = true; }
+            if (result < m_Enemy.GetPower() && !m_Enemy.Stun) 
+            {
+                player.TakeDamage(m_Enemy.GetDamage());
+                m_Enemy.Competence();
+
+                m_lastPlayer.CanAttack = true; 
+            }
             else
             {
                 if (m_Enemy.Stun)
@@ -122,6 +132,12 @@ public class Sc_FightManager : MonoBehaviour
         m_dice.ThrowDice(ref m_diceResult.Item1);
         return m_diceCrit.ThrowDice(ref m_diceResult.Item2);
 
+    }
+
+    public void EndFight()
+    {
+        Debug.Log("END OF THE FIGHT");
+        Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Draw);
     }
 
 }
