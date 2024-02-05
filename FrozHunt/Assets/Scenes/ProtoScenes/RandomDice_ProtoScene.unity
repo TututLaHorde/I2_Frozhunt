@@ -184,12 +184,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 0d5a6f2d28d86c74786f39e738fa5b7d, type: 2}
     - target: {fileID: 8470454478699539615, guid: 30ea7543612ead6478f05205ef9e55e3, type: 3}
-      propertyPath: m_animCurve.m_Curve.Array.data[0].value
+      propertyPath: m_animCurve.m_Curve.Array.data[0].time
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8470454478699539615, guid: 30ea7543612ead6478f05205ef9e55e3, type: 3}
+      propertyPath: m_animCurve.m_Curve.Array.data[0].value
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470454478699539615, guid: 30ea7543612ead6478f05205ef9e55e3, type: 3}
       propertyPath: m_animCurve.m_Curve.Array.data[1].value
-      value: 1
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 8470454478699539615, guid: 30ea7543612ead6478f05205ef9e55e3, type: 3}
       propertyPath: m_animCurve.m_Curve.Array.data[0].inSlope
@@ -374,11 +378,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: e9844eca996d97d4ab27fd469450345a, type: 2}
     - target: {fileID: 8470454478699539615, guid: 30ea7543612ead6478f05205ef9e55e3, type: 3}
       propertyPath: m_animCurve.m_Curve.Array.data[0].value
-      value: 0
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 8470454478699539615, guid: 30ea7543612ead6478f05205ef9e55e3, type: 3}
       propertyPath: m_animCurve.m_Curve.Array.data[1].value
-      value: 1
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 8470454478699539615, guid: 30ea7543612ead6478f05205ef9e55e3, type: 3}
       propertyPath: m_animCurve.m_Curve.Array.data[0].inSlope
