@@ -81,6 +81,8 @@ public class Sc_EnemyCardControler : Sc_PbCard
     public int GetDamage() => m_damage;
     public int GetPower() => m_power;
 
+    public int GetMeat() => m_meat;
+
     private void Dead()
     {
         Sc_FightManager.Instance.EndFight();

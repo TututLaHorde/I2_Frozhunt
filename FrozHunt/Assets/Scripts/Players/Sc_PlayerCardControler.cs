@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Sc_PlayerCardControler : MonoBehaviour
@@ -82,6 +83,7 @@ public class Sc_PlayerCardControler : MonoBehaviour
     private void Dead()
     {
         Debug.Log("Player is Dead, You Loose");
+        SceneManager.LoadScene("DefeatScene");
     }
 
     public void Crit(Sc_EnemyCardControler enemy)
