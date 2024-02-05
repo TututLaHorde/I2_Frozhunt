@@ -108,6 +108,7 @@ public class Sc_PlayerCardControler : MonoBehaviour
         {
             case PlayerCard.Lance: m_competence = gameObject.AddComponent<Sc_DoubleDmgCritique>(); break;
             case PlayerCard.Massue: m_competence = gameObject.AddComponent<Sc_StunCompetence>(); break;
+            case PlayerCard.Druide: m_competence = gameObject.AddComponent<Sc_HealCompetence>(); break;
         }
     }
 
