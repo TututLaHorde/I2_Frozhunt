@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: Card
-  m_EditorClassIdentifier: Assembly-CSharp::So_Card
+  m_Script: {fileID: 11500000, guid: bfde6983e3f253440987be28d209d930, type: 3}
+  m_Name: Test
+  m_EditorClassIdentifier: 
   m_name: 
   m_description: 
   m_icon: {fileID: 0}
+  m_prebafInBoard: {fileID: 0}
