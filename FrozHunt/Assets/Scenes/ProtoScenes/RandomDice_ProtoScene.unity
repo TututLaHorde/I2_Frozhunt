@@ -465,38 +465,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PB_Dice
       objectReference: {fileID: 0}
-    - target: {fileID: 8470454478699539615, guid: 30ea7543612ead6478f05205ef9e55e3, type: 3}
-      propertyPath: m_animCurve.m_Curve.Array.data[0].value
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 8470454478699539615, guid: 30ea7543612ead6478f05205ef9e55e3, type: 3}
-      propertyPath: m_animCurve.m_Curve.Array.data[1].value
-      value: 0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8470454478699539615, guid: 30ea7543612ead6478f05205ef9e55e3, type: 3}
-      propertyPath: m_animCurve.m_Curve.Array.data[0].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8470454478699539615, guid: 30ea7543612ead6478f05205ef9e55e3, type: 3}
-      propertyPath: m_animCurve.m_Curve.Array.data[1].inSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8470454478699539615, guid: 30ea7543612ead6478f05205ef9e55e3, type: 3}
-      propertyPath: m_animCurve.m_Curve.Array.data[0].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8470454478699539615, guid: 30ea7543612ead6478f05205ef9e55e3, type: 3}
-      propertyPath: m_animCurve.m_Curve.Array.data[1].inWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8470454478699539615, guid: 30ea7543612ead6478f05205ef9e55e3, type: 3}
-      propertyPath: m_animCurve.m_Curve.Array.data[1].outSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8470454478699539615, guid: 30ea7543612ead6478f05205ef9e55e3, type: 3}
-      propertyPath: m_animCurve.m_Curve.Array.data[0].outWeight
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
