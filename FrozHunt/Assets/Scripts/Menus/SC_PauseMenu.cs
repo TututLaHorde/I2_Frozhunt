@@ -10,6 +10,16 @@ public class SC_PauseMenu : MonoBehaviour
         if (context.performed)
         {
             m_pauseMenu.SetActive(!m_pauseMenu.activeSelf);
+            if (m_pauseMenu.activeSelf)
+            {
+                //pause the game
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                //restart the game
+                Time.timeScale = 1f;
+            }
         }
     }
 }
