@@ -260,7 +260,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8929894355086309206}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6044653891000541281}
+        m_TargetAssemblyTypeName: Sc_PbCard, Assembly-CSharp
+        m_MethodName: UseCard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3397387674525759669
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,8 +509,8 @@ Transform:
   m_GameObject: {fileID: 4451963801897301524}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -642.8081, y: -256.04288, z: -9723.148}
-  m_LocalScale: {x: 216.06996, y: 299.1738, z: 108.03498}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 137.43, y: 190.2877, z: 68.715}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3087010298767054559}
@@ -568,6 +580,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aedd9b9734b5e5949ae1ff4930dd0d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_card: {fileID: 0}
+  m_canClick: 1
   m_CardInfo: {fileID: 0}
   m_Image: {fileID: 3397387674525759669}
   m_NameTxt: {fileID: 268532288050970198}

@@ -56,7 +56,7 @@ public class Sc_BoardManager : MonoBehaviour
 
             GameObject e = m_cardPrefabEmplacements[i];
             GameObject inst = Instantiate(m_deck[0].m_prebafInBoard, e.transform);
-            Sc_PbEffectCard c = inst.GetComponent<Sc_PbEffectCard>();
+            Sc_PbCard c = inst.GetComponent<Sc_PbCard>();
             c.InitDisplayCard(m_deck[0]);
 
             m_deck.RemoveAt(0);

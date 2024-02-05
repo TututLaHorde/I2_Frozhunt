@@ -11,5 +11,5 @@ public class So_Card : ScriptableObject
     public Texture2D m_icon;
     public GameObject m_prebafInBoard;
 
-    public virtual void SelectedCard() { }
+    public virtual void SelectedCard(GameObject owner) { }
 }

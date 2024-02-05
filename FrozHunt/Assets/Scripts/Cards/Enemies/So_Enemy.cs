@@ -16,4 +16,10 @@ public class So_Enemy : So_Card
     public int MeatDrop;
     public int Power;
     public Sprite CardArt;
+
+    public override void SelectedCard(GameObject owner)
+    {
+        if (owner.TryGetComponent<Sc_EnemyCardControler>(out var e))
+            Sc_FightManager.Instance.StartFight(e);
+    }
 }

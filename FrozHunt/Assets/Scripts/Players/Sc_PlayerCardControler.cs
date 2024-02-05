@@ -58,8 +58,9 @@ public class Sc_PlayerCardControler : MonoBehaviour
     public void TakeDamage(int damage)
     {
         m_Health -= damage;
-        if(m_Health < 0) 
+        if(m_Health <= 0) 
         {
+            m_Health = 0;
             Dead();
         }
         m_HPTxt.text = m_Health.ToString();
