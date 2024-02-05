@@ -10,7 +10,7 @@ public class Sc_PlayerCardControler : MonoBehaviour
     public GameObject m_Image;
     public TextMeshProUGUI m_NameTxt;
     public TextMeshProUGUI m_DamageTxt;
-    public TextMeshProUGUI m_PVTxt;
+    public TextMeshProUGUI m_HPTxt;
     public TextMeshProUGUI m_DescriptionTxt;
     public TextMeshProUGUI m_AttackNameTxt;
 
@@ -28,7 +28,7 @@ public class Sc_PlayerCardControler : MonoBehaviour
         m_NameTxt.text = m_CardInfo.playerCard.ToString();
         m_DamageTxt.text = m_CardInfo.damage.ToString();
         m_DescriptionTxt.text = m_CardInfo.description;
-        m_PVTxt.text = m_CardInfo.life.ToString();
+        m_HPTxt.text = m_CardInfo.life.ToString();   
         m_AttackNameTxt.text = m_CardInfo.attackName;
     }
 
@@ -45,7 +45,8 @@ public class Sc_PlayerCardControler : MonoBehaviour
         {
             Dead();
         }
-        m_PVTxt.text = m_Health.ToString();
+        m_HPTxt.text = m_Health.ToString();
+        Debug.Log("Player Take Damage");
     }
 
     public void Heal(int heal)
@@ -55,7 +56,7 @@ public class Sc_PlayerCardControler : MonoBehaviour
         {
             m_Health = m_maxHealth;
         }
-        m_PVTxt.text = m_Health.ToString();
+        m_HPTxt.text = m_Health.ToString();
     }
 
     public int GetDamage() => m_damage;
@@ -63,6 +64,16 @@ public class Sc_PlayerCardControler : MonoBehaviour
     private void Dead()
     {
         Debug.Log("Player is Dead, You Loose");
+    }
+
+    public void Crit()
+    {
+        Debug.Log("Player Crit");
+    }
+
+    public void CanCrit()
+    {
+        Debug.Log("Player Can Crit");
     }
 
     //abstract public void Competence();
