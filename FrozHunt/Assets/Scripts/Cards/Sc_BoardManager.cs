@@ -13,6 +13,7 @@ public class Sc_BoardManager : MonoBehaviour
     public List<GameObject> m_bonusCardPrefabEmplacements;
 
     public bool m_blendInStart = false;
+    public SC_Dice m_dice;
 
     private List<So_Card> m_discardDeck = new List<So_Card>();
     private int m_bonusCardNumber = 0;
@@ -23,13 +24,10 @@ public class Sc_BoardManager : MonoBehaviour
     {
         Instance = this;
     }
-
     private void Start()
     {
         if (m_blendInStart)
             BlendDeck();
-
-        GetCard(3);
     }
 
     [ContextMenu("Blend deck")]
@@ -38,6 +36,17 @@ public class Sc_BoardManager : MonoBehaviour
         m_deck = m_deck.OrderBy(x => Random.Range(0, m_deck.Count)).ToList();
     }
 
+    public void GetCard()
+    {
+        int r = 0;
+        float t = m_dice.ThrowDice(ref r);
+        StartCoroutine(GetCardAfterTimer(t + .5f, r));
+    }
+    private IEnumerator GetCardAfterTimer(float t, int r)
+    {
+        yield return new WaitForSeconds(t);
+        GetCard(r);
+    }
     public void GetCard(int n)
     {
         for (int i = 0; i < n; i++)
@@ -66,7 +75,18 @@ public class Sc_BoardManager : MonoBehaviour
 
     public void RemoveAllPrefabCard()
     {
-        m_cardPrefabEmplacements.ForEach(x => Destroy(x.transform.GetChild(0).gameObject));
+        foreach (var item in m_cardPrefabEmplacements)
+        {
+            if (item.transform.childCount < 1)
+                return;
+
+            GameObject g = item.transform.GetChild(0).gameObject;
+            if (g)
+            {
+                g.GetComponent<MonoBehaviour>().StopAllCoroutines();
+                Destroy(g);
+            }
+        }
     }
     public void RemoveAllPrefabCardWithout(int index)
     {
@@ -90,5 +110,21 @@ public class Sc_BoardManager : MonoBehaviour
     public void InstantiateBonusCard(So_Effect e)
     {
 
+    }
+
+    public void SetEnableCard(bool enable)
+    {
+        foreach (var item in m_cardPrefabEmplacements)
+        {
+            if (item.transform.childCount < 1)
+                return;
+
+            GameObject g = item.transform.GetChild(0).gameObject;
+            if (g)
+            {
+                Sc_PbCard s = g.GetComponent<Sc_PbCard>();
+                s.m_canClick = enable;
+            }
+        }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.UI;
 
 public class SC_Dice : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class SC_Dice : MonoBehaviour
     [SerializeField] private int m_result;
     private Sprite[] m_dice;
     private float m_maxTime;
-    private SpriteRenderer m_sprites;
+    private Image m_sprites;
     private Sprite m_sprite;
     
     private void Start()
@@ -23,7 +24,7 @@ public class SC_Dice : MonoBehaviour
     public float ThrowDice(ref int result)
     {
         result = Random.Range(1, m_dice.Length+1);
-        if (TryGetComponent(out SpriteRenderer sp))
+        if (TryGetComponent(out Image sp))
         {
             //get SpriteRenderer
             m_sprites = sp;
