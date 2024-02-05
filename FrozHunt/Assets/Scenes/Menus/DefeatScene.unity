@@ -207,8 +207,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1908359623}
-        m_TargetAssemblyTypeName: SC_ButtonFunction, Assembly-CSharp
-        m_MethodName: replay
+        m_TargetAssemblyTypeName: SC_MenusButton, Assembly-CSharp
+        m_MethodName: LoadLore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -909,8 +909,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1908359623}
-        m_TargetAssemblyTypeName: SC_ButtonFunction, Assembly-CSharp
-        m_MethodName: MainMenu
+        m_TargetAssemblyTypeName: SC_MenusButton, Assembly-CSharp
+        m_MethodName: LoadMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
