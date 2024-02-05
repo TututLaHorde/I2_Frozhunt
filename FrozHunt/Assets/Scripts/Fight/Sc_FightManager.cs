@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,6 +15,9 @@ public class Sc_FightManager : MonoBehaviour
 
     [Header("Pop-Up")]
     public GameObject m_pop_up;
+    public TextMeshProUGUI m_textPopUp;
+    public string m_textPopUpFood;
+    public string m_textPopUpLife;
 
     [Header("Dice")]
     public SC_Dice m_dice;
@@ -63,8 +67,9 @@ public class Sc_FightManager : MonoBehaviour
 
             yield return new WaitForSeconds(RandDice() + 1f);
 
+
             int result = m_diceResult.Item1 + m_diceResult.Item2;
-            Debug.Log(result);
+            Debug.Log(result + "     ////    " + m_diceResult.Item2);
             if (result < m_Enemy.GetPower() && !m_Enemy.Stun) { player.TakeDamage(m_Enemy.GetDamage()); m_lastPlayer.CanAttack = true; }
             else
             {
@@ -76,10 +81,14 @@ public class Sc_FightManager : MonoBehaviour
                 {
                     player.Crit(m_Enemy);
                     m_lastPlayer.CanAttack = true;
-                    yield return null;
+                    yield break;  
                 }
 
                 player.CanCrit();
+                if (Sc_GameManager.Instance.GetFood() > 0)
+                    m_textPopUp.text = m_textPopUpFood;
+                else
+                    m_textPopUp.text = m_textPopUpLife;
                 m_pop_up.SetActive(true);
 
             }
@@ -90,6 +99,10 @@ public class Sc_FightManager : MonoBehaviour
     public void WantToCritique() // The Player clique on Yes on the critical pop_up
     {
         m_lastPlayer.Crit(m_Enemy);
+        if (Sc_GameManager.Instance.GetFood() > 0)
+            Sc_GameManager.Instance.AddFood(-1);
+        else
+            m_lastPlayer.TakeDamage(2);
         Debug.Log("Remove Food");
         m_lastPlayer.CanAttack = true;
         m_pop_up.SetActive(false);

@@ -7,8 +7,7 @@ using UnityEngine;
 
 public class Sc_GameManager : MonoBehaviour
 {
-    private static Sc_GameManager m_instance = null;
-    public static Sc_GameManager Instance => m_instance;
+    public static Sc_GameManager Instance { get; private set; }
 
     public int m_currentFood;
     public int m_turnCount;
@@ -29,14 +28,14 @@ public class Sc_GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (m_instance != null && m_instance != this)
+        if (Instance != null)
         {
             Destroy(this.gameObject);
             return;
         }
         else
         {
-            m_instance = this;
+            Instance = this;
         }
         DontDestroyOnLoad(this.gameObject);
 
@@ -96,7 +95,7 @@ public class Sc_GameManager : MonoBehaviour
     public int AddFood(int addedFood)
     {
         int res = m_currentFood + addedFood;
-        if (res > 0 && res <= m_foodMax)
+        if (res >= 0 && res <= m_foodMax)
         {
             m_currentFood += addedFood;
         }
@@ -148,4 +147,6 @@ public class Sc_GameManager : MonoBehaviour
             playerList[i].TakeDamage(damage);
         
     }
+
+    public int GetFood() => m_currentFood;
 }
