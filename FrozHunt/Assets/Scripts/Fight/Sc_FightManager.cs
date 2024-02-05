@@ -4,6 +4,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Sc_FightManager : MonoBehaviour
 {
@@ -138,6 +139,7 @@ public class Sc_FightManager : MonoBehaviour
     {
         Debug.Log("END OF THE FIGHT");
         Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Draw);
+        Sc_GameManager.Instance.AddFood(m_Enemy.GetMeat());
     }
 
 }
