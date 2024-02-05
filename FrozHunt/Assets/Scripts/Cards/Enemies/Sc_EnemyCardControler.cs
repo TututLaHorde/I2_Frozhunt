@@ -26,11 +26,17 @@ public class Sc_EnemyCardControler : MonoBehaviour
     private int m_meat = 0;
     private int m_power = 0;
 
+    private Capacity m_enemyCapacity;
+
+    private Sc_enemyCompetence m_competence;
+
     private bool m_stun = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        m_enemyCapacity = m_CardInfo.EnemyCapacity;
+
         m_maxHealth = m_CardInfo.HealthPoint;
         m_Health = m_CardInfo.HealthPoint;
         m_damage = m_CardInfo.AttackDamage;
@@ -43,6 +49,8 @@ public class Sc_EnemyCardControler : MonoBehaviour
         m_HPTxt.text = m_CardInfo.HealthPoint.ToString();
         m_MeatDropTxt.text = m_CardInfo.MeatDrop.ToString();
         m_PowerTxt.text = m_CardInfo.Power.ToString();
+
+        SetMyCompetence();
     }
 
     // Update is called once per frame
@@ -77,6 +85,7 @@ public class Sc_EnemyCardControler : MonoBehaviour
 
     private void Dead()
     {
+        Sc_FightManager.Instance.EndFight();
         Debug.Log("Enemy is Dead, You Win this Battle");
     }
 
@@ -84,6 +93,20 @@ public class Sc_EnemyCardControler : MonoBehaviour
     {
         get { return m_stun;}
         set { m_stun = value; }
+    }
+
+    public void Competence()
+    {
+        m_competence.Competence();
+    }
+
+    private void SetMyCompetence() // Add the component with the good critical fonction  
+    {
+        switch (m_enemyCapacity)
+        {
+            case Capacity.Flee: m_competence = gameObject.AddComponent<FleeCompetenceEnemy>(); break;
+            case Capacity.Basic: m_competence = gameObject.AddComponent<Sc_enemyCompetence>(); break;
+        }
     }
 
     //abstract public void Competence();
