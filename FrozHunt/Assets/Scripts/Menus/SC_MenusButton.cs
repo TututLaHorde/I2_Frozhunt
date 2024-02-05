@@ -3,7 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class SC_MenusButton : MonoBehaviour
 {
-  public void LoadMainMenu()
+    [SerializeField] private GameObject m_pauseMenu;
+    public void LoadMainMenu()
     {
         SceneManager.LoadScene("MainMenuScene"); 
     }
@@ -30,6 +31,11 @@ public class SC_MenusButton : MonoBehaviour
     public void LoadDefeat()
     {
         SceneManager.LoadScene("DefeatScene");
+    }
+
+    public void resume()
+    {
+        m_pauseMenu.SetActive(false);
     }
 
     public void Quit()
