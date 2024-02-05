@@ -6,8 +6,13 @@ using UnityEngine.UI;
 
 public class Sc_EnemyCardControler : MonoBehaviour
 {
+    [Header("Card Data")]
     public So_Enemy m_CardInfo;
+
+    [Header("Card Image")]
     public GameObject m_Image;
+
+    [Header("Card Text")]
     public TextMeshProUGUI m_NameTxt;
     public TextMeshProUGUI m_DamageTxt;
     public TextMeshProUGUI m_HPTxt;

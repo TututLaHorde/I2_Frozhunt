@@ -8,12 +8,19 @@ public class Sc_FightManager : MonoBehaviour
 {
     public static Sc_FightManager Instance;
 
+    // Make the enemy private when the enemy can be set with STARTFIGHT()
     public Sc_EnemyCardControler m_Enemy;
     private Sc_PlayerCardControler m_lastPlayer;
 
+    [Header("Pop-Up")]
     public GameObject m_pop_up;
 
-    public (int, int) dice;
+    [Header("Dice")]
+    public SC_Dice m_dice;
+    public SC_Dice m_diceCrit;
+
+    private (int, int) m_diceResult;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,46 +34,60 @@ public class Sc_FightManager : MonoBehaviour
         
     }
 
+
+    // Call when an enemy card is choose for set the enemy 
     public void StartFight(Sc_EnemyCardControler enemy)
     {
         m_Enemy = enemy;
     }
 
     // m_lastPlayer.CanAttack= true; need To remove this if you want him to stop attack. make him inactive instead
+
+
+    // Call in the button of the card
     public void Attack(Sc_PlayerCardControler player)
     {
-        if(!player.CanAttack)
-            return;
+        StartCoroutine(AttackCoroutine(player));
+    }
 
-        RandDice();
 
-        m_lastPlayer = player;
-
-        player.CanAttack = false;
-
-        int result = dice.Item1 + dice.Item2;
-        Debug.Log(result);
-        if(result < m_Enemy.GetPower() && !m_Enemy.Stun) { player.TakeDamage(m_Enemy.GetDamage()); m_lastPlayer.CanAttack = true; }
-        else 
+    // Attack Coroutine for attack when the dice animation is finish
+    public IEnumerator AttackCoroutine(Sc_PlayerCardControler player)
+    {
+        if (player.CanAttack)
         {
-            if(m_Enemy.Stun)
-                m_Enemy.Stun = false;
 
-            m_Enemy.TakeDamage(player.GetDamage());
-            if (dice.Item2 > 4)
+            m_lastPlayer = player;
+
+            player.CanAttack = false;
+
+            yield return new WaitForSeconds(RandDice() + 1f);
+
+            int result = m_diceResult.Item1 + m_diceResult.Item2;
+            Debug.Log(result);
+            if (result < m_Enemy.GetPower() && !m_Enemy.Stun) { player.TakeDamage(m_Enemy.GetDamage()); m_lastPlayer.CanAttack = true; }
+            else
             {
-                player.Crit(m_Enemy);
-                m_lastPlayer.CanAttack = true;
-                return;
-            }
+                if (m_Enemy.Stun)
+                    m_Enemy.Stun = false;
 
-            player.CanCrit();
-            m_pop_up.SetActive(true);
+                m_Enemy.TakeDamage(player.GetDamage());
+                if (m_diceResult.Item2 > 4)
+                {
+                    player.Crit(m_Enemy);
+                    m_lastPlayer.CanAttack = true;
+                    yield return null;
+                }
+
+                player.CanCrit();
+                m_pop_up.SetActive(true);
+
+            }
         }
 
     }
 
-    public void WantToCritique()
+    public void WantToCritique() // The Player clique on Yes on the critical pop_up
     {
         m_lastPlayer.Crit(m_Enemy);
         Debug.Log("Remove Food");
@@ -74,17 +95,20 @@ public class Sc_FightManager : MonoBehaviour
         m_pop_up.SetActive(false);
     }
 
-    public void DontWantToCritique()
+    public void DontWantToCritique() // The Player clique on No on the critical pop_up
     {
         Debug.Log("Don't crit");
         m_lastPlayer.CanAttack= true;
         m_pop_up.SetActive(false);
     }
 
-    private void RandDice()
+
+    // Trow the Two attack Dice
+    private float RandDice()
     {
-        dice.Item1 = Random.Range(1, 7);
-        dice.Item2 = Random.Range(1, 7);
+        m_dice.ThrowDice(ref m_diceResult.Item1);
+        return m_diceCrit.ThrowDice(ref m_diceResult.Item2);
+
     }
 
 }
