@@ -13,16 +13,17 @@ public class Sc_SaveData : MonoBehaviour
             Instance = this;
     }
 
-    private void Update()
+/*    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
-            LoadFromJson(ref Sc_GameManager.Instance.playerList) ;
+            LoadFromJson() ;
         if(Input.GetKeyDown(KeyCode.S))
             SaveToJson();
-    }
+    }*/
     public Save cards = new Save();
-    public void SaveToJson()
+    public void SaveToJson(Save save)
     {
+        cards = save;
         string Save = JsonUtility.ToJson(cards);
         string FilePath = Application.persistentDataPath + "/Save.json";
         Debug.Log(FilePath);
@@ -30,16 +31,15 @@ public class Sc_SaveData : MonoBehaviour
         Debug.Log("Sauvegarder");
     }
 
-    public void LoadFromJson(ref List<Sc_PlayerCardControler> playerList)
+    public void LoadFromJson()
     {
         string FilePath = Application.persistentDataPath + "/Save.json";
         string Save = System.IO.File.ReadAllText(FilePath);
         cards = JsonUtility.FromJson<Save>(Save);
-        playerList = cards.players;
-        for(int i = 0; i< playerList.Count; i++)
+        for(int i = 0; i< Sc_GameManager.Instance.playerList.Count; i++)
         {
-            Debug.Log("Player Parameter Loding");
-            cards.players[i].m_CardInfo = cards.cardPlayers[i];
+            Debug.Log("Player Parameter Loading");
+            Sc_GameManager.Instance.playerList[i].m_CardInfo = cards.cardPlayers[i];
         }
         Debug.Log("Load");
     }
@@ -49,6 +49,13 @@ public class Sc_SaveData : MonoBehaviour
 [System.Serializable]
 public class Save
 {
-    public List<Sc_PlayerCardControler> players = new();
+
     public List<So_CardPlayer> cardPlayers = new();
+    public Save(List<So_CardPlayer> card)
+    {
+        cardPlayers = card;
+    }
+    public Save()
+    {
+    }
 }
