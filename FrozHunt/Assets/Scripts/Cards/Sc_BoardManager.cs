@@ -41,6 +41,8 @@ public class Sc_BoardManager : MonoBehaviour
         if (HasCardInBoard())
             return;
 
+        Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Selection);
+
         Sc_GameManager.Instance.AddTurn();
         int r = 0;
         float t = m_dice.ThrowDice(ref r);
