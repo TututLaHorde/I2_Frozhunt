@@ -94,23 +94,17 @@ public class Sc_GameManager : MonoBehaviour
     public int AddFood(int addedFood)
     {
         int res = m_currentFood + addedFood;
-        if (res >= 0 && res <= m_foodMax)
-        {
-            m_currentFood += addedFood;
-        }
-        else if (m_currentFood >= m_foodMax)
+        m_currentFood = Mathf.Clamp(res, 0, m_foodMax);
+        if (m_currentFood == m_foodMax)
         {
             PrintGameOver();
         }
 
+        m_foodText.text = "Food : " + m_currentFood.ToString(); // scene debug
         if (res < 0)
         {
-            m_currentFood = 0;
-            m_foodText.text = "Food : " + m_currentFood.ToString(); // scene debug
             return res;
         }
-
-        m_foodText.text = "Food : " + m_currentFood.ToString(); // scene debug
         return 0;
     }
 
