@@ -3,6 +3,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Sc_GameManager : MonoBehaviour
 {
@@ -15,6 +16,12 @@ public class Sc_GameManager : MonoBehaviour
     public static int m_turnCountMax = 20;
 
     public List<Sc_PlayerCardControler> playerList;
+
+    [Header("Button")]
+    public Button m_draw;
+    public List<Button> m_playerButton;
+
+    [Space(10)]
 
     // In scene debug
     public TextMeshProUGUI m_turnText;
@@ -46,7 +53,9 @@ public class Sc_GameManager : MonoBehaviour
 
     private void Start()
     {
+
         Sc_SaveData.Instance.LoadFromJson();
+        ToNextPhase(eTurnPhase.Draw);
     }
 
     public enum eTurnPhase
@@ -57,30 +66,43 @@ public class Sc_GameManager : MonoBehaviour
     }
     public eTurnPhase m_turnPhase = eTurnPhase.Draw;
 
-    public void ToNextPhase()
+    public void PhaseButton()
     {
         switch (m_turnPhase)
         {
             case eTurnPhase.Draw:
-                m_turnPhase = eTurnPhase.Selection;
+                m_draw.interactable = true;
+                SetPlayerAttackButton(false);
+
                 break;
 
             case eTurnPhase.Selection:
-                m_turnPhase = eTurnPhase.Attack;
+                m_draw.interactable = false;
+                SetPlayerAttackButton(false);
                 break;
 
             case eTurnPhase.Attack:
-                m_turnPhase = eTurnPhase.Draw;
+                m_draw.interactable = false;
+                SetPlayerAttackButton(true);
                 break;
         }
 
         m_phaseText.text = "Phase : " + m_turnPhase.ToString(); // scene debug
     }
 
+    private void SetPlayerAttackButton(bool isInteractible)
+    {
+        foreach(var b in m_playerButton)
+        {
+            b.interactable = isInteractible;
+        }
+    }
+
     public void ToNextPhase(eTurnPhase phase)
     {
         m_turnPhase = phase;
         m_phaseText.text = "Phase : " + m_turnPhase.ToString(); // scene debug
+        PhaseButton();
     }
 
     public void AddTurn()

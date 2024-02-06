@@ -87,6 +87,7 @@ public class Sc_EnemyCardControler : Sc_PbCard
     private void Dead()
     {
         Sc_FightManager.Instance.EndFight();
+        Sc_BoardManager.Instance.RemoveAllPrefabCard();
         Debug.Log("Enemy is Dead, You Win this Battle");
     }
 

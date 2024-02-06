@@ -36,9 +36,6 @@ public class Sc_FightManager : MonoBehaviour
     {
         if (Instance == null) { Instance = this; }
         m_pop_up.SetActive(false);
-
-        //Test need to be delete
-        StartFight(m_Enemy);
     }
 
     // Call when an enemy card is choose for set the enemy 
