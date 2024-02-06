@@ -12,7 +12,7 @@ public class Sc_FightManager : MonoBehaviour
 
     // Make the enemy private when the enemy can be set with STARTFIGHT()
     public Sc_EnemyCardControler m_Enemy;
-    private Sc_PlayerCardControler m_lastPlayer;
+    public Sc_PlayerCardControler m_lastPlayer;
 
     [Header("Pop-Up")]
     public GameObject m_pop_up;
@@ -28,7 +28,7 @@ public class Sc_FightManager : MonoBehaviour
     private (int, int) m_diceResult;
 
     private int m_numberOfPlayerAttack = 0;
-    private int m_enragedPlayerBonus;
+    public int m_enragedPlayerBonus;
 
     private bool m_canAttack = true;
 
@@ -118,6 +118,8 @@ public class Sc_FightManager : MonoBehaviour
                         m_textPopUp.text = m_textPopUpLife;
                     m_pop_up.SetActive(true);
                 }
+
+                m_enragedPlayerBonus = 0;
             };
         }
     }
