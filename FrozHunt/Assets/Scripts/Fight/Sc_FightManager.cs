@@ -19,6 +19,7 @@ public class Sc_FightManager : MonoBehaviour
     public TextMeshProUGUI m_textPopUp;
     public string m_textPopUpFood;
     public string m_textPopUpLife;
+    public Sc_InfoDicePopUp m_infoDicePopUp;
 
     [Header("Dice")]
     public SC_Dice m_dice;
@@ -27,10 +28,10 @@ public class Sc_FightManager : MonoBehaviour
     private (int, int) m_diceResult;
 
     private int m_numberOfPlayerAttack = 0;
+    private int m_enragedPlayerBonus;
 
     private bool m_canAttack = true;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (Instance == null) { Instance = this; }
@@ -39,13 +40,6 @@ public class Sc_FightManager : MonoBehaviour
         //Test need to be delete
         StartFight(m_Enemy);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     // Call when an enemy card is choose for set the enemy 
     public void StartFight(Sc_EnemyCardControler enemy)
@@ -77,42 +71,55 @@ public class Sc_FightManager : MonoBehaviour
 
             yield return new WaitForSeconds(RandDice() + 1f);
 
-            if(m_numberOfPlayerAttack == Sc_GameManager.Instance.playerList.Count)
+            if (m_numberOfPlayerAttack == Sc_GameManager.Instance.playerList.Count)
             {
                 AllPlayerCanAttack();
             }
 
             int result = m_diceResult.Item1 + m_diceResult.Item2;
             Debug.Log(result + "     ////    " + m_diceResult.Item2);
-            if (result < m_Enemy.GetPower() && !m_Enemy.Stun) 
-            {
-                player.TakeDamage(m_Enemy.GetDamage());
-                m_Enemy.Competence();
-                m_canAttack = true;
-            }
+
+            m_infoDicePopUp.m_background.SetActive(true);
+            if (result < m_Enemy.GetPower())
+                m_infoDicePopUp.SetAttackStateText(AttackState.Failure);
             else
+                m_infoDicePopUp.SetAttackStateText(AttackState.Success);
+
+            if (m_diceResult.Item2 > 4)
+                m_infoDicePopUp.SetAbilityStateText(AbilityState.CriticalAttack);
+            else
+                m_infoDicePopUp.SetAbilityStateText(AbilityState.Nothing);
+
+            m_infoDicePopUp.m_onAttackLaunch = () =>
             {
-                if (m_Enemy.Stun)
-                    m_Enemy.Stun = false;
-
-                m_Enemy.TakeDamage(player.GetDamage());
-                if (m_diceResult.Item2 > 4)
+                if (result + m_enragedPlayerBonus < m_Enemy.GetPower() && !m_Enemy.Stun)
                 {
-                    player.Crit(m_Enemy);
+                    player.TakeDamage(m_Enemy.GetDamage());
+                    m_Enemy.Competence();
                     m_canAttack = true;
-                    yield break;  
                 }
-
-                player.CanCrit();
-                if (Sc_GameManager.Instance.GetFood() > 0)
-                    m_textPopUp.text = m_textPopUpFood;
                 else
-                    m_textPopUp.text = m_textPopUpLife;
-                m_pop_up.SetActive(true);
+                {
+                    if (m_Enemy.Stun)
+                        m_Enemy.Stun = false;
 
-            }
+                    m_Enemy.TakeDamage(player.GetDamage());
+                    if (m_diceResult.Item2 > 4)
+                    {
+                        player.Crit(m_Enemy);
+                        m_canAttack = true;
+                        return;
+                    }
+
+                    player.CanCrit();
+                    if (Sc_GameManager.Instance.GetFood() > 0)
+                        m_textPopUp.text = m_textPopUpFood;
+                    else
+                        m_textPopUp.text = m_textPopUpLife;
+                    m_pop_up.SetActive(true);
+                }
+            };
         }
-
     }
 
     private void AllPlayerCanAttack()
@@ -155,6 +162,7 @@ public class Sc_FightManager : MonoBehaviour
 
     public void EndFight()
     {
+        m_infoDicePopUp.m_background.SetActive(false);
         AllPlayerCanAttack();
         Debug.Log("END OF THE FIGHT");
         Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Draw);
