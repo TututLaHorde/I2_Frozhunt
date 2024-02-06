@@ -130,11 +130,20 @@ public class Sc_BoardManager : MonoBehaviour
     }
     public void RemoveAllPrefabCardWithout(int index)
     {
-        for (int i = 0; i < m_cardPrefabEmplacements.Count; i++)
+        foreach (var item in m_cardPrefabEmplacements.Select((v, i) => new { v, i }))
         {
-            GameObject e = m_cardPrefabEmplacements[i];
-            if (i != index)
-                Destroy(e);
+            if (item.v.transform.childCount < 1)
+                return;
+
+            GameObject g = item.v.transform.GetChild(0).gameObject;
+            if (g && item.i != index)
+            {
+                g.GetComponent<MonoBehaviour>().StopAllCoroutines();
+
+                m_discardDeck.Add(m_boardCards[0]);
+                m_boardCards.RemoveAt(0);
+                Destroy(g);
+            }
         }
     }
     public void RemoveBonusCard(int i)
