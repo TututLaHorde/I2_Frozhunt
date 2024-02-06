@@ -324,6 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_card: {fileID: 0}
+  m_canClick: 1
   m_nameText: {fileID: 6911426181700571822}
   m_effectTypeText: {fileID: 3440506169077636922}
   m_descriptionText: {fileID: 799083023912362712}
