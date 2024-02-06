@@ -26,6 +26,10 @@ public class Sc_FightManager : MonoBehaviour
 
     private (int, int) m_diceResult;
 
+    private int m_numberOfPlayerAttack = 0;
+
+    private bool m_canAttack = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +52,7 @@ public class Sc_FightManager : MonoBehaviour
     {
         Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Attack);
         m_Enemy = enemy;
+        m_canAttack = true;
     }
 
     // m_lastPlayer.CanAttack= true; need To remove this if you want him to stop attack. make him inactive instead
@@ -63,15 +68,19 @@ public class Sc_FightManager : MonoBehaviour
     // Attack Coroutine for attack when the dice animation is finish
     public IEnumerator AttackCoroutine(Sc_PlayerCardControler player)
     {
-        if (player.CanAttack)
+        if (player.CanAttack && m_canAttack)
         {
-
+            m_canAttack = false;
+            player.SetAttackInactive();
             m_lastPlayer = player;
-
-            player.CanAttack = false;
+            m_numberOfPlayerAttack++;
 
             yield return new WaitForSeconds(RandDice() + 1f);
 
+            if(m_numberOfPlayerAttack == Sc_GameManager.Instance.playerList.Count)
+            {
+                AllPlayerCanAttack();
+            }
 
             int result = m_diceResult.Item1 + m_diceResult.Item2;
             Debug.Log(result + "     ////    " + m_diceResult.Item2);
@@ -79,8 +88,7 @@ public class Sc_FightManager : MonoBehaviour
             {
                 player.TakeDamage(m_Enemy.GetDamage());
                 m_Enemy.Competence();
-
-                m_lastPlayer.CanAttack = true; 
+                m_canAttack = true;
             }
             else
             {
@@ -91,7 +99,7 @@ public class Sc_FightManager : MonoBehaviour
                 if (m_diceResult.Item2 > 4)
                 {
                     player.Crit(m_Enemy);
-                    m_lastPlayer.CanAttack = true;
+                    m_canAttack = true;
                     yield break;  
                 }
 
@@ -107,6 +115,16 @@ public class Sc_FightManager : MonoBehaviour
 
     }
 
+    private void AllPlayerCanAttack()
+    {
+        m_numberOfPlayerAttack = 0;
+        for (int i = 0; i < Sc_GameManager.Instance.playerList.Count; i++)
+        {
+            Sc_GameManager.Instance.playerList[i].SetAttackActive();
+        }
+
+    }
+
     public void WantToCritique() // The Player clique on Yes on the critical pop_up
     {
         m_lastPlayer.Crit(m_Enemy);
@@ -115,15 +133,15 @@ public class Sc_FightManager : MonoBehaviour
         else
             m_lastPlayer.TakeDamage(2);
         Debug.Log("Remove Food");
-        m_lastPlayer.CanAttack = true;
         m_pop_up.SetActive(false);
+        m_canAttack = true;
     }
 
     public void DontWantToCritique() // The Player clique on No on the critical pop_up
     {
         Debug.Log("Don't crit");
-        m_lastPlayer.CanAttack= true;
         m_pop_up.SetActive(false);
+        m_canAttack = true;
     }
 
 
@@ -137,6 +155,7 @@ public class Sc_FightManager : MonoBehaviour
 
     public void EndFight()
     {
+        AllPlayerCanAttack();
         Debug.Log("END OF THE FIGHT");
         Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Draw);
     }

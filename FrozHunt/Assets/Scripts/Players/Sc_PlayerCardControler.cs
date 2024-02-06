@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+[System.Serializable]
 public class Sc_PlayerCardControler : MonoBehaviour
 {
     [Header("Card Data")]
@@ -25,6 +27,8 @@ public class Sc_PlayerCardControler : MonoBehaviour
 
     private PlayerCard m_PlayerCard;
 
+    private Button m_Button;
+
     private int m_Health = 0;
     private int m_maxHealth = 0;
     private int m_damage = 0;
@@ -33,6 +37,8 @@ public class Sc_PlayerCardControler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_Button = gameObject.GetComponentInChildren<Button>();
+
         m_PlayerCard = m_CardInfo.playerCard; 
 
         m_maxHealth = m_CardInfo.life;
@@ -106,12 +112,25 @@ public class Sc_PlayerCardControler : MonoBehaviour
 
     private void SetMyCompetence() // Add the component with the good critical fonction  
     {
+        Debug.Log("Set Competence");
         switch (m_PlayerCard)
         {
             case PlayerCard.Lance: m_competence = gameObject.AddComponent<Sc_DoubleDmgCritique>(); break;
             case PlayerCard.Massue: m_competence = gameObject.AddComponent<Sc_StunCompetence>(); break;
             case PlayerCard.Druide: m_competence = gameObject.AddComponent<Sc_HealCompetence>(); break;
         }
+    }
+
+    public void SetAttackInactive()
+    {
+       m_Button.interactable = false;
+        CanAttack = false;
+    }
+
+    public void SetAttackActive()
+    {
+        m_Button.interactable = true;
+        CanAttack = true;
     }
 
     //abstract public void Competence();
