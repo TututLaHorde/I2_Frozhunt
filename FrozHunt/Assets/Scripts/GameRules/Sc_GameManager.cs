@@ -124,12 +124,10 @@ public class Sc_GameManager : MonoBehaviour
     {
         if(m_currentFood < m_foodMax)
         {
-            Debug.Log("Perdu ! Vous avez dépassé le maximum de tours");
             SceneManager.LoadScene("DefeatScene");
         }
         else
         {
-            Debug.Log("Victoire ! Vous avez suffisamment de nourriture");
             SceneManager.LoadScene("VictoryScene");
         }
     }
