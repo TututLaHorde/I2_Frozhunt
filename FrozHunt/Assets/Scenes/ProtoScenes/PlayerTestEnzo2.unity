@@ -1169,16 +1169,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_deck:
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
+  - {fileID: 11400000, guid: 0ae2f72ee6292d842b807bbbb610fe37, type: 2}
+  - {fileID: 11400000, guid: 7ab7228c4787b4148af80f5be7ba70c5, type: 2}
+  - {fileID: 11400000, guid: a2619c7daea20fd4bac271045a2658be, type: 2}
+  - {fileID: 11400000, guid: a2619c7daea20fd4bac271045a2658be, type: 2}
+  - {fileID: 11400000, guid: 7ab7228c4787b4148af80f5be7ba70c5, type: 2}
+  - {fileID: 11400000, guid: 0ae2f72ee6292d842b807bbbb610fe37, type: 2}
+  - {fileID: 11400000, guid: a2619c7daea20fd4bac271045a2658be, type: 2}
+  - {fileID: 11400000, guid: 7ab7228c4787b4148af80f5be7ba70c5, type: 2}
+  - {fileID: 11400000, guid: 0ae2f72ee6292d842b807bbbb610fe37, type: 2}
+  - {fileID: 11400000, guid: 7ab7228c4787b4148af80f5be7ba70c5, type: 2}
   m_cards: []
   m_effectCard: []
   m_cardPrefabEmplacements:
