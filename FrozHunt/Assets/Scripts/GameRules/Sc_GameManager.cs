@@ -36,10 +36,17 @@ public class Sc_GameManager : MonoBehaviour
         {
             Instance = this;
         }
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
+
+
 
         m_currentFood = 0;
         m_turnCount = 1;
+    }
+
+    private void Start()
+    {
+        Sc_SaveData.Instance.LoadFromJson(ref playerList);
     }
 
     public enum eTurnPhase
