@@ -415,26 +415,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_deck:
-  - {fileID: 11400000, guid: de687cab889b43a40b7ced5f42c85fd7, type: 2}
-  - {fileID: 11400000, guid: de687cab889b43a40b7ced5f42c85fd7, type: 2}
-  - {fileID: 11400000, guid: de687cab889b43a40b7ced5f42c85fd7, type: 2}
-  - {fileID: 11400000, guid: de687cab889b43a40b7ced5f42c85fd7, type: 2}
-  - {fileID: 11400000, guid: de687cab889b43a40b7ced5f42c85fd7, type: 2}
-  - {fileID: 11400000, guid: de687cab889b43a40b7ced5f42c85fd7, type: 2}
-  - {fileID: 11400000, guid: de687cab889b43a40b7ced5f42c85fd7, type: 2}
-  - {fileID: 11400000, guid: de687cab889b43a40b7ced5f42c85fd7, type: 2}
-  - {fileID: 11400000, guid: de687cab889b43a40b7ced5f42c85fd7, type: 2}
-  - {fileID: 11400000, guid: de687cab889b43a40b7ced5f42c85fd7, type: 2}
-  - {fileID: 11400000, guid: de687cab889b43a40b7ced5f42c85fd7, type: 2}
-  - {fileID: 11400000, guid: de687cab889b43a40b7ced5f42c85fd7, type: 2}
-  - {fileID: 11400000, guid: de687cab889b43a40b7ced5f42c85fd7, type: 2}
-  - {fileID: 11400000, guid: de687cab889b43a40b7ced5f42c85fd7, type: 2}
-  - {fileID: 11400000, guid: de687cab889b43a40b7ced5f42c85fd7, type: 2}
-  - {fileID: 11400000, guid: de687cab889b43a40b7ced5f42c85fd7, type: 2}
-  - {fileID: 11400000, guid: de687cab889b43a40b7ced5f42c85fd7, type: 2}
-  - {fileID: 11400000, guid: de687cab889b43a40b7ced5f42c85fd7, type: 2}
-  - {fileID: 11400000, guid: de687cab889b43a40b7ced5f42c85fd7, type: 2}
-  - {fileID: 11400000, guid: de687cab889b43a40b7ced5f42c85fd7, type: 2}
+  - {fileID: 11400000, guid: 75016788171479c47962b95499a58f9c, type: 2}
+  - {fileID: 11400000, guid: 75016788171479c47962b95499a58f9c, type: 2}
+  - {fileID: 11400000, guid: 75016788171479c47962b95499a58f9c, type: 2}
+  - {fileID: 11400000, guid: 75016788171479c47962b95499a58f9c, type: 2}
+  - {fileID: 11400000, guid: 75016788171479c47962b95499a58f9c, type: 2}
+  - {fileID: 11400000, guid: 75016788171479c47962b95499a58f9c, type: 2}
+  - {fileID: 11400000, guid: 75016788171479c47962b95499a58f9c, type: 2}
+  - {fileID: 11400000, guid: 75016788171479c47962b95499a58f9c, type: 2}
+  - {fileID: 11400000, guid: 75016788171479c47962b95499a58f9c, type: 2}
+  - {fileID: 11400000, guid: 75016788171479c47962b95499a58f9c, type: 2}
   m_boardCards: []
   m_discardDeck: []
   m_effectCard: []
