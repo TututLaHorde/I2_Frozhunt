@@ -9,21 +9,24 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Menus/DefeatScene.unity
-    guid: fb765d6b709250546a682b3f2e172ce9
-  - enabled: 1
     path: Assets/Scenes/Menus/MainMenuScene.unity
     guid: 59520ff793d888b4a879460fb3be2387
   - enabled: 1
-    path: Assets/Scenes/Menus/VictoryScene.unity
-    guid: ef0c69e6ef2eafc4db25421689c8b7e1
-  - enabled: 1
     path: Assets/Scenes/Menus/CreditScene.unity
     guid: 313a6bb27a3250c4fa7a9abd23d36707
+  - enabled: 1
+    path: Assets/Scenes/Menus/ChooseCharacterScene.unity
+    guid: 7ffba895c18101b4796ddc1442a42b9f
   - enabled: 1
     path: Assets/Scenes/Menus/LoreScene.unity
     guid: 0929f4e5603d5584ab30dd458cbaa60c
   - enabled: 1
     path: Assets/Scenes/Menus/ProtoGameMenu.unity
     guid: cbed83d8bf44d944bb2de95ccb18a4da
+  - enabled: 1
+    path: Assets/Scenes/Menus/DefeatScene.unity
+    guid: fb765d6b709250546a682b3f2e172ce9
+  - enabled: 1
+    path: Assets/Scenes/Menus/VictoryScene.unity
+    guid: ef0c69e6ef2eafc4db25421689c8b7e1
   m_configObjects: {}

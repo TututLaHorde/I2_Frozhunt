@@ -8,11 +8,15 @@ public class SC_MenusButton : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenuScene"); 
     }
+
+    public void ChooseChar()
+    {
+        SceneManager.LoadScene("ChooseCharacterScene");
+    }
     public void LoadLore()
     {
         SceneManager.LoadScene("LoreScene");
     }
-
     public void LoadPlayScene()
     {
         SceneManager.LoadScene("ProtoGameMenu");
