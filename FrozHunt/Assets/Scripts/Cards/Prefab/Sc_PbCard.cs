@@ -7,6 +7,7 @@ public class Sc_PbCard : MonoBehaviour
     [HideInInspector] public So_Card m_card;
 
     public bool m_canClick = true;
+    public int m_indexPosition;
 
     public virtual void InitDisplayCard(So_Card c)
     {
@@ -24,6 +25,7 @@ public class Sc_PbCard : MonoBehaviour
     private IEnumerator UseCardAfterTimer()
     {
         yield return new WaitForSeconds(1f);
+
         m_card.SelectedCard(this.gameObject);
     }
 }
