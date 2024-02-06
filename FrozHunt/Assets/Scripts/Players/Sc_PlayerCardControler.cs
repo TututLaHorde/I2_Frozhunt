@@ -38,8 +38,12 @@ public class Sc_PlayerCardControler : MonoBehaviour
     void Start()
     {
         m_Button = gameObject.GetComponentInChildren<Button>();
+        Assign();
+    }
 
-        m_PlayerCard = m_CardInfo.playerCard; 
+    public void Assign()
+    {
+        m_PlayerCard = m_CardInfo.playerCard;
 
         m_maxHealth = m_CardInfo.life;
         m_Health = m_CardInfo.life;
@@ -50,18 +54,11 @@ public class Sc_PlayerCardControler : MonoBehaviour
         m_NameTxt.text = m_CardInfo.playerCard.ToString();
         m_DamageTxt.text = m_CardInfo.damage.ToString();
         m_DescriptionTxt.text = m_CardInfo.description;
-        m_HPTxt.text = m_CardInfo.life.ToString();   
+        m_HPTxt.text = m_CardInfo.life.ToString();
         m_AttackNameTxt.text = m_CardInfo.attackName;
 
         SetMyCompetence();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void TakeDamage(int damage)
     {
         m_Health -= damage;

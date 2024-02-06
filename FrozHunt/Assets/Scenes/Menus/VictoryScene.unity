@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c50b7ea48fb46499cb16d87d287293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_pauseMenu: {fileID: 0}
 --- !u!1 &954203044
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,7 +966,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 478602884}
         m_TargetAssemblyTypeName: SC_MenusButton, Assembly-CSharp
-        m_MethodName: LoadLore
+        m_MethodName: ChooseChar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
