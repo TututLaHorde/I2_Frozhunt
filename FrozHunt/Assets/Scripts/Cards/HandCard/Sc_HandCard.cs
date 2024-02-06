@@ -16,6 +16,8 @@ public class Sc_HandCard : MonoBehaviour
     public void UseEffectCard()
     {
         m_effectCard?.UseEffect();
-        Sc_BoardManager.Instance.RemoveBonusCard(m_indexPosition);
+
+        if (m_effectCard.m_canDiscardCard)
+            Sc_BoardManager.Instance.RemoveBonusCard(m_indexPosition);
     }
 }
