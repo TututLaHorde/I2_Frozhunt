@@ -17,8 +17,7 @@ public class Sc_PopUpManager : MonoBehaviour
     public GameObject Image1;
     public GameObject Image2;
 
-
-
+    private int m_healValue;
 
     // Start is called before the first frame update
     void Start()
@@ -40,15 +39,20 @@ public class Sc_PopUpManager : MonoBehaviour
         Image2.GetComponent<Image>().sprite = player2.m_Image.GetComponent<Sprite>();
     }
 
+    public void SetHealthValue(int h)
+    {
+        m_healValue = h;
+    }
+
     public void HealPlayer1()
     {
-        Sc_GameManager.Instance.playerList[0].Heal(5);
+        Sc_GameManager.Instance.playerList[0].Heal(m_healValue);
         Debug.Log("Heal P1");
         HealPopUp.SetActive(false);
     }
     public void HealPlayer2()
     {
-        Sc_GameManager.Instance.playerList[1].Heal(5);
+        Sc_GameManager.Instance.playerList[1].Heal(m_healValue);
         Debug.Log("Heal P2");
         HealPopUp.SetActive(false);
     }
