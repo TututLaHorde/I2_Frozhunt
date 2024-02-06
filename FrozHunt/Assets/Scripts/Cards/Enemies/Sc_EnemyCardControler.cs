@@ -61,6 +61,8 @@ public class Sc_EnemyCardControler : Sc_PbCard
         m_Health -= damage;
         if (m_Health <= 0)
         {
+            print(GetMeat() + "this is how much food that should be given");
+            Sc_GameManager.Instance.AddFood(GetMeat());
             m_Health = 0;
             Dead();
         }
@@ -80,7 +82,6 @@ public class Sc_EnemyCardControler : Sc_PbCard
 
     public int GetDamage() => m_damage;
     public int GetPower() => m_power;
-
     public int GetMeat() => m_meat;
 
     private void Dead()
