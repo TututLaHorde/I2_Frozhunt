@@ -46,7 +46,7 @@ public class Sc_GameManager : MonoBehaviour
 
     private void Start()
     {
-        Sc_SaveData.Instance.LoadFromJson(ref playerList);
+        Sc_SaveData.Instance.LoadFromJson();
     }
 
     public enum eTurnPhase

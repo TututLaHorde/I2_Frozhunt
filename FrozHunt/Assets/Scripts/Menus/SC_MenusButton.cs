@@ -1,9 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SC_MenusButton : MonoBehaviour
 {
     [SerializeField] private GameObject m_pauseMenu;
+    [SerializeField] private List<So_CardPlayer> m_players = new();
+    public List<Sc_PlayerCardControler> m_playersControler = new();
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("MainMenuScene"); 
@@ -15,6 +18,12 @@ public class SC_MenusButton : MonoBehaviour
     }
     public void LoadLore()
     {
+        for(int i = 0; i < m_playersControler.Count; i++) 
+        {
+            m_players.Add(m_playersControler[i].m_CardInfo);
+        }
+        Save init = new Save(m_players);
+        Sc_SaveData.Instance.SaveToJson(init);
         SceneManager.LoadScene("LoreScene");
     }
     public void LoadPlayScene()
