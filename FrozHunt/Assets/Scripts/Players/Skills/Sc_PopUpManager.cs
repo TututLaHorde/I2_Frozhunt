@@ -7,6 +7,7 @@ public class Sc_PopUpManager : MonoBehaviour
     public static Sc_PopUpManager Instance;
 
     [Header("Heal PopUp")]
+    public GameObject ButtonQuit;
     public GameObject HealPopUp;
     public TextMeshProUGUI Name1;
     public TextMeshProUGUI Name2;
@@ -15,7 +16,11 @@ public class Sc_PopUpManager : MonoBehaviour
     public GameObject Image1;
     public GameObject Image2;
 
+
     private int m_healValue;
+    private int m_indexCardBonus = 0;
+
+    private bool m_isMedicine = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +31,10 @@ public class Sc_PopUpManager : MonoBehaviour
         }
     }
 
-    public void SetHealPopUp(Sc_PlayerCardControler player1, Sc_PlayerCardControler player2)
+    public void SetHealPopUp(Sc_PlayerCardControler player1, Sc_PlayerCardControler player2, bool canQuit)
     {
+        m_isMedicine = canQuit;
+
         Name1.text = player1.m_NameTxt.text;
         Life1.text = player1.m_HPTxt.text + "/20";
         Image1.GetComponent<Image>().sprite = player1.m_Image.GetComponent<Sprite>();
@@ -35,6 +42,8 @@ public class Sc_PopUpManager : MonoBehaviour
         Name2.text = player2.m_NameTxt.text;
         Life2.text = player2.m_HPTxt.text + "/20";
         Image2.GetComponent<Image>().sprite = player2.m_Image.GetComponent<Sprite>();
+
+        ButtonQuit.SetActive(canQuit);
     }
 
     public void SetHealthValue(int h)
@@ -47,11 +56,22 @@ public class Sc_PopUpManager : MonoBehaviour
         Sc_GameManager.Instance.playerList[0].Heal(m_healValue);
         Debug.Log("Heal P1");
         HealPopUp.SetActive(false);
+        if(m_isMedicine)
+            Sc_BoardManager.Instance.RemoveBonusCard(m_indexCardBonus);
     }
     public void HealPlayer2()
     {
         Sc_GameManager.Instance.playerList[1].Heal(m_healValue);
         Debug.Log("Heal P2");
         HealPopUp.SetActive(false);
+        if (m_isMedicine)
+            Sc_BoardManager.Instance.RemoveBonusCard(m_indexCardBonus);
     }
+
+    public void QuitHealPopUp()
+    {
+        HealPopUp.SetActive(false);
+    }
+
+    public void SetIndexCardBonus(int value) => m_indexCardBonus = value;
 }
