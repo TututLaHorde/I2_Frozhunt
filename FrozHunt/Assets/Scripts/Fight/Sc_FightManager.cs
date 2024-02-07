@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Sc_FightManager : MonoBehaviour
@@ -28,6 +29,12 @@ public class Sc_FightManager : MonoBehaviour
 
     private bool m_canAttack = true;
 
+    public bool m_isCrit = false;
+    public int m_damage = 0;
+
+    private bool m_IsPlayerAttack = false;
+
+
     void Start()
     {
         if (Instance == null) { Instance = this; }
@@ -40,6 +47,8 @@ public class Sc_FightManager : MonoBehaviour
         Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Attack);
         m_Enemy = enemy;
         m_canAttack = true;
+        m_infoDicePopUp.InitPopUp(true);
+
     }
 
     // m_lastPlayer.CanAttack= true; need To remove this if you want him to stop attack. make him inactive instead
@@ -72,73 +81,102 @@ public class Sc_FightManager : MonoBehaviour
             int result = m_diceResult.Item1 + m_diceResult.Item2;
             Debug.Log(result + "     ////    " + m_diceResult.Item2);
 
-            if (!m_Enemy.Stun)
+            // TO DO : if enemy stun
+
+            //////////////////////////////////////
+            m_infoDicePopUp.SetPopUps(true);
+            if(result < m_Enemy.GetPower() && !m_Enemy.Stun)
             {
-                m_infoDicePopUp.m_background.SetActive(true);
-                if (result < m_Enemy.GetPower())
+                m_infoDicePopUp.SetAttackStateText(AttackState.Failure);
+                m_infoDicePopUp.SetAbilityStateText(AbilityState.Nothing);
+                m_IsPlayerAttack = true;
+            }
+            else
+            {
+                m_infoDicePopUp.SetAttackStateText(AttackState.Success);
+                if (m_diceResult.Item2 > 4)
                 {
-                    m_infoDicePopUp.SetAttackStateText(AttackState.Failure);
+                    m_infoDicePopUp.SetAbilityStateText(AbilityState.CriticalAttack);
+                    m_isCrit = true;
+                }
+                else
+                {
+                    if (Sc_GameManager.Instance.GetFood() > 0)
+                        m_textPopUp.text = m_textPopUpFood;
+                    else
+                        m_textPopUp.text = m_textPopUpLife;
+                    m_pop_up.SetActive(true);
+
+                    m_pop_up.SetActive(true);
                     m_infoDicePopUp.SetAbilityStateText(AbilityState.Nothing);
                 }
 
-                else
-                {
-                    m_infoDicePopUp.SetAttackStateText(AttackState.Success);
-                    if (m_diceResult.Item2 > 4)
-                        m_infoDicePopUp.SetAbilityStateText(AbilityState.CriticalAttack);
-                    else
-                        m_infoDicePopUp.SetAbilityStateText(AbilityState.Nothing);
-                }
-
-
-
-                m_infoDicePopUp.m_onAttackLaunch = () =>
-                {
-                    m_infoDicePopUp.m_background.SetActive(false);
-                    Attack(player, result);
-                };
             }
-            else
+            if(m_Enemy.Stun)
             {
-                Attack(player, result);
+                m_Enemy.Stun = false;
             }
+
+            //////////////////////////////////////
+            
+
+            //if (result + m_enragedPlayerBonus < m_Enemy.GetPower() && !m_Enemy.Stun)
+            //{
+            //    player.TakeDamage(m_Enemy.GetDamage());
+            //    m_Enemy.Competence();
+            //    m_canAttack = true;
+            //}
+            //else
+            //{
+            //    if (m_Enemy.Stun)
+            //        m_Enemy.Stun = false;
+
+            //    m_Enemy.TakeDamage(player.GetDamage());
+            //    if (m_diceResult.Item2 > 4)
+            //    {
+            //        player?.Crit(m_Enemy);
+            //        m_canAttack = true;
+            //        yield break;
+            //    }
+            //    if (m_Enemy != null)
+            //    {
+            //        player.CanCrit();
+            //        if (Sc_GameManager.Instance.GetFood() > 0)
+            //            m_textPopUp.text = m_textPopUpFood;
+            //        else
+            //            m_textPopUp.text = m_textPopUpLife;
+            //        m_pop_up.SetActive(true);
+            //    }
+            //    else
+            //        m_canAttack = true;
+            //}
+
+            //m_enragedPlayerBonus = 0;
         }
     }
 
-    private void Attack(Sc_PlayerCardControler player, int result)
+    public void TriggerEffect()
     {
-        if (result + m_enragedPlayerBonus < m_Enemy.GetPower() && !m_Enemy.Stun)
+        if(!m_IsPlayerAttack)
         {
-            player.TakeDamage(m_Enemy.GetDamage());
+            m_damage += m_lastPlayer.GetDamage();
+            if (m_isCrit)
+                m_lastPlayer.Crit(m_Enemy);
+            m_Enemy.TakeDamage(m_damage);
+        }
+        else 
+        {
             m_Enemy.Competence();
-            m_canAttack = true;
+            m_lastPlayer.TakeDamage(m_Enemy.GetDamage());
         }
-        else
-        {
-            if (m_Enemy.Stun)
-                m_Enemy.Stun = false;
-
-            m_Enemy.TakeDamage(player.GetDamage());
-            if (m_diceResult.Item2 > 4)
-            {
-                player?.Crit(m_Enemy);
-                m_canAttack = true;
-                return;
-            }
-            if (m_Enemy != null)
-            {
-                player.CanCrit();
-                if (Sc_GameManager.Instance.GetFood() > 0)
-                    m_textPopUp.text = m_textPopUpFood;
-                else
-                    m_textPopUp.text = m_textPopUpLife;
-                m_pop_up.SetActive(true);
-            }
-            else
-                m_canAttack = true;
-        }
-
+        
+        m_canAttack = true;
         m_enragedPlayerBonus = 0;
+        m_infoDicePopUp.SetPopUps(false);
+        m_pop_up.SetActive(false);
+        m_isCrit = false;
+        m_damage = 0;
+        m_IsPlayerAttack = false;
     }
 
     private void AllPlayerCanAttack()
@@ -163,19 +201,17 @@ public class Sc_FightManager : MonoBehaviour
 
             Debug.Log("Remove Food");
 
-            m_lastPlayer.Crit(m_Enemy);
-
         }
 
         m_pop_up.SetActive(false);
-        m_canAttack = true;
+        m_isCrit = true;
     }
 
     public void DontWantToCritique() // The Player clique on No on the critical pop_up
     {
         Debug.Log("Don't crit");
         m_pop_up.SetActive(false);
-        m_canAttack = true;
+        m_isCrit = true;
     }
 
 
@@ -194,5 +230,6 @@ public class Sc_FightManager : MonoBehaviour
         Debug.Log("END OF THE FIGHT");
         Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Draw);
         Sc_BoardManager.Instance.RemoveAllPrefabCard();
+        m_infoDicePopUp.InitPopUp(false);
     }
 }
