@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -50,7 +48,7 @@ public class Sc_InfoDicePopUp : MonoBehaviour
         {
             case AbilityState.CriticalAttack: txt = "Critical Attack"; break;
             case AbilityState.CriticalParade: txt = "Critical Parade"; break;
-            case AbilityState.Nothing:        txt = "nothing";         break;
+            case AbilityState.Nothing:        txt = "";         break;
         }  
 
         m_abilityStateText.text = txt;

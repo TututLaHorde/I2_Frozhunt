@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/Menus/MainMenuScene.unity
     guid: 59520ff793d888b4a879460fb3be2387
   - enabled: 1
@@ -29,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menus/VictoryScene.unity
     guid: ef0c69e6ef2eafc4db25421689c8b7e1
+  - enabled: 1
+    path: Assets/Scenes/ProtoScenes/ProtoGameScene.unity
+    guid: 69f97ebfafb0f0d4ab69abeeddf39e94
   - enabled: 1
     path: Assets/Scenes/Menus/PlayerTestEnzo2.unity
     guid: 61112119835c74243a30f4b997632d95

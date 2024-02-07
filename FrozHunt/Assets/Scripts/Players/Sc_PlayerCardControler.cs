@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -32,7 +29,7 @@ public class Sc_PlayerCardControler : MonoBehaviour
     private int m_Health = 0;
     private int m_maxHealth = 0;
     private int m_damage = 0;
-    private bool m_canAttack = true;
+    [SerializeField]private bool m_canAttack = true;
 
     // Start is called before the first frame update
     void Start()
