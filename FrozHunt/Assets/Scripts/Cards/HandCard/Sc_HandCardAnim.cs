@@ -34,14 +34,6 @@ public class Sc_HandCardAnim : MonoBehaviour
             StopCoroutine(m_animationCoroutine);
     }
     
-    private void SetUpPosition()
-    {
-        m_rectTransform.localPosition = new Vector3(
-            m_rectTransform.localPosition.x,
-            m_upPositionValue,
-            m_rectTransform.localPosition.z
-        );
-    }
     private void SetDownPosition()
     {
         m_rectTransform.localPosition = new Vector3(
@@ -63,12 +55,10 @@ public class Sc_HandCardAnim : MonoBehaviour
 
             yield return null;
         }
-
-        SetUpPosition();
     }
     private IEnumerator DownAnimationCoroutine()
     {
-        while (m_rectTransform.position.y > m_downPositionValue)
+        while (m_rectTransform.localPosition.y - m_downPositionValue > .3f)
         {
             m_rectTransform.localPosition = new Vector3(
                 m_rectTransform.localPosition.x,
