@@ -1632,6 +1632,8 @@ MonoBehaviour:
   m_playersControler:
   - {fileID: 775844083}
   - {fileID: 2132833150}
+  - {fileID: 1558489009}
+  - {fileID: 332532565}
 --- !u!114 &1035688003
 MonoBehaviour:
   m_ObjectHideFlags: 0
