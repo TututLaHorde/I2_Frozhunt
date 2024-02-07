@@ -118,14 +118,14 @@ public class Sc_BoardManager : MonoBehaviour
             }
         }
 
-        Invoke(nameof(UpdateEmplacementCard), Time.deltaTime);
+        Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
     }
     public void RemoveAllPrefabCardWithDiscardIndex(int index)
     {
         foreach (var item in m_cardPrefabEmplacements.Select((v, i) => new { v, i }))
         {
             if (item.v.transform.childCount < 1)
-                return;
+                continue;
 
             GameObject g = item.v.transform.GetChild(0).gameObject;
             if (g)
@@ -140,14 +140,14 @@ public class Sc_BoardManager : MonoBehaviour
             }
         }
 
-        Invoke(nameof(UpdateEmplacementCard), Time.deltaTime);
+        Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
     }
     public void RemoveAllPrefabCardWithout(int index)
     {
         foreach (var item in m_cardPrefabEmplacements.Select((v, i) => new { v, i }))
         {
             if (item.v.transform.childCount < 1)
-                return;
+                continue;
 
             GameObject g = item.v.transform.GetChild(0).gameObject;
             if (g && item.i != index)
@@ -160,7 +160,7 @@ public class Sc_BoardManager : MonoBehaviour
             }
         }
 
-        Invoke(nameof(UpdateEmplacementCard), Time.deltaTime);
+        Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
     }
     public void RemoveBonusCard(int i)
     {
@@ -174,7 +174,7 @@ public class Sc_BoardManager : MonoBehaviour
             m_bonusCardNumber--;
 
             Destroy(e);
-            Invoke(nameof(ReparentBonusCard), Time.deltaTime);
+            Invoke(nameof(ReparentBonusCard), Time.deltaTime * 3f);
         }
     }
 
@@ -212,15 +212,21 @@ public class Sc_BoardManager : MonoBehaviour
     public void CenterCard(List<GameObject> e)
     {
         int activeNumber = 0;
+        List<GameObject> l = new List<GameObject>();
 
         foreach (var item in e)
         {
             int cCount = item.transform.childCount;
             item.SetActive(cCount > 0);
-            activeNumber += cCount > 0 ? 1 : 0;
+
+            if (cCount > 0)
+            {
+                activeNumber++;
+                l.Add(item);
+            }
         }
 
-        CenterGameObjectList(e, 400f, activeNumber);
+        CenterGameObjectList(l, 400f, activeNumber);
     }
     public void CenterGameObjectList(List<GameObject> e, float p, int n)
     {
