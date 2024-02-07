@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum PlayerCard
 {
-    Massue, Druide, Lance
+    Massue, Druide, Lance, test1, test2, test3
 }
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/PlayerCardInfo", order = 1)]
