@@ -18,7 +18,7 @@ MonoBehaviour:
   m_prebafInBoard: {fileID: 4451963801897301524, guid: 90834bf18be72264c9ac1fb71edab8f0, type: 3}
   EnemyCapacity: 1
   HealthPoint: 18
-  AttackDamage: 7
+  AttackDamage: 6
   MeatDrop: 4
   Power: 6
   CardArt: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
