@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -41,12 +42,12 @@ public class Sc_BoardManager : MonoBehaviour
         if (HasCardInBoard())
             return;
 
-        Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Selection);
-
-        Sc_GameManager.Instance.AddTurn();
         int r = 0;
         float t = m_dice.ThrowDice(ref r);
         StartCoroutine(GetCardAfterTimer(t + .5f, r));
+
+        Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Selection);
+        Sc_GameManager.Instance.AddTurn();
     }
     private IEnumerator GetCardAfterTimer(float t, int r)
     {
@@ -192,6 +193,26 @@ public class Sc_BoardManager : MonoBehaviour
                 }
             }
         }
+
+        CenterBonusCard();
+    }
+    public void CenterBonusCard()
+    {
+        int activeNumber = 0;
+
+        foreach (var item in m_bonusCardPrefabEmplacements)
+        {
+            int cCount = item.transform.childCount;
+            item.SetActive(cCount > 0);
+            activeNumber += cCount > 0 ? 1 : 0;
+        }
+
+        float originMult = -(activeNumber - 1f) / 2f;
+        for (int i = 0; i < activeNumber; i++)
+        {
+            Transform t = m_bonusCardPrefabEmplacements[i].transform;
+            t.localPosition = new Vector3(600f * (originMult * i), t.localPosition.y);
+        }
     }
 
     public bool AddEffectCardInHand(So_Effect e)
@@ -216,6 +237,7 @@ public class Sc_BoardManager : MonoBehaviour
         c.InitDisplayCard(e);
 
         m_bonusCardNumber++;
+        CenterBonusCard();
     }
 
     public void SetEnableCard(bool enable)
