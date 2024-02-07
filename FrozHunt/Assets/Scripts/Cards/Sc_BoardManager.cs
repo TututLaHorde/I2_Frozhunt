@@ -46,7 +46,7 @@ public class Sc_BoardManager : MonoBehaviour
         Sc_GameManager.Instance.AddTurn();
         int r = 0;
         float t = m_dice.ThrowDice(ref r);
-        StartCoroutine(GetCardAfterTimer(t + .5f, r));
+        StartCoroutine(GetCardAfterTimer(t *1.3f, r));
     }
     private IEnumerator GetCardAfterTimer(float t, int r)
     {
