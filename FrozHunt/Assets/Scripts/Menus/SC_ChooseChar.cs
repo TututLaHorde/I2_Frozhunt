@@ -1,21 +1,40 @@
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class SC_ChooseChar : MonoBehaviour
 {
+    public static SC_ChooseChar instance;
+
     [SerializeField] private So_CardPlayer[] characters;
     [SerializeField] private GameObject[] m_player;
-    private Queue<So_CardPlayer> m_characters = new();
+    public Queue<So_CardPlayer> m_characters = new();
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+            Debug.LogError("Intanced twice");
+            return;
+        }
+    }
     private void Start()
+    {
+        MakeQueue(2);
+    }
+
+    public void MakeQueue(int PlayerNumber)
     {
         for (int i = 0; i < characters.Length; i++)
         {
             // load every prefab into the queue
             m_characters.Enqueue(characters[i]);
         }
-        for (int j = 0; j < m_player.Length; j++)
+        for (int j = 0; j < PlayerNumber; j++)
         {
             //assign to the card a player character and reassign the values
             m_player[j].GetComponent<Sc_PlayerCardControler>().m_CardInfo = m_characters.Dequeue();
