@@ -1,8 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class Sc_SaveData : MonoBehaviour
 {
@@ -13,13 +10,13 @@ public class Sc_SaveData : MonoBehaviour
             Instance = this;
     }
 
-/*    private void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
             LoadFromJson() ;
         if(Input.GetKeyDown(KeyCode.S))
-            SaveToJson();
-    }*/
+            SaveToJson(cards);
+    }
     public Save cards = new Save();
     public void SaveToJson(Save save)
     {

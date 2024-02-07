@@ -28,7 +28,7 @@ public class SC_MenusButton : MonoBehaviour
     }
     public void LoadPlayScene()
     {
-        SceneManager.LoadScene("ProtoGameMenu");
+        SceneManager.LoadScene("ProtoGameScene");
     }
 
     public void LoadCreditScene()

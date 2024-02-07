@@ -48,7 +48,7 @@ public class Sc_GameManager : MonoBehaviour
 
 
         m_currentFood = 0;
-        m_turnCount = 1;
+        m_turnCount = 0;
     }
 
     private void Start()
@@ -116,7 +116,7 @@ public class Sc_GameManager : MonoBehaviour
             PrintGameOver();
         }
 
-        m_turnText.text = "Turn : " + m_turnCount.ToString(); // scene debug
+        m_turnText.text = "Turn : " + m_turnCount.ToString() + "/20"; // scene debug
     }
 
     
@@ -129,7 +129,7 @@ public class Sc_GameManager : MonoBehaviour
             PrintGameOver();
         }
 
-        m_foodText.text = "Food : " + m_currentFood.ToString(); // scene debug
+        m_foodText.text = "Food : " + m_currentFood.ToString() + "/20"; // scene debug
         if (res < 0)
         {
             return res;

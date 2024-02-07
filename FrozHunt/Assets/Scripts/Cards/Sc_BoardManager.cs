@@ -97,15 +97,20 @@ public class Sc_BoardManager : MonoBehaviour
         foreach (var item in m_cardPrefabEmplacements.Select((v, i) => new {v, i}))
         {
             if (item.v.transform.childCount < 1)
-                return;
+                continue;
 
+            Debug.Log("Remove this card");
             GameObject g = item.v.transform.GetChild(0).gameObject;
             if (g)
             {
                 g.GetComponent<MonoBehaviour>().StopAllCoroutines();
                 
-                m_discardDeck.Add(m_boardCards[0]);
-                m_boardCards.RemoveAt(0);
+                if (m_boardCards.Count > 0)
+                {
+                    m_discardDeck.Add(m_boardCards[0]);
+                    m_boardCards.RemoveAt(0);
+                }
+
                 Destroy(g);
             }
         }

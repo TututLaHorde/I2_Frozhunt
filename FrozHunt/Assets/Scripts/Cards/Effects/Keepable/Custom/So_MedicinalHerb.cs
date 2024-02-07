@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Medicine", menuName = "Card/Keepable/Medicine")]
 public class So_MedicinalHerb : So_Consumable
 {
     public int m_healValue;

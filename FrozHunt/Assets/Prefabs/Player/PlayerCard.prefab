@@ -346,6 +346,8 @@ GameObject:
   - component: {fileID: 7622155234535249022}
   - component: {fileID: 3459146378677770127}
   - component: {fileID: 292902862776505602}
+  - component: {fileID: 2191627294936344521}
+  - component: {fileID: 5340106262898123696}
   m_Layer: 0
   m_Name: PlayerCard
   m_TagString: Untagged
@@ -353,22 +355,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7622155234535249022
-Transform:
+--- !u!224 &7622155234535249022
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4451963801897301524}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -642.8081, y: -256.04288, z: -9723.148}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 216.06996, y: 299.1738, z: 108.03498}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3087010298767054559}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -843, y: -340}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &3459146378677770127
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -440,6 +446,68 @@ MonoBehaviour:
   m_HPTxt: {fileID: 1800403211702289173}
   m_DescriptionTxt: {fileID: 7337720137794738004}
   m_AttackNameTxt: {fileID: 1174028579165508004}
+  m_canAttack: 1
+--- !u!114 &2191627294936344521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4451963801897301524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4e9a69a822edf747a900ccb49c42d79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rectTransform: {fileID: 7622155234535249022}
+  m_upPositionValue: -360
+  m_downPositionValue: -30
+  m_animationSpeed: 170
+--- !u!114 &5340106262898123696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4451963801897301524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2191627294936344521}
+          m_TargetAssemblyTypeName: Sc_HandCardAnim, Assembly-CSharp
+          m_MethodName: UpCardAnimation
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2191627294936344521}
+          m_TargetAssemblyTypeName: Sc_HandCardAnim, Assembly-CSharp
+          m_MethodName: DownCardAnimation
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &4607390878771960237
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Enraged", menuName = "Card/Keepable/Enraged")]
 public class So_Enraged : So_Passive
 {
     public override void UseEffect()
