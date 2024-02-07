@@ -10,7 +10,7 @@ public class Sc_HealCompetence : Sc_PlayerCompetence
     {
         Sc_PopUpManager.Instance.HealPopUp.SetActive(true);
         Sc_PopUpManager.Instance.SetHealthValue(m_healValue);
-        Sc_PopUpManager.Instance.SetHealPopUp(Sc_GameManager.Instance.playerList[0], Sc_GameManager.Instance.playerList[1]);
+        Sc_PopUpManager.Instance.SetHealPopUp(Sc_GameManager.Instance.playerList[0], Sc_GameManager.Instance.playerList[1], false);
     }
 
     public override void Dodge()

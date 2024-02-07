@@ -23,7 +23,9 @@ public class Sc_HandCard : MonoBehaviour
 
         m_effectCard.UseEffect();
 
-        if (m_effectCard.m_canDiscardCard)
+        Sc_PopUpManager.Instance.SetIndexCardBonus(m_indexPosition);
+
+        if (m_effectCard.m_canDiscardCard && m_effectCard.m_destroyOnUse)
             Sc_BoardManager.Instance.RemoveBonusCard(m_indexPosition);
     }
 }

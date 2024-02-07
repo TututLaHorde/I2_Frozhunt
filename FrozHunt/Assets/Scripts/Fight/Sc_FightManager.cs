@@ -156,12 +156,15 @@ public class Sc_FightManager : MonoBehaviour
     {
         if(m_Enemy!=null)
         {
-            m_lastPlayer.Crit(m_Enemy);
             if (Sc_GameManager.Instance.GetFood() > 0)
                 Sc_GameManager.Instance.AddFood(-1);
             else
                 m_lastPlayer.TakeDamage(2);
+
             Debug.Log("Remove Food");
+
+            m_lastPlayer.Crit(m_Enemy);
+
         }
 
         m_pop_up.SetActive(false);

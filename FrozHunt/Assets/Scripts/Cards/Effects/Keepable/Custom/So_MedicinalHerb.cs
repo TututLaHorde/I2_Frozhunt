@@ -12,7 +12,7 @@ public class So_MedicinalHerb : So_Consumable
 
         Sc_PopUpManager.Instance.SetHealPopUp(
             Sc_GameManager.Instance.playerList[0],    
-            Sc_GameManager.Instance.playerList[1]    
+            Sc_GameManager.Instance.playerList[1], true    
         );
     }
 }
