@@ -70,6 +70,8 @@ public class Sc_BoardManager : MonoBehaviour
             if (m_deck.Count < 1)
                 SwitchDescardToDeck();
         }
+
+        CenterCard(m_cardPrefabEmplacements);
     }
 
     public bool HasCardInBoard()
@@ -115,6 +117,8 @@ public class Sc_BoardManager : MonoBehaviour
                 Destroy(g);
             }
         }
+
+        Invoke(nameof(UpdateEmplacementCard), Time.deltaTime);
     }
     public void RemoveAllPrefabCardWithDiscardIndex(int index)
     {
@@ -135,6 +139,8 @@ public class Sc_BoardManager : MonoBehaviour
                 Destroy(g);
             }
         }
+
+        Invoke(nameof(UpdateEmplacementCard), Time.deltaTime);
     }
     public void RemoveAllPrefabCardWithout(int index)
     {
@@ -153,6 +159,8 @@ public class Sc_BoardManager : MonoBehaviour
                 Destroy(g);
             }
         }
+
+        Invoke(nameof(UpdateEmplacementCard), Time.deltaTime);
     }
     public void RemoveBonusCard(int i)
     {
@@ -170,6 +178,10 @@ public class Sc_BoardManager : MonoBehaviour
         }
     }
 
+    public void UpdateEmplacementCard()
+    {
+        CenterCard(m_cardPrefabEmplacements);
+    }
     public void ReparentBonusCard()
     {
         foreach (var item in m_bonusCardPrefabEmplacements.Select((v, i) => new { v, i }))
@@ -194,24 +206,29 @@ public class Sc_BoardManager : MonoBehaviour
             }
         }
 
-        CenterBonusCard();
+        CenterCard(m_bonusCardPrefabEmplacements);
     }
-    public void CenterBonusCard()
+
+    public void CenterCard(List<GameObject> e)
     {
         int activeNumber = 0;
 
-        foreach (var item in m_bonusCardPrefabEmplacements)
+        foreach (var item in e)
         {
             int cCount = item.transform.childCount;
             item.SetActive(cCount > 0);
             activeNumber += cCount > 0 ? 1 : 0;
         }
 
-        float originMult = -(activeNumber - 1f) / 2f;
-        for (int i = 0; i < activeNumber; i++)
+        CenterGameObjectList(e, 400f, activeNumber);
+    }
+    public void CenterGameObjectList(List<GameObject> e, float p, int n)
+    {
+        float originMult = -(n - 1f) / 2f;
+        for (int i = 0; i < n; i++)
         {
-            Transform t = m_bonusCardPrefabEmplacements[i].transform;
-            t.localPosition = new Vector3(600f * (originMult * i), t.localPosition.y);
+            Transform t = e[i].transform;
+            t.localPosition = new Vector3(p * (originMult + i), t.localPosition.y);
         }
     }
 
@@ -237,7 +254,7 @@ public class Sc_BoardManager : MonoBehaviour
         c.InitDisplayCard(e);
 
         m_bonusCardNumber++;
-        CenterBonusCard();
+        CenterCard(m_bonusCardPrefabEmplacements);
     }
 
     public void SetEnableCard(bool enable)

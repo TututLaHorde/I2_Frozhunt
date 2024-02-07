@@ -8,9 +8,14 @@ public class Sc_HandCardAnim : MonoBehaviour
 
     [SerializeField] private float m_upPositionValue   = 100f;
     [SerializeField] private float m_downPositionValue = -30f;
-    [SerializeField] private float m_animationSpeed = 170f;
+    [SerializeField] private float m_animationSpeed = 2000f;
 
     private Coroutine m_animationCoroutine;
+
+    private void Start()
+    {
+        SetDownPosition();
+    }
 
     public void UpCardAnimation()
     {
@@ -28,6 +33,23 @@ public class Sc_HandCardAnim : MonoBehaviour
         if (m_animationCoroutine != null)
             StopCoroutine(m_animationCoroutine);
     }
+    
+    private void SetUpPosition()
+    {
+        m_rectTransform.localPosition = new Vector3(
+            m_rectTransform.localPosition.x,
+            m_upPositionValue,
+            m_rectTransform.localPosition.z
+        );
+    }
+    private void SetDownPosition()
+    {
+        m_rectTransform.localPosition = new Vector3(
+            m_rectTransform.localPosition.x,
+            m_downPositionValue,
+            m_rectTransform.localPosition.z
+        );
+    }
 
     private IEnumerator UpAnimationCoroutine()
     {
@@ -41,6 +63,8 @@ public class Sc_HandCardAnim : MonoBehaviour
 
             yield return null;
         }
+
+        SetUpPosition();
     }
     private IEnumerator DownAnimationCoroutine()
     {
@@ -54,5 +78,7 @@ public class Sc_HandCardAnim : MonoBehaviour
 
             yield return null;
         }
+
+        SetDownPosition();
     }
 }
