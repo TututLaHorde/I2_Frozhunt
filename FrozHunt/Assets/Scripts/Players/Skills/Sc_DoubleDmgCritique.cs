@@ -9,7 +9,7 @@ public class Sc_DoubleDmgCritique : Sc_PlayerCompetence
     {
         if (m_player == null)
             m_player = gameObject.GetComponent<Sc_PlayerCardControler>();
-        enemy.TakeDamage(m_player.GetDamage());
+        enemy.TakeDamage(m_player.GetDamage());       
         Debug.Log("Crit DDmg");
     }
 

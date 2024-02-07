@@ -17,14 +17,30 @@ public enum AbilityState
 public class Sc_InfoDicePopUp : MonoBehaviour
 {
     public Action m_onAttackLaunch;
-
     public GameObject m_background;
     public Text m_attackStateText;
     public Text m_abilityStateText;
+    public Button m_continueButton;
+    
+
+    public void SetPopUps(bool state)
+    {
+        m_background.SetActive(state);
+    }
+
+    public void InitPopUp(bool state)
+    {
+        gameObject.SetActive(state);
+        m_background.SetActive(false);
+
+    }
+
+
+
 
     public void ContinueButtonClicked()
     {
-        m_onAttackLaunch?.Invoke();
+        Sc_FightManager.Instance.TriggerEffect();
     }
 
     public void SetAttackStateText(AttackState s)
