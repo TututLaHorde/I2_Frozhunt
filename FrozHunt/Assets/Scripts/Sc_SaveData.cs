@@ -33,7 +33,7 @@ public class Sc_SaveData : MonoBehaviour
         string FilePath = Application.persistentDataPath + "/Save.json";
         string Save = System.IO.File.ReadAllText(FilePath);
         cards = JsonUtility.FromJson<Save>(Save);
-        for(int i = 0; i< Sc_GameManager.Instance.playerList.Count; i++)
+        for (int i = 0; i< Sc_GameManager.Instance.playerList.Count; i++)
         {
             Debug.Log("Player Parameter Loading");
             Sc_GameManager.Instance.playerList[i].m_CardInfo = cards.cardPlayers[i];

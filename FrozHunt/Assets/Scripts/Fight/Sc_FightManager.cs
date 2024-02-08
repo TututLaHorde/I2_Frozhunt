@@ -194,6 +194,8 @@ public class Sc_FightManager : MonoBehaviour
     {
         if(m_Enemy!=null)
         {
+            m_infoDicePopUp.SetAbilityStateText(AbilityState.CriticalAttack);
+
             if (Sc_GameManager.Instance.GetFood() > 0)
                 Sc_GameManager.Instance.AddFood(-1);
             else
