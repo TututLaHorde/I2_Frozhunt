@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Sc_HandCardAnim : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class Sc_HandCardAnim : MonoBehaviour
     [SerializeField] private float m_upPositionValue   = 100f;
     [SerializeField] private float m_downPositionValue = -30f;
     [SerializeField] private float m_animationSpeed = 2000f;
+
+    public UnityEvent m_onCardUp;
+    public UnityEvent m_onCardDown;
 
     private Coroutine m_animationCoroutine;
 
@@ -55,6 +59,7 @@ public class Sc_HandCardAnim : MonoBehaviour
 
             yield return null;
         }
+        m_onCardUp?.Invoke();
     }
     private IEnumerator DownAnimationCoroutine()
     {
@@ -68,7 +73,7 @@ public class Sc_HandCardAnim : MonoBehaviour
 
             yield return null;
         }
-
+        m_onCardDown?.Invoke();
         SetDownPosition();
     }
 }
