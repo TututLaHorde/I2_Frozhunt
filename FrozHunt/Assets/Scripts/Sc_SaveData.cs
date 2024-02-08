@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class Sc_SaveData : MonoBehaviour
 {
+
     public static Sc_SaveData Instance;
+    public GameObject m_PlayersCard;
+
     private void Awake()
     {
         if (Instance == null)
@@ -33,11 +36,18 @@ public class Sc_SaveData : MonoBehaviour
         string FilePath = Application.persistentDataPath + "/Save.json";
         string Save = System.IO.File.ReadAllText(FilePath);
         cards = JsonUtility.FromJson<Save>(Save);
-        for (int i = 0; i< Sc_GameManager.Instance.playerList.Count; i++)
+        Sc_GameManager.Instance.playerList.Clear();
+
+        for (int i = 0; i< cards.cardPlayers.Count; i++)
         {
+            GameObject player = m_PlayersCard.transform.GetChild(i).gameObject;
+            Sc_GameManager.Instance.playerList.Add(player.GetComponent<Sc_PlayerCardControler>());
+            player.SetActive(true);
+
             Debug.Log("Player Parameter Loading");
             Sc_GameManager.Instance.playerList[i].m_CardInfo = cards.cardPlayers[i];
         }
+
         Debug.Log("Load");
     }
 

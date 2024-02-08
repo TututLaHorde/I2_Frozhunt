@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Sc_PopUpManager : MonoBehaviour
 {
@@ -42,19 +43,23 @@ public class Sc_PopUpManager : MonoBehaviour
         SetNumberOfPlayer(Sc_GameManager.Instance.playerList.Count);
     }
 
-    public void SetHealPopUp(Sc_PlayerCardControler player1, Sc_PlayerCardControler player2, bool canQuit)
+    public void SetHealPopUp(bool canQuit)
     {
         m_isMedicine = canQuit;
 
-        Name1.text = player1.m_NameTxt.text;
-        Life1.text = player1.m_HPTxt.text + "/20";
-        Image1.GetComponent<Image>().sprite = player1.m_Image.GetComponent<Sprite>();
-
-        Name2.text = player2.m_NameTxt.text;
-        Life2.text = player2.m_HPTxt.text + "/20";
-        Image2.GetComponent<Image>().sprite = player2.m_Image.GetComponent<Sprite>();
+        for(int i = 0; i< Sc_GameManager.Instance.playerList.Count; i++) 
+        {
+            SetHealCard(PlayersHealCard.transform.GetChild(i), Sc_GameManager.Instance.playerList[i]);
+        }
 
         ButtonQuit.SetActive(canQuit);
+    }
+
+    public void SetHealCard(Transform card, Sc_PlayerCardControler player)
+    {
+        card.GetChild(1).GetComponent<TextMeshProUGUI>().text = player.m_NameTxt.text;
+        card.GetChild(2).GetComponent<TextMeshProUGUI>().text = player.m_HPTxt.text + "/20";
+        card.GetChild(0).GetComponent<Image>().sprite = player.m_Image.GetComponent<Sprite>();
     }
 
     public void SetHealthValue(int h)
@@ -62,22 +67,22 @@ public class Sc_PopUpManager : MonoBehaviour
         m_healValue = h;
     }
 
-    public void HealPlayer1()
+    public void HealPlayer(int playerIndex)
     {
-        Sc_GameManager.Instance.playerList[0].Heal(m_healValue);
+        Sc_GameManager.Instance.playerList[playerIndex].Heal(m_healValue);
         Debug.Log("Heal P1");
         HealPopUp.SetActive(false);
         if(m_isMedicine)
             Sc_BoardManager.Instance.RemoveBonusCard(m_indexCardBonus);
     }
-    public void HealPlayer2()
-    {
-        Sc_GameManager.Instance.playerList[1].Heal(m_healValue);
-        Debug.Log("Heal P2");
-        HealPopUp.SetActive(false);
-        if (m_isMedicine)
-            Sc_BoardManager.Instance.RemoveBonusCard(m_indexCardBonus);
-    }
+    //public void HealPlayer2()
+    //{
+    //    Sc_GameManager.Instance.playerList[1].Heal(m_healValue);
+    //    Debug.Log("Heal P2");
+    //    HealPopUp.SetActive(false);
+    //    if (m_isMedicine)
+    //        Sc_BoardManager.Instance.RemoveBonusCard(m_indexCardBonus);
+    //}
 
     public void QuitHealPopUp()
     {
