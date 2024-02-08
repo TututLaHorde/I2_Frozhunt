@@ -12,10 +12,12 @@ public class Sc_GameManager : MonoBehaviour
     public int m_currentFood;
     public int m_turnCount;
 
-    [SerializeField] public static int m_foodMax = 20;
-    public static int m_turnCountMax = 20;
+    public int m_foodMax = 20;
+    public int m_turnCountMax = 20;
 
     public List<Sc_PlayerCardControler> playerList;
+
+    public ScriptableObject So_Enemy;
 
     [Header("Button")]
     public Button m_draw;
@@ -31,6 +33,7 @@ public class Sc_GameManager : MonoBehaviour
 
     public int m_testValue;
 
+    
 
     private void Awake()
     {
@@ -49,6 +52,11 @@ public class Sc_GameManager : MonoBehaviour
 
         m_currentFood = 0;
         m_turnCount = 0;
+
+        ScaleValues(0);
+        m_foodText.text = "Food : " + m_currentFood.ToString() + "/" + m_foodMax; // scene debug
+        m_turnText.text = "Turn : " + m_turnCount.ToString() + "/" + m_turnCountMax; // scene debug
+
     }
 
     private void Start()
@@ -129,7 +137,7 @@ public class Sc_GameManager : MonoBehaviour
             PrintGameOver();
         }
 
-        m_foodText.text = "Food : " + m_currentFood.ToString() + "/20"; // scene debug
+        m_foodText.text = "Food : " + m_currentFood.ToString() + "/" + m_foodMax; // scene debug
         if (res < 0)
         {
             return res;
@@ -171,4 +179,41 @@ public class Sc_GameManager : MonoBehaviour
     }
 
     public int GetFood() => m_currentFood;
+
+
+    public int ScaleValues(int enemyHealth)
+    {
+        int scaledTurn = m_turnCountMax; //change default value
+        int scaledFood = m_foodMax; //change default value
+        float enemyHealthMultiplier = (float)(0.5 + (0.25 * playerList.Count()));
+        float scaledEnemyHealth;
+
+        int numberOfPlayers;
+        numberOfPlayers = playerList.Count();
+        switch (numberOfPlayers)
+        {
+            case 2:
+                scaledTurn = 20;
+                scaledFood = 20;
+                break;
+
+            case 3:
+                scaledTurn = 25;
+                scaledFood = 30;
+                break;
+
+            case 4:
+                scaledTurn = 30;
+                scaledFood = 40;
+                break;
+        }
+
+        m_turnCountMax = scaledTurn;
+        m_foodMax = scaledFood;
+        scaledEnemyHealth = enemyHealth * enemyHealthMultiplier;
+        enemyHealth = Mathf.RoundToInt(scaledEnemyHealth);
+
+        return enemyHealth;
+    }
+
 }

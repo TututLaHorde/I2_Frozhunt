@@ -40,6 +40,10 @@ public class Sc_EnemyCardControler : Sc_PbCard
 
         m_maxHealth = m_CardInfo.HealthPoint;
         m_Health = m_CardInfo.HealthPoint;
+
+        m_maxHealth = Sc_GameManager.Instance.ScaleValues(m_Health);
+        m_Health = Sc_GameManager.Instance.ScaleValues(m_Health);
+
         m_damage = m_CardInfo.AttackDamage;
         m_meat = m_CardInfo.MeatDrop;
         m_power = m_CardInfo.Power;
@@ -47,7 +51,10 @@ public class Sc_EnemyCardControler : Sc_PbCard
         m_NameTxt.text = m_CardInfo.m_name.ToString();
         m_DamageTxt.text = m_CardInfo.AttackDamage.ToString();
         m_DescriptionTxt.text = m_CardInfo.m_description;
-        m_HPTxt.text = m_CardInfo.HealthPoint.ToString();
+
+        //m_HPTxt.text = m_CardInfo.HealthPoint.ToString();
+        m_HPTxt.text = m_Health.ToString();
+
         m_MeatDropTxt.text = m_CardInfo.MeatDrop.ToString();
         m_PowerTxt.text = m_CardInfo.Power.ToString();
 
