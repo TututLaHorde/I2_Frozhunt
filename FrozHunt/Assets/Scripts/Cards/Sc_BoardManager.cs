@@ -262,6 +262,7 @@ public class Sc_BoardManager : MonoBehaviour
 
         m_bonusCardNumber++;
         CenterCard(m_bonusCardPrefabEmplacements);
+        Sc_TutorialManager.Instance.m_handCapacityWindow.SetActive(false);
     }
 
     public void SetEnableCard(bool enable)

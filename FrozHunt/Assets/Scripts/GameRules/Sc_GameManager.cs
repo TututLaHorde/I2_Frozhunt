@@ -103,6 +103,7 @@ public class Sc_GameManager : MonoBehaviour
     {
         m_turnPhase = phase;
         PhaseButton();
+        Sc_TutorialManager.Instance.ShowTuto();
     }
 
     public void AddTurn()
