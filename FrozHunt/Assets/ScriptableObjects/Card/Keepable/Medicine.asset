@@ -18,5 +18,5 @@ MonoBehaviour:
   m_prebafInBoard: {fileID: 4848208697342805524, guid: 3fbae2e45ff30a84b8b8a6c85cccbd6f, type: 3}
   m_effectType: Keepable
   m_canDiscardCard: 1
-  m_destroyOnUse: 1
+  m_destroyOnUse: 0
   m_healValue: 5
