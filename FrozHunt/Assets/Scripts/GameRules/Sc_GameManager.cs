@@ -28,8 +28,6 @@ public class Sc_GameManager : MonoBehaviour
     // In scene debug
     public TextMeshProUGUI m_turnText;
     public TextMeshProUGUI m_foodText;
-    public TextMeshProUGUI m_playerText;
-    public TextMeshProUGUI m_phaseText;
 
     public int m_testValue;
 
@@ -91,8 +89,6 @@ public class Sc_GameManager : MonoBehaviour
                 SetPlayerAttackButton(true);
                 break;
         }
-
-        m_phaseText.text = "Phase : " + m_turnPhase.ToString(); // scene debug
     }
 
     private void SetPlayerAttackButton(bool isInteractible)
@@ -106,7 +102,6 @@ public class Sc_GameManager : MonoBehaviour
     public void ToNextPhase(eTurnPhase phase)
     {
         m_turnPhase = phase;
-        m_phaseText.text = "Phase : " + m_turnPhase.ToString(); // scene debug
         PhaseButton();
     }
 
@@ -164,7 +159,6 @@ public class Sc_GameManager : MonoBehaviour
         if(player != null)
         {
             playerList.Add(player);
-            m_playerText.text = "n° players : " + playerList.Count(); // scene debug
         }
     }
 
@@ -180,9 +174,10 @@ public class Sc_GameManager : MonoBehaviour
 
     public int ScaleValues(int enemyHealth)
     {
-        print("kogkol");
-        int scaledTurn = m_turnCountMax; //change default value
-        int scaledFood = m_foodMax; //change default value
+        //change default value
+        int scaledTurn = m_turnCountMax; 
+        int scaledFood = m_foodMax;
+
         float enemyHealthMultiplier = (float)(0.5 + (0.25 * playerList.Count()));
         float scaledEnemyHealth;
 
