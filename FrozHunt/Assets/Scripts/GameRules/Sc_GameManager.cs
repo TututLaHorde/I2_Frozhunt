@@ -46,24 +46,21 @@ public class Sc_GameManager : MonoBehaviour
         {
             Instance = this;
         }
-        //DontDestroyOnLoad(this.gameObject);
+    }
 
+    private void Start()
+    {
+        //get number of players
+        Sc_SaveData.Instance.LoadFromJson();
+        ToNextPhase(eTurnPhase.Draw);
 
-
+        //init food & turn
         m_currentFood = 0;
         m_turnCount = 0;
 
         ScaleValues(0);
         m_foodText.text = "Food : " + m_currentFood.ToString() + "/" + m_foodMax; // scene debug
         m_turnText.text = "Turn : " + m_turnCount.ToString() + "/" + m_turnCountMax; // scene debug
-
-    }
-
-    private void Start()
-    {
-
-        Sc_SaveData.Instance.LoadFromJson();
-        ToNextPhase(eTurnPhase.Draw);
     }
 
     public enum eTurnPhase
@@ -124,7 +121,7 @@ public class Sc_GameManager : MonoBehaviour
             PrintGameOver();
         }
 
-        m_turnText.text = "Turn : " + m_turnCount.ToString() + "/20"; // scene debug
+        m_turnText.text = "Turn : " + m_turnCount.ToString() + "/" + m_turnCountMax; // scene debug
     }
 
     
@@ -183,13 +180,14 @@ public class Sc_GameManager : MonoBehaviour
 
     public int ScaleValues(int enemyHealth)
     {
+        print("kogkol");
         int scaledTurn = m_turnCountMax; //change default value
         int scaledFood = m_foodMax; //change default value
         float enemyHealthMultiplier = (float)(0.5 + (0.25 * playerList.Count()));
         float scaledEnemyHealth;
 
         int numberOfPlayers;
-        numberOfPlayers = playerList.Count();
+        numberOfPlayers = playerList.Count;
         switch (numberOfPlayers)
         {
             case 2:

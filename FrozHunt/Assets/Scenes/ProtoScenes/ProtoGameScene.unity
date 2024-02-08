@@ -871,7 +871,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &387879053
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1512,7 +1512,7 @@ MonoBehaviour:
   - {fileID: 1394759421}
   - {fileID: 1394759420}
   - {fileID: 1394759419}
-  m_blendInStart: 0
+  m_blendInStart: 1
   m_dice: {fileID: 1080928516}
   m_bonusCardNumber: 0
 --- !u!1 &587909826
@@ -1902,9 +1902,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_currentFood: 0
   m_turnCount: 0
+  m_foodMax: 20
+  m_turnCountMax: 20
   playerList:
   - {fileID: 1046323421}
   - {fileID: 1639120641}
+  So_Enemy: {fileID: 0}
   m_draw: {fileID: 1365606514}
   m_playerButton:
   - {fileID: 1046323420}
@@ -3908,7 +3911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1456113929
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4151,7 +4154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1645671856
 RectTransform:
   m_ObjectHideFlags: 0

@@ -1,6 +1,5 @@
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Sc_FightManager : MonoBehaviour
@@ -81,9 +80,6 @@ public class Sc_FightManager : MonoBehaviour
             int result = m_diceResult.Item1 + m_diceResult.Item2;
             Debug.Log(result + "     ////    " + m_diceResult.Item2);
 
-            // TO DO : if enemy stun
-
-            //////////////////////////////////////
             m_infoDicePopUp.SetPopUps(true);
             if(result < m_Enemy.GetPower() && !m_Enemy.Stun)
             {
@@ -117,42 +113,6 @@ public class Sc_FightManager : MonoBehaviour
             {
                 m_Enemy.Stun = false;
             }
-
-            //////////////////////////////////////
-            
-
-            //if (result + m_enragedPlayerBonus < m_Enemy.GetPower() && !m_Enemy.Stun)
-            //{
-            //    player.TakeDamage(m_Enemy.GetDamage());
-            //    m_Enemy.Competence();
-            //    m_canAttack = true;
-            //}
-            //else
-            //{
-            //    if (m_Enemy.Stun)
-            //        m_Enemy.Stun = false;
-
-            //    m_Enemy.TakeDamage(player.GetDamage());
-            //    if (m_diceResult.Item2 > 4)
-            //    {
-            //        player?.Crit(m_Enemy);
-            //        m_canAttack = true;
-            //        yield break;
-            //    }
-            //    if (m_Enemy != null)
-            //    {
-            //        player.CanCrit();
-            //        if (Sc_GameManager.Instance.GetFood() > 0)
-            //            m_textPopUp.text = m_textPopUpFood;
-            //        else
-            //            m_textPopUp.text = m_textPopUpLife;
-            //        m_pop_up.SetActive(true);
-            //    }
-            //    else
-            //        m_canAttack = true;
-            //}
-
-            //m_enragedPlayerBonus = 0;
         }
     }
 
