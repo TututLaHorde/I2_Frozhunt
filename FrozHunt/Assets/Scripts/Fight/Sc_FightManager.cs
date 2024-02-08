@@ -22,7 +22,7 @@ public class Sc_FightManager : MonoBehaviour
     public SC_Dice m_dice;
     public SC_Dice m_diceCrit;
 
-    private (int, int) m_diceResult;
+    public (int, int) m_diceResult;
 
     private int m_numberOfPlayerAttack = 0;
     public int m_enragedPlayerBonus;
@@ -32,7 +32,7 @@ public class Sc_FightManager : MonoBehaviour
     public bool m_isCrit = false;
     public int m_damage = 0;
 
-    private bool m_IsPlayerAttack = false;
+    public bool m_IsPlayerAttack = false;
 
 
     void Start()
@@ -118,8 +118,9 @@ public class Sc_FightManager : MonoBehaviour
                 m_Enemy.Stun = false;
             }
 
+            m_enragedPlayerBonus = 0;
             //////////////////////////////////////
-            
+
 
             //if (result + m_enragedPlayerBonus < m_Enemy.GetPower() && !m_Enemy.Stun)
             //{
