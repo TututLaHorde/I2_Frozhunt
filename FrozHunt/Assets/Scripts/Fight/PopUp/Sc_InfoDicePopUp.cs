@@ -41,6 +41,7 @@ public class Sc_InfoDicePopUp : MonoBehaviour
     public void ContinueButtonClicked()
     {
         Sc_FightManager.Instance.TriggerEffect();
+        Sc_BoardManager.Instance.SetActiveSpecialHandCardWithTag(false, "ActiveOnContinueFightClicked");
     }
 
     public void SetAttackStateText(AttackState s)

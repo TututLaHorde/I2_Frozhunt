@@ -5,6 +5,12 @@ public class So_Enraged : So_Passive
 {
     public override void UseEffect()
     {
+        if (Sc_FightManager.Instance.m_enragedPlayerBonus.Equals(1))
+            return;
+
+        if (Sc_GameManager.Instance.m_turnPhase != Sc_GameManager.eTurnPhase.Attack)
+            return;
+
         Sc_PlayerCardControler p = Sc_FightManager.Instance.m_lastPlayer;
         Sc_FightManager.Instance.m_enragedPlayerBonus = 1;
 

@@ -90,6 +90,7 @@ public class Sc_FightManager : MonoBehaviour
                 m_infoDicePopUp.SetAttackStateText(AttackState.Failure);
                 m_infoDicePopUp.SetAbilityStateText(AbilityState.Nothing);
                 m_IsPlayerAttack = true;
+                Sc_BoardManager.Instance.SetActiveSpecialHandCardWithTag(true, "ActiveOnFailureAttack");
             }
             else
             {
@@ -227,6 +228,7 @@ public class Sc_FightManager : MonoBehaviour
 
     public void EndFight()
     {
+        Sc_BoardManager.Instance.SetActiveSpecialHandCardWithTag(false, "DesactiveOnEndFight");
         m_infoDicePopUp.m_background.SetActive(false);
         AllPlayerCanAttack();
         Debug.Log("END OF THE FIGHT");

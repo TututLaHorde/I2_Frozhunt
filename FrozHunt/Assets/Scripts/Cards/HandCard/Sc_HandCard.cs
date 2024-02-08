@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class Sc_HandCard : MonoBehaviour
 {
+    public bool m_enable = true;
+
     public So_Effect m_effectCard;
     public int m_indexPosition;
+
+    public void SetActiveHandCardButton(bool enable)
+    {
+        m_enable = enable;
+        GetComponent<Sc_Button>().enabled = enable;
+    }
 
     public void RemoveEffectCard()
     {
@@ -15,7 +23,6 @@ public class Sc_HandCard : MonoBehaviour
         if (m_effectCard.m_canDiscardCard)
             Sc_BoardManager.Instance.RemoveBonusCard(m_indexPosition);
     }
-
     public void UseEffectCard()
     {
         if (!m_effectCard)
