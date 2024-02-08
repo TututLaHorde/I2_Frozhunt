@@ -11,10 +11,11 @@ public class SC_CardAnim : MonoBehaviour
     [SerializeField] private float m_maxTime;
     private Vector3 m_minScale;
 
-    public void Zoom()
+    public float Zoom()
     {
         m_minScale = m_card.transform.localScale;
         StartCoroutine(ChangeScale());
+        return m_maxTime;
     }
 
     private IEnumerator ChangeScale()
