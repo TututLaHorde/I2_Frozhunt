@@ -81,12 +81,38 @@ public class Sc_FightManager : MonoBehaviour
             Debug.Log(result + "     ////    " + m_diceResult.Item2);
 
             m_infoDicePopUp.SetPopUps(true);
+            Sc_TutorialManager.Instance.m_confirmAttackWindow.SetActive(Sc_TutorialManager.Instance.m_isFirstFight);
             if(result < m_Enemy.GetPower() && !m_Enemy.Stun)
             {
                 m_infoDicePopUp.SetAttackStateText(AttackState.Failure);
                 m_infoDicePopUp.SetAbilityStateText(AbilityState.Nothing);
                 m_IsPlayerAttack = true;
-                Sc_BoardManager.Instance.SetActiveSpecialHandCardWithTag(true, "ActiveOnFailureAttack");
+            }
+            else
+            {
+                m_infoDicePopUp.SetAttackStateText(AttackState.Success);
+                if (m_diceResult.Item2 > 4)
+                {
+                    m_infoDicePopUp.SetAbilityStateText(AbilityState.CriticalAttack);
+                    m_isCrit = true;
+                }
+                else
+                {
+                    if (Sc_GameManager.Instance.GetFood() > 0)
+                        m_textPopUp.text = m_textPopUpFood;
+                    else
+                        m_textPopUp.text = m_textPopUpLife;
+                    m_pop_up.SetActive(true);
+
+                    m_pop_up.SetActive(true);
+                    m_infoDicePopUp.SetAbilityStateText(AbilityState.Nothing);
+                }
+
+            }
+            if(m_Enemy.Stun)
+            {
+                m_Enemy.Stun = false;
+            }
             }
             else
             {
@@ -134,6 +160,8 @@ public class Sc_FightManager : MonoBehaviour
         m_canAttack = true;
         m_enragedPlayerBonus = 0;
         m_infoDicePopUp.SetPopUps(false);
+        Sc_TutorialManager.Instance.m_isFirstFight = false;
+        Sc_TutorialManager.Instance.m_confirmAttackWindow.SetActive(Sc_TutorialManager.Instance.m_isFirstFight);
         m_pop_up.SetActive(false);
         m_isCrit = false;
         m_damage = 0;
