@@ -257,6 +257,7 @@ public class Sc_BoardManager : MonoBehaviour
 
         b.enabled = false;
         h.m_effectCard = e;
+        h.SetActiveHandCardButton(e.m_enableButton);
         c.InitDisplayCard(e);
 
         m_bonusCardNumber++;
@@ -275,6 +276,23 @@ public class Sc_BoardManager : MonoBehaviour
             {
                 Sc_PbCard s = g.GetComponent<Sc_PbCard>();
                 s.m_canClick = enable;
+            }
+        }
+    }
+
+    public void SetActiveSpecialHandCardWithTag(bool enable, string tag)
+    {
+        foreach (var item in m_bonusCardPrefabEmplacements)
+        {
+            if (item.TryGetComponent<Sc_HandCard>(out var h))
+            {
+                if (!h.m_effectCard)
+                    continue;
+
+                if (h.m_effectCard.m_cardTag.Split('.').Contains(tag))
+                {
+                    h.SetActiveHandCardButton(enable);
+                }
             }
         }
     }

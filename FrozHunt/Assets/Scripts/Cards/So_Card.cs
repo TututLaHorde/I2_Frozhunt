@@ -6,6 +6,7 @@ using UnityEngine;
 public class So_Card : ScriptableObject
 {
     [Header("Base Card")]
+    public string m_cardTag;
     public string m_name;
     public string m_description;
     public Texture2D m_icon;

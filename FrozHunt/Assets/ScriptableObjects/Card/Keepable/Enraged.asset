@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 781589724d52e6a45b0f05f2a38b0370, type: 3}
   m_Name: Enraged
   m_EditorClassIdentifier: 
+  m_cardTag: ActiveOnFailureAttack.DesactiveOnEndFight.ActiveOnContinueFightClicked
   m_name: Enraged
   m_description: Consumes one of food or causes the character to lose 2 hp if the
     players have no food to add 1 point to the result of the two dice rolled during
@@ -21,3 +22,4 @@ MonoBehaviour:
   m_effectType: Passif
   m_canDiscardCard: 1
   m_destroyOnUse: 0
+  m_enableButton: 0
