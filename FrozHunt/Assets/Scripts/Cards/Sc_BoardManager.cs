@@ -22,6 +22,8 @@ public class Sc_BoardManager : MonoBehaviour
 
     public static Sc_BoardManager Instance;
 
+    private SC_CardAnimManager m_anim;
+
     private void Awake()
     {
         Instance = this;
@@ -30,6 +32,8 @@ public class Sc_BoardManager : MonoBehaviour
     {
         if (m_blendInStart)
             BlendDeck();
+
+        m_anim = SC_CardAnimManager.instance;
     }
 
     public void BlendDeck()
@@ -40,7 +44,10 @@ public class Sc_BoardManager : MonoBehaviour
     public void GetCard()
     {
         if (HasCardInBoard())
+        {
+            Debug.Log("return");
             return;
+        }
 
         int r = 0;
         float t = m_dice.ThrowDice(ref r);
@@ -114,11 +121,12 @@ public class Sc_BoardManager : MonoBehaviour
                     m_boardCards.RemoveAt(0);
                 }
 
-                Destroy(g);
+                m_anim.discard(g, () => {
+                    Destroy(g);
+                    Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
+                });
             }
         }
-
-        Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
     }
     public void RemoveAllPrefabCardWithDiscardIndex(int index)
     {
@@ -136,11 +144,12 @@ public class Sc_BoardManager : MonoBehaviour
                     m_discardDeck.Add(m_boardCards[0]);
 
                 m_boardCards.RemoveAt(0);
-                Destroy(g);
+                m_anim.discard(g, () => {
+                    Destroy(g);
+                    Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
+                });
             }
         }
-
-        Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
     }
     public void RemoveAllPrefabCardWithout(int index)
     {
@@ -156,11 +165,12 @@ public class Sc_BoardManager : MonoBehaviour
 
                 m_discardDeck.Add(m_boardCards[0]);
                 m_boardCards.RemoveAt(0);
-                Destroy(g);
+                m_anim.discard(g, () => {
+                    Destroy(g);
+                    Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
+                });
             }
         }
-
-        Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
     }
     public void RemoveBonusCard(int i)
     {
