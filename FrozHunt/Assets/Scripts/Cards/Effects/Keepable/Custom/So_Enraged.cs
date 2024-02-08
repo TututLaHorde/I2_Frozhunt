@@ -12,7 +12,15 @@ public class So_Enraged : So_Passive
             return;
 
         Sc_PlayerCardControler p = Sc_FightManager.Instance.m_lastPlayer;
-        Sc_FightManager.Instance.m_enragedPlayerBonus = 1;
+
+        Sc_FightManager f = Sc_FightManager.Instance;
+        int r = f.m_diceResult.Item1 + f.m_diceResult.Item2 + 1;
+
+        if (r >= f.m_Enemy.GetPower())
+        {
+            f.m_infoDicePopUp.SetAttackStateText(AttackState.Success);
+            f.m_IsPlayerAttack = false;
+        }
 
         if (Sc_GameManager.Instance.GetFood() > 1)
             Sc_GameManager.Instance.AddFood(-1);
