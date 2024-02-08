@@ -140,7 +140,7 @@ public class Sc_FightManager : MonoBehaviour
                 m_Enemy.Stun = false;
             }
         }
-    }
+    
 
     public void TriggerEffect()
     {
