@@ -10,11 +10,13 @@ public class SC_MenusButton : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenuScene"); 
     }
 
     public void ChooseChar()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("ChooseCharacterScene");
     }
     public void LoadLore()
@@ -49,6 +51,7 @@ public class SC_MenusButton : MonoBehaviour
 
     public void resume()
     {
+        Time.timeScale = 1f;
         m_pauseMenu.SetActive(false);
     }
 
