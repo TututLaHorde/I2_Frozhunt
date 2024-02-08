@@ -1211,6 +1211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_deck:
+  - {fileID: 11400000, guid: 38b280a9232784246a4fdb54e8298f3f, type: 2}
+  - {fileID: 11400000, guid: 2c35b6f20b2908a4692e6adb6f7b3a7f, type: 2}
   - {fileID: 11400000, guid: 9e86963f4c5c8f640b48284ceab943bb, type: 2}
   - {fileID: 11400000, guid: 9e86963f4c5c8f640b48284ceab943bb, type: 2}
   - {fileID: 11400000, guid: 9e86963f4c5c8f640b48284ceab943bb, type: 2}
@@ -1226,7 +1228,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 38b280a9232784246a4fdb54e8298f3f, type: 2}
   - {fileID: 11400000, guid: 38b280a9232784246a4fdb54e8298f3f, type: 2}
   - {fileID: 11400000, guid: 38b280a9232784246a4fdb54e8298f3f, type: 2}
-  - {fileID: 11400000, guid: 38b280a9232784246a4fdb54e8298f3f, type: 2}
   - {fileID: 11400000, guid: 7ab7228c4787b4148af80f5be7ba70c5, type: 2}
   - {fileID: 11400000, guid: 7ab7228c4787b4148af80f5be7ba70c5, type: 2}
   - {fileID: 11400000, guid: 7ab7228c4787b4148af80f5be7ba70c5, type: 2}
@@ -1242,7 +1243,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0ae2f72ee6292d842b807bbbb610fe37, type: 2}
   - {fileID: 11400000, guid: 75016788171479c47962b95499a58f9c, type: 2}
   - {fileID: 11400000, guid: 75016788171479c47962b95499a58f9c, type: 2}
-  - {fileID: 11400000, guid: 2c35b6f20b2908a4692e6adb6f7b3a7f, type: 2}
   m_boardCards: []
   m_discardDeck: []
   m_effectCard: []
@@ -1254,7 +1254,7 @@ MonoBehaviour:
   - {fileID: 1394759421}
   - {fileID: 1394759420}
   - {fileID: 1394759419}
-  m_blendInStart: 1
+  m_blendInStart: 0
   m_dice: {fileID: 1080928516}
   m_bonusCardNumber: 0
 --- !u!1 &587909826

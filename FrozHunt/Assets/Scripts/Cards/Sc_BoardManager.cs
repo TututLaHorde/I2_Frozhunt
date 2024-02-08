@@ -187,7 +187,7 @@ public class Sc_BoardManager : MonoBehaviour
         foreach (var item in m_bonusCardPrefabEmplacements.Select((v, i) => new { v, i }))
         {
             if (item.i + 1 > 2)
-                return;
+                continue;
 
             int currentChildCount = item.v.transform.childCount;
 
