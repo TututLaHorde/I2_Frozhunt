@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,6 +20,10 @@ public class Sc_BoardManager : MonoBehaviour
     public int m_bonusCardNumber = 0;
 
     public static Sc_BoardManager Instance;
+
+    [Header("Cards spacing")]
+    [SerializeField] private float m_distBetweenBonusCards;
+    [SerializeField] private float m_distBetweenBoardCards;
 
     private void Awake()
     {
@@ -71,7 +74,7 @@ public class Sc_BoardManager : MonoBehaviour
                 SwitchDescardToDeck();
         }
 
-        CenterCard(m_cardPrefabEmplacements);
+        CenterCard(m_cardPrefabEmplacements, m_distBetweenBoardCards);
     }
 
     public bool HasCardInBoard()
@@ -180,7 +183,7 @@ public class Sc_BoardManager : MonoBehaviour
 
     public void UpdateEmplacementCard()
     {
-        CenterCard(m_cardPrefabEmplacements);
+        CenterCard(m_cardPrefabEmplacements, m_distBetweenBoardCards);
     }
     public void ReparentBonusCard()
     {
@@ -206,10 +209,10 @@ public class Sc_BoardManager : MonoBehaviour
             }
         }
 
-        CenterCard(m_bonusCardPrefabEmplacements);
+        CenterCard(m_bonusCardPrefabEmplacements, m_distBetweenBonusCards);
     }
 
-    public void CenterCard(List<GameObject> e)
+    public void CenterCard(List<GameObject> e, float cardSpacing)
     {
         int activeNumber = 0;
         List<GameObject> l = new List<GameObject>();
@@ -226,7 +229,7 @@ public class Sc_BoardManager : MonoBehaviour
             }
         }
 
-        CenterGameObjectList(l, 400f, activeNumber);
+        CenterGameObjectList(l, cardSpacing, activeNumber);
     }
     public void CenterGameObjectList(List<GameObject> e, float p, int n)
     {
@@ -261,7 +264,7 @@ public class Sc_BoardManager : MonoBehaviour
         c.InitDisplayCard(e);
 
         m_bonusCardNumber++;
-        CenterCard(m_bonusCardPrefabEmplacements);
+        CenterCard(m_bonusCardPrefabEmplacements, m_distBetweenBonusCards);
         Sc_TutorialManager.Instance.m_handCapacityWindow.SetActive(false);
     }
 
