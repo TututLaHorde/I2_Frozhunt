@@ -15,6 +15,8 @@ public class Sc_PopUpManager : MonoBehaviour
     public TextMeshProUGUI Life2;
     public GameObject Image1;
     public GameObject Image2;
+    public GameObject PlayersHealCard;
+    private GridLayoutGroup HealGridLayout;
 
 
     private int m_healValue;
@@ -29,6 +31,15 @@ public class Sc_PopUpManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        HealGridLayout = PlayersHealCard.GetComponent<GridLayoutGroup>();
+
+        if (Sc_GameManager.Instance.playerList.Count % 3 == 0)
+            HealGridLayout.constraintCount = 3;
+        else
+            HealGridLayout.constraintCount = 2;
+
+        SetNumberOfPlayer(Sc_GameManager.Instance.playerList.Count);
     }
 
     public void SetHealPopUp(Sc_PlayerCardControler player1, Sc_PlayerCardControler player2, bool canQuit)
@@ -73,5 +84,12 @@ public class Sc_PopUpManager : MonoBehaviour
         HealPopUp.SetActive(false);
     }
 
+    public void SetNumberOfPlayer(int numberOfPlayer)
+    {
+        for(int i = 0; i<numberOfPlayer; i++)
+        {
+            PlayersHealCard.transform.GetChild(i).gameObject.SetActive(true);
+        }
+    }
     public void SetIndexCardBonus(int value) => m_indexCardBonus = value;
 }

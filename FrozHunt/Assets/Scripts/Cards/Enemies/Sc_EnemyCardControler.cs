@@ -56,6 +56,8 @@ public class Sc_EnemyCardControler : Sc_PbCard
 
     public void TakeDamage(int damage)
     {
+        if (m_Health <= 0)
+            return;
         m_Health -= damage;
         if (m_Health <= 0)
         {
