@@ -1495,6 +1495,7 @@ MonoBehaviour:
   m_maxBonusCard: 3
   m_distBetweenBonusCards: 250
   m_distBetweenBoardCards: 400
+  m_delayBeteweenCards: 0.5
 --- !u!4 &1077227463
 Transform:
   m_ObjectHideFlags: 0
@@ -1675,11 +1676,6 @@ GameObject:
 --- !u!1 &1160991301 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2276170545711630095, guid: 10724639dd360184ba0ba3d002b486e7, type: 3}
-  m_PrefabInstance: {fileID: 1160991297}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1160991302 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1366500092861785128, guid: 10724639dd360184ba0ba3d002b486e7, type: 3}
   m_PrefabInstance: {fileID: 1160991297}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1285894093
@@ -2739,7 +2735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1664754013
 Transform:
   m_ObjectHideFlags: 0
@@ -2768,7 +2764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_objectiveWindow: {fileID: 1160991301}
-  m_drawWindow: {fileID: 1160991302}
+  m_drawWindow: {fileID: 0}
   m_confirmAttackWindow: {fileID: 1160991300}
   m_handCapacityWindow: {fileID: 1160991299}
   m_tutoIsOn: 1

@@ -9,6 +9,10 @@ public class Sc_PbCard : MonoBehaviour
     public int m_indexPosition;
     [SerializeField] private GameObject m_cardAnim;
 
+    [Header("Back Card")]
+    [SerializeField] private GameObject m_backCard;
+    [SerializeField] private float m_animationSpeed = 2f;
+
     public virtual void InitDisplayCard(So_Card c)
     {
         m_card = c;
@@ -23,6 +27,11 @@ public class Sc_PbCard : MonoBehaviour
         }
     }
 
+    public void StartRotateAnimation()
+    {
+        StartCoroutine(RotateAnimationCard());
+    }
+
     private IEnumerator UseCardAfterTimer()
     {
         yield return new WaitForSeconds(m_cardAnim.GetComponent<SC_CardAnim>().Zoom()+0.5f);
@@ -34,5 +43,25 @@ public class Sc_PbCard : MonoBehaviour
             yield break;
         }
         Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Draw);
+    }
+
+    private IEnumerator RotateAnimationCard()
+    {
+        float timer = 0f;
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime * m_animationSpeed;
+            transform.eulerAngles = Vector3.Lerp(Vector3.zero, new Vector3(0f, -90f, 0f), timer);
+            yield return null;
+        }
+        m_backCard.SetActive(false);
+
+        timer = 0f;
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime * m_animationSpeed;
+            transform.eulerAngles = Vector3.Lerp(new Vector3(0f, -90f, 0f), Vector3.zero, timer);
+            yield return null;
+        }
     }
 }
