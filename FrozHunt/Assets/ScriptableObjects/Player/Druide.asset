@@ -15,6 +15,6 @@ MonoBehaviour:
   playerCard: 1
   life: 20
   damage: 6
-  cardArt: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  cardArt: {fileID: 21300000, guid: 0f9dc1fdc527e1e41946d0e91d791c05, type: 3}
   description: Soigne 5 points de vie au joueur de son choix.
   attackName: Soin

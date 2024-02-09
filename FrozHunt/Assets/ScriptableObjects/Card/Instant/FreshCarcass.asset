@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6237b6c41be584cb6d58944755ae1b, type: 3}
   m_Name: FreshCarcass
   m_EditorClassIdentifier: 
+  m_cardTag: default
   m_name: Fresh Carcass
   m_description: Gives 1 food to players
-  m_icon: {fileID: 0}
+  m_icon: {fileID: 2800000, guid: 136f4cf06951ba74a9afb8e121c9c91a, type: 3}
   m_prebafInBoard: {fileID: 4848208697342805524, guid: 3fbae2e45ff30a84b8b8a6c85cccbd6f, type: 3}
   m_effectType: Instant
+  m_canDiscardCard: 1
+  m_destroyOnUse: 1
+  m_enableButton: 1
   m_numberOfWinFood: 1

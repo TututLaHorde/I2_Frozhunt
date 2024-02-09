@@ -407,10 +407,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5472704657403314271, guid: fa82e5f54877ff945a54075845625c1f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1490248962}
+    - target: {fileID: 5472704657403314271, guid: fa82e5f54877ff945a54075845625c1f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchChar
+      objectReference: {fileID: 0}
     - target: {fileID: 6144494243298999537, guid: fa82e5f54877ff945a54075845625c1f, type: 3}
       propertyPath: m_CardInfo
       value: 
       objectReference: {fileID: 11400000, guid: 5fc8df91dc5420b40bf2957371dbfb4c, type: 2}
+    - target: {fileID: 8998669094203649774, guid: fa82e5f54877ff945a54075845625c1f, type: 3}
+      propertyPath: m_text
+      value: Player 4
+      objectReference: {fileID: 0}
     - target: {fileID: 9007356762006305446, guid: fa82e5f54877ff945a54075845625c1f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -1841,10 +1853,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5472704657403314271, guid: fa82e5f54877ff945a54075845625c1f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1490248962}
+    - target: {fileID: 5472704657403314271, guid: fa82e5f54877ff945a54075845625c1f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchChar
+      objectReference: {fileID: 0}
     - target: {fileID: 6144494243298999537, guid: fa82e5f54877ff945a54075845625c1f, type: 3}
       propertyPath: m_CardInfo
       value: 
       objectReference: {fileID: 11400000, guid: 1b6f6ba72f1ca144faaedd79e54f905d, type: 2}
+    - target: {fileID: 8998669094203649774, guid: fa82e5f54877ff945a54075845625c1f, type: 3}
+      propertyPath: m_text
+      value: Player 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9007356762006305446, guid: fa82e5f54877ff945a54075845625c1f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -1942,10 +1966,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 5472704657403314271, guid: fa82e5f54877ff945a54075845625c1f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1490248962}
+    - target: {fileID: 5472704657403314271, guid: fa82e5f54877ff945a54075845625c1f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchChar
+      objectReference: {fileID: 0}
     - target: {fileID: 6144494243298999537, guid: fa82e5f54877ff945a54075845625c1f, type: 3}
       propertyPath: m_CardInfo
       value: 
       objectReference: {fileID: 11400000, guid: 1a4d2e36b2933c14cb505d9ccef4a2bf, type: 2}
+    - target: {fileID: 8998669094203649774, guid: fa82e5f54877ff945a54075845625c1f, type: 3}
+      propertyPath: m_text
+      value: Player 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9007356762006305446, guid: fa82e5f54877ff945a54075845625c1f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -2256,6 +2292,14 @@ PrefabInstance:
     - target: {fileID: 3546214387522576930, guid: fa82e5f54877ff945a54075845625c1f, type: 3}
       propertyPath: m_Name
       value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472704657403314271, guid: fa82e5f54877ff945a54075845625c1f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1490248962}
+    - target: {fileID: 5472704657403314271, guid: fa82e5f54877ff945a54075845625c1f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchChar
       objectReference: {fileID: 0}
     - target: {fileID: 9007356762006305446, guid: fa82e5f54877ff945a54075845625c1f, type: 3}
       propertyPath: m_Pivot.x

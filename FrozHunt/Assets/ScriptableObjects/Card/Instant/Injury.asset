@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f225f0d2f6157be4c9e5610f29c02b81, type: 3}
   m_Name: Injury
   m_EditorClassIdentifier: 
+  m_cardTag: default
   m_name: Injury
   m_description: A player is drawn randomly and loses 2 life points.
-  m_icon: {fileID: 0}
+  m_icon: {fileID: 2800000, guid: ba78d066535661547801e3eee10baff9, type: 3}
   m_prebafInBoard: {fileID: 4848208697342805524, guid: 3fbae2e45ff30a84b8b8a6c85cccbd6f, type: 3}
   m_effectType: Instant
+  m_canDiscardCard: 1
+  m_destroyOnUse: 1
+  m_enableButton: 1
   m_numberOfDamage: 2

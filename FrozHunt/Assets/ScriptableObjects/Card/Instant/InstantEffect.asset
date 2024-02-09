@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00997d0722715e24097dc2816f6cb5de, type: 3}
   m_Name: InstantEffect
   m_EditorClassIdentifier: 
+  m_cardTag: default
   m_name: Blessure
   m_description: "Met 2 de d\xE9gat"
-  m_icon: {fileID: 0}
+  m_icon: {fileID: 2800000, guid: ba78d066535661547801e3eee10baff9, type: 3}
   m_prebafInBoard: {fileID: 4848208697342805524, guid: 3fbae2e45ff30a84b8b8a6c85cccbd6f, type: 3}
   m_effectType: Instant
+  m_canDiscardCard: 1
+  m_destroyOnUse: 1
+  m_enableButton: 1

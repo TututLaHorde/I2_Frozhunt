@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f4598ab075efc4c8a579bd35b1ebb0, type: 3}
   m_Name: AnimalATK
   m_EditorClassIdentifier: 
+  m_cardTag: default
   m_name: Animal Attack
   m_description: If players have at least 2 foods, they lose 2 foods. If they do
     not have enough food, each player loses 2 life points per missing food.
-  m_icon: {fileID: 0}
+  m_icon: {fileID: 2800000, guid: ba78d066535661547801e3eee10baff9, type: 3}
   m_prebafInBoard: {fileID: 4848208697342805524, guid: 3fbae2e45ff30a84b8b8a6c85cccbd6f, type: 3}
   m_effectType: Instant
+  m_canDiscardCard: 1
+  m_destroyOnUse: 1
+  m_enableButton: 1
   m_numberOfDamage: 2
   m_numberOfLostFood: 2
