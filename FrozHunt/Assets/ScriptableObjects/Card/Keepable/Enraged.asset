@@ -17,9 +17,10 @@ MonoBehaviour:
   m_description: Consumes one of food or causes the character to lose 2 hp if the
     players have no food to add 1 point to the result of the two dice rolled during
     an attack.
-  m_icon: {fileID: 2800000, guid: 136f4cf06951ba74a9afb8e121c9c91a, type: 3}
+  m_icon: {fileID: 2800000, guid: 613a237138142d94099a2ea779171161, type: 3}
   m_prebafInBoard: {fileID: 4848208697342805524, guid: 3fbae2e45ff30a84b8b8a6c85cccbd6f, type: 3}
   m_effectType: Passif
   m_canDiscardCard: 1
   m_destroyOnUse: 0
   m_enableButton: 0
+  m_enragedDiceBonus: 2
