@@ -57,8 +57,8 @@ public class Sc_GameManager : MonoBehaviour
         m_turnCount = 0;
 
         ScaleValues(0);
-        m_foodText.text = "Food : " + m_currentFood.ToString() + "/" + m_foodMax; // scene debug
-        m_turnText.text = "Turn : " + m_turnCount.ToString() + "/" + m_turnCountMax; // scene debug
+        m_foodText.text = m_currentFood.ToString() + "/" + m_foodMax; // scene debug
+        m_turnText.text =  m_turnCount.ToString() + "/" + m_turnCountMax; // scene debug
     }
 
     public enum eTurnPhase
@@ -117,7 +117,7 @@ public class Sc_GameManager : MonoBehaviour
             PrintGameOver();
         }
 
-        m_turnText.text = "Turn : " + m_turnCount.ToString() + "/" + m_turnCountMax; // scene debug
+        m_turnText.text = m_turnCount.ToString() + "/" + m_turnCountMax; // scene debug
     }
 
     
@@ -130,7 +130,7 @@ public class Sc_GameManager : MonoBehaviour
             PrintGameOver();
         }
 
-        m_foodText.text = "Food : " + m_currentFood.ToString() + "/" + m_foodMax; // scene debug
+        m_foodText.text = m_currentFood.ToString() + "/" + m_foodMax; // scene debug
         if (res < 0)
         {
             return res;

@@ -16,7 +16,7 @@ MonoBehaviour:
   m_name: Shiny Pebbles
   m_description: Keeps in hand, taking the place of a bonus card. If the hand is
     full, players choose which bonus to replace.
-  m_icon: {fileID: 2800000, guid: ba78d066535661547801e3eee10baff9, type: 3}
+  m_icon: {fileID: 2800000, guid: 76dbd348a3f501d4aab8b87b1015462d, type: 3}
   m_prebafInBoard: {fileID: 4848208697342805524, guid: 3fbae2e45ff30a84b8b8a6c85cccbd6f, type: 3}
   m_effectType: 
   m_canDiscardCard: 0
