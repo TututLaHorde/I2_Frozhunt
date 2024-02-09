@@ -1,7 +1,9 @@
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Sc_PbEffectCard : Sc_PbCard
 {
+    [Header("Effect Card")]
     public Text m_nameText;
     public Text m_effectTypeText;
     public Text m_descriptionText;

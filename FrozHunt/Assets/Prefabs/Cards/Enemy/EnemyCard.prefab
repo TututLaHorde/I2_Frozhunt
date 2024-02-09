@@ -1,5 +1,77 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2052730153455057886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4774078037087495208}
+  - component: {fileID: 4649708345984132063}
+  - component: {fileID: 4214550247147293981}
+  m_Layer: 5
+  m_Name: Back
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4774078037087495208
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052730153455057886}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 3087010298767054559}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &4649708345984132063
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052730153455057886}
+  m_CullTransparentMesh: 1
+--- !u!114 &4214550247147293981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052730153455057886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 209939415dac72e408970b9896008765, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &2099507174310891484
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +233,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3106638575631586064}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.0046281307, y: 0.0033425386, z: 0.009256261}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -172,6 +244,7 @@ RectTransform:
   - {fileID: 737726263738781005}
   - {fileID: 1558910106479316837}
   - {fileID: 5156200082665334220}
+  - {fileID: 4774078037087495208}
   m_Father: {fileID: 7622155234535249022}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -493,7 +566,6 @@ GameObject:
   - component: {fileID: 7622155234535249022}
   - component: {fileID: 3459146378677770127}
   - component: {fileID: 6044653891000541281}
-  - component: {fileID: 5704429171801265762}
   m_Layer: 0
   m_Name: EnemyCard
   m_TagString: Untagged
@@ -584,7 +656,8 @@ MonoBehaviour:
   m_card: {fileID: 0}
   m_canClick: 1
   m_indexPosition: 0
-  m_cardAnim: {fileID: 4451963801897301524}
+  m_backCard: {fileID: 2052730153455057886}
+  m_animationSpeed: 2
   m_CardInfo: {fileID: 0}
   m_Image: {fileID: 3397387674525759669}
   m_NameTxt: {fileID: 268532288050970198}
@@ -593,54 +666,6 @@ MonoBehaviour:
   m_PowerTxt: {fileID: 1800403211702289173}
   m_DescriptionTxt: {fileID: 7337720137794738004}
   m_MeatDropTxt: {fileID: 4368937134119948237}
---- !u!114 &5704429171801265762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4451963801897301524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 159ac709888dc8b478c0819674515e5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_animCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.5
-      value: 1
-      inSlope: 0.004337822
-      outSlope: 0.004337822
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.2764076
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -0.008923549
-      outSlope: -0.008923549
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.5056412
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_card: {fileID: 4451963801897301524}
-  m_maxScale: 2
-  m_maxTime: 0.7
 --- !u!1 &4607390878771960237
 GameObject:
   m_ObjectHideFlags: 0
