@@ -3,6 +3,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Enraged", menuName = "Card/Keepable/Enraged")]
 public class So_Enraged : So_Passive
 {
+    [Header("Enraged")]
+    public int m_enragedDiceBonus = 2;
+
     public override void UseEffect()
     {
         if (Sc_FightManager.Instance.m_enragedPlayerBonus.Equals(1))
@@ -14,7 +17,7 @@ public class So_Enraged : So_Passive
         Sc_PlayerCardControler playerAttack = Sc_FightManager.Instance.m_lastPlayer;
 
         Sc_FightManager f = Sc_FightManager.Instance;
-        int newResult = f.m_diceResult.Item1 + f.m_diceResult.Item2 + 1;
+        int newResult = f.m_diceResult.Item1 + f.m_diceResult.Item2 + m_enragedDiceBonus;
 
         if (newResult >= f.m_Enemy.GetPower())
         {
