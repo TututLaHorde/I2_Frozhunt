@@ -901,14 +901,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2369955648554336212, guid: 10724639dd360184ba0ba3d002b486e7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 29.597
-      objectReference: {fileID: 0}
-    - target: {fileID: 2369955648554336212, guid: 10724639dd360184ba0ba3d002b486e7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -28.087
-      objectReference: {fileID: 0}
     - target: {fileID: 7774704596019396905, guid: 10724639dd360184ba0ba3d002b486e7, type: 3}
       propertyPath: m_Name
       value: Tuto
@@ -1014,6 +1006,11 @@ MonoBehaviour:
   m_maxBonusCard: 3
   m_distBetweenBonusCards: 250
   m_distBetweenBoardCards: 400
+--- !u!1 &570420459 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4370198000171339603, guid: 10724639dd360184ba0ba3d002b486e7, type: 3}
+  m_PrefabInstance: {fileID: 524029032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &587909826
 GameObject:
   m_ObjectHideFlags: 0
@@ -1693,27 +1690,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7363404957158566700, guid: 326ed388e2229e34ca8f9e2c7a3133d0, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7363404957158566700, guid: 326ed388e2229e34ca8f9e2c7a3133d0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7363404957158566700, guid: 326ed388e2229e34ca8f9e2c7a3133d0, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7363404957158566700, guid: 326ed388e2229e34ca8f9e2c7a3133d0, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7363404957158566700, guid: 326ed388e2229e34ca8f9e2c7a3133d0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7363404957158566700, guid: 326ed388e2229e34ca8f9e2c7a3133d0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7363404957158566700, guid: 326ed388e2229e34ca8f9e2c7a3133d0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1745,11 +1742,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7363404957158566700, guid: 326ed388e2229e34ca8f9e2c7a3133d0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 125
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7363404957158566700, guid: 326ed388e2229e34ca8f9e2c7a3133d0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -115
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7363404957158566700, guid: 326ed388e2229e34ca8f9e2c7a3133d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3385,7 +3382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_objectiveWindow: {fileID: 1202527499}
-  m_drawWindow: {fileID: 2127372420}
+  m_drawWindow: {fileID: 570420459}
   m_confirmAttackWindow: {fileID: 193229144}
   m_handCapacityWindow: {fileID: 1112632295}
   m_tutoIsOn: 1
@@ -3469,11 +3466,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &2127372420 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1366500092861785128, guid: 10724639dd360184ba0ba3d002b486e7, type: 3}
-  m_PrefabInstance: {fileID: 524029032}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2135633647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3493,6 +3485,10 @@ PrefabInstance:
     - target: {fileID: 5346486552850837101, guid: 24667c7e2ad5bfc4c832384d0cfed195, type: 3}
       propertyPath: m_Name
       value: Pop-UpCrit
+      objectReference: {fileID: 0}
+    - target: {fileID: 5346486552850837101, guid: 24667c7e2ad5bfc4c832384d0cfed195, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8261935763152495250, guid: 24667c7e2ad5bfc4c832384d0cfed195, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
