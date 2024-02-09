@@ -8,6 +8,8 @@ public class Sc_BoardManager : MonoBehaviour
 {
     public static Sc_BoardManager Instance;
 
+    public bool m_blendInStart = false;
+
     [Header("all cards")]
     public List<So_Card> m_deck;
     public List<So_Card> m_boardCards;
@@ -18,11 +20,10 @@ public class Sc_BoardManager : MonoBehaviour
     public List<GameObject> m_cardPrefabEmplacements;
     public List<GameObject> m_bonusCardPrefabEmplacements;
 
-    public bool m_blendInStart = false;
     public SC_Dice m_dice;
 
     public int m_bonusCardNumber = 0;
-
+    public int m_maxBonusCard = 3;
 
     [Header("Cards spacing")]
     [SerializeField] private float m_distBetweenBonusCards;
@@ -248,7 +249,7 @@ public class Sc_BoardManager : MonoBehaviour
 
     public bool AddEffectCardInHand(So_Effect e)
     {
-        if (m_effectCard.Count > 2)
+        if (m_effectCard.Count > m_maxBonusCard - 1)
             return false;
 
         m_effectCard.Add(e);
