@@ -21,6 +21,15 @@ public class Sc_HandCardAnim : MonoBehaviour
         SetDownPosition();
     }
 
+    private void OnMouseEnter()
+    {
+        Debug.Log("Enter");
+    }
+    private void OnMouseExit()
+    {
+        Debug.Log("Exits");
+    }
+
     public void UpCardAnimation()
     {
         StopAnimationCoroutine();
