@@ -206,7 +206,6 @@ public class Sc_FightManager : MonoBehaviour
     {
         Debug.Log("Don't crit");
         m_pop_up.SetActive(false);
-        m_isCrit = true;
     }
 
 
