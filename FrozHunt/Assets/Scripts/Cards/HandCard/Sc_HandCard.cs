@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Sc_HandCard : MonoBehaviour
 {
     public bool m_enable = true;
+    public bool m_useActive = true;
 
     public So_Effect m_effectCard;
     public int m_indexPosition;
@@ -12,7 +12,7 @@ public class Sc_HandCard : MonoBehaviour
     public void SetActiveHandCardButton(bool enable)
     {
         m_enable = enable;
-        GetComponent<Sc_Button>().enabled = enable;
+        m_useActive = enable;
     }
 
     public void RemoveEffectCard()
@@ -25,6 +25,9 @@ public class Sc_HandCard : MonoBehaviour
     }
     public void UseEffectCard()
     {
+        if (!m_useActive)
+            return;
+
         if (!m_effectCard)
             return;
 
