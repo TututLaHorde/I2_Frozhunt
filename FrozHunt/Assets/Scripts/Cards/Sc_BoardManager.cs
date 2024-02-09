@@ -29,6 +29,9 @@ public class Sc_BoardManager : MonoBehaviour
     [SerializeField] private float m_distBetweenBonusCards;
     [SerializeField] private float m_distBetweenBoardCards;
 
+    [Header("Draw Animation")]
+    [SerializeField] private float m_delayBeteweenCards = .5f;
+
     private void Awake()
     {
         Instance = this;
@@ -56,8 +59,12 @@ public class Sc_BoardManager : MonoBehaviour
         Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Selection);
         Sc_GameManager.Instance.AddTurn();
     }
-
-    public void GetCard(int n)
+    private IEnumerator GetCardAfterTimer(float t, int r)
+    {
+        yield return new WaitForSeconds(t);
+        StartCoroutine(GetCard(r));
+    }
+    public IEnumerator GetCard(int n)
     {
         for (int i = 0; i < n; i++)
         {
@@ -72,15 +79,25 @@ public class Sc_BoardManager : MonoBehaviour
             m_deck.RemoveAt(0);
             if (m_deck.Count < 1)
                 SwitchDescardToDeck();
+
+            CenterCard(m_cardPrefabEmplacements, m_distBetweenBoardCards);
+            yield return new WaitForSeconds(m_delayBeteweenCards);
         }
 
-        CenterCard(m_cardPrefabEmplacements, m_distBetweenBoardCards);
+        RotateBoardCard();
     }
-
-    private IEnumerator GetCardAfterTimer(float t, int r)
+    public void RotateBoardCard()
     {
-        yield return new WaitForSeconds(t);
-        GetCard(r);
+        foreach (var item in m_cardPrefabEmplacements)
+        {
+            int childCount = item.transform.childCount;
+
+            if (childCount > 0)
+            {
+                Sc_PbCard pbCard = item.transform.GetChild(0).GetComponent<Sc_PbCard>();
+                pbCard.StartRotateAnimation();
+            }
+        }
     }
 
     public bool HasCardInBoard()
@@ -268,6 +285,7 @@ public class Sc_BoardManager : MonoBehaviour
         h.m_effectCard = e;
         h.SetActiveHandCardButton(e.m_enableButton);
         c.InitDisplayCard(e);
+        inst.transform.GetChild(1).gameObject.SetActive(false);
 
         m_bonusCardNumber++;
         CenterCard(m_bonusCardPrefabEmplacements, m_distBetweenBonusCards, 1);
