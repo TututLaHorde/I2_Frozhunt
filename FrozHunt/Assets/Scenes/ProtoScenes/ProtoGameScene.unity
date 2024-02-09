@@ -813,6 +813,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 454293471}
   m_CullTransparentMesh: 1
+--- !u!1 &520789811 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2244524880664783342, guid: 10724639dd360184ba0ba3d002b486e7, type: 3}
+  m_PrefabInstance: {fileID: 524029032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &524029032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -901,6 +906,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4370198000171339603, guid: 10724639dd360184ba0ba3d002b486e7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7774704596019396905, guid: 10724639dd360184ba0ba3d002b486e7, type: 3}
       propertyPath: m_Name
       value: Tuto
@@ -954,7 +963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35ae94b53bd4054598f61486557ab23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_blendInStart: 0
+  m_blendInStart: 1
   m_deck:
   - {fileID: 11400000, guid: 2c35b6f20b2908a4692e6adb6f7b3a7f, type: 2}
   - {fileID: 11400000, guid: 9e86963f4c5c8f640b48284ceab943bb, type: 2}
@@ -1006,11 +1015,6 @@ MonoBehaviour:
   m_maxBonusCard: 3
   m_distBetweenBonusCards: 250
   m_distBetweenBoardCards: 400
---- !u!1 &570420459 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4370198000171339603, guid: 10724639dd360184ba0ba3d002b486e7, type: 3}
-  m_PrefabInstance: {fileID: 524029032}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &587909826
 GameObject:
   m_ObjectHideFlags: 0
@@ -3382,7 +3386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_objectiveWindow: {fileID: 1202527499}
-  m_drawWindow: {fileID: 570420459}
+  m_drawWindow: {fileID: 520789811}
   m_confirmAttackWindow: {fileID: 193229144}
   m_handCapacityWindow: {fileID: 1112632295}
   m_tutoIsOn: 1
