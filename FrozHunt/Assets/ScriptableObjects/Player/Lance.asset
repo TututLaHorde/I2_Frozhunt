@@ -15,6 +15,6 @@ MonoBehaviour:
   playerCard: 2
   life: 20
   damage: 8
-  cardArt: {fileID: 0}
+  cardArt: {fileID: 21300000, guid: ffa09329439262a4ba761e8e5c29d3d9, type: 3}
   description: "Inflige le double de d\xE9g\xE2ts \xE0 l'ennemi."
   attackName: Critique
