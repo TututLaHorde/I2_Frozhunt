@@ -6,11 +6,15 @@ using UnityEngine.UI;
 
 public class Sc_BoardManager : MonoBehaviour
 {
+    public static Sc_BoardManager Instance;
+
+    [Header("all cards")]
     public List<So_Card> m_deck;
     public List<So_Card> m_boardCards;
     public List<So_Card> m_discardDeck;
     public List<So_Effect> m_effectCard;
 
+    [Header("emplacements")]
     public List<GameObject> m_cardPrefabEmplacements;
     public List<GameObject> m_bonusCardPrefabEmplacements;
 
@@ -19,7 +23,6 @@ public class Sc_BoardManager : MonoBehaviour
 
     public int m_bonusCardNumber = 0;
 
-    public static Sc_BoardManager Instance;
 
     [Header("Cards spacing")]
     [SerializeField] private float m_distBetweenBonusCards;
@@ -52,11 +55,7 @@ public class Sc_BoardManager : MonoBehaviour
         Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Selection);
         Sc_GameManager.Instance.AddTurn();
     }
-    private IEnumerator GetCardAfterTimer(float t, int r)
-    {
-        yield return new WaitForSeconds(t);
-        GetCard(r);
-    }
+
     public void GetCard(int n)
     {
         for (int i = 0; i < n; i++)
@@ -75,6 +74,12 @@ public class Sc_BoardManager : MonoBehaviour
         }
 
         CenterCard(m_cardPrefabEmplacements, m_distBetweenBoardCards);
+    }
+
+    private IEnumerator GetCardAfterTimer(float t, int r)
+    {
+        yield return new WaitForSeconds(t);
+        GetCard(r);
     }
 
     public bool HasCardInBoard()
@@ -169,9 +174,9 @@ public class Sc_BoardManager : MonoBehaviour
     {
         int childCount = m_bonusCardPrefabEmplacements[i].transform.childCount;
 
-        if (childCount > 0)
+        if (childCount > 1)
         {
-            GameObject e = m_bonusCardPrefabEmplacements[i].transform.GetChild(0).gameObject;
+            GameObject e = m_bonusCardPrefabEmplacements[i].transform.GetChild(1).gameObject;
             m_discardDeck.Add(m_effectCard[i]);
             m_effectCard.RemoveAt(i);
             m_bonusCardNumber--;
@@ -194,13 +199,13 @@ public class Sc_BoardManager : MonoBehaviour
 
             int currentChildCount = item.v.transform.childCount;
 
-            if (currentChildCount < 1)
+            if (currentChildCount < 2)
             {
                 int nextChildCount = m_bonusCardPrefabEmplacements[item.i + 1].transform.childCount;
 
-                if (nextChildCount > 0)
+                if (nextChildCount > 1)
                 {
-                    Transform move = m_bonusCardPrefabEmplacements[item.i + 1].transform.GetChild(0);
+                    Transform move = m_bonusCardPrefabEmplacements[item.i + 1].transform.GetChild(1);
                     RectTransform t = move.GetComponent<RectTransform>();
 
                     move.SetParent(item.v.transform);
@@ -209,10 +214,10 @@ public class Sc_BoardManager : MonoBehaviour
             }
         }
 
-        CenterCard(m_bonusCardPrefabEmplacements, m_distBetweenBonusCards);
+        CenterCard(m_bonusCardPrefabEmplacements, m_distBetweenBonusCards, 1);
     }
 
-    public void CenterCard(List<GameObject> e, float cardSpacing)
+    public void CenterCard(List<GameObject> e, float cardSpacing, int childCountEnable = 0)
     {
         int activeNumber = 0;
         List<GameObject> l = new List<GameObject>();
@@ -220,9 +225,9 @@ public class Sc_BoardManager : MonoBehaviour
         foreach (var item in e)
         {
             int cCount = item.transform.childCount;
-            item.SetActive(cCount > 0);
+            item.SetActive(cCount > childCountEnable);
 
-            if (cCount > 0)
+            if (cCount > childCountEnable)
             {
                 activeNumber++;
                 l.Add(item);
@@ -264,7 +269,7 @@ public class Sc_BoardManager : MonoBehaviour
         c.InitDisplayCard(e);
 
         m_bonusCardNumber++;
-        CenterCard(m_bonusCardPrefabEmplacements, m_distBetweenBonusCards);
+        CenterCard(m_bonusCardPrefabEmplacements, m_distBetweenBonusCards, 1);
         Sc_TutorialManager.Instance.m_handCapacityWindow.SetActive(false);
     }
 
@@ -290,7 +295,7 @@ public class Sc_BoardManager : MonoBehaviour
         {
             if (item.TryGetComponent<Sc_HandCard>(out var h))
             {
-                if (!h.m_effectCard)
+                if (h.m_effectCard == null)
                     continue;
 
                 if (h.m_effectCard.m_cardTag.Split('.').Contains(tag))
