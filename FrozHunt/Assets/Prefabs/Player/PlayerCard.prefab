@@ -463,6 +463,12 @@ MonoBehaviour:
   m_upPositionValue: -360
   m_downPositionValue: -30
   m_animationSpeed: 170
+  m_onCardUp:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onCardDown:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5340106262898123696
 MonoBehaviour:
   m_ObjectHideFlags: 0

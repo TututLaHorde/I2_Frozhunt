@@ -18,7 +18,6 @@ public class Sc_PbCard : MonoBehaviour
         {
             Sc_BoardManager.Instance.RemoveAllPrefabCardWithout(m_indexPosition);
             StartCoroutine(UseCardAfterTimer());
-            Sc_BoardManager.Instance.SetEnableCard(false);
         }
     }
 
