@@ -260,9 +260,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rectTransform: {fileID: 7622155234535249022}
-  m_upPositionValue: -360
-  m_downPositionValue: -30
-  m_animationSpeed: 170
+  m_upPositionValue: 275
+  m_downPositionValue: 0
+  m_animationSpeed: 600
   m_onCardUp:
     m_PersistentCalls:
       m_Calls: []
