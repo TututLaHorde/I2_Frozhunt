@@ -859,7 +859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772cf03a1dfaece43ac52c5848afdd28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MovementInX: -530
+  m_MovementInX: -350
   m_Speed: 2
   m_EventDraw: 0
   m_EventSelection: 2

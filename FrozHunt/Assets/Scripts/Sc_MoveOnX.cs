@@ -28,8 +28,8 @@ public class Sc_MoveOnX : MonoBehaviour
     {
         m_Transform = gameObject.transform;
 
-        m_FirstPosition = m_Transform.position;
-        m_HidePos.Set(m_FirstPosition.x + m_MovementInX, m_Transform.position.y, m_Transform.position.z);
+        m_FirstPosition = m_Transform.localPosition;
+        m_HidePos.Set(m_FirstPosition.x + m_MovementInX, m_Transform.localPosition.y, m_Transform.localPosition.z);
 
         MyListeners(m_EventDraw, 0);
         MyListeners(m_EventSelection, 1);
@@ -87,9 +87,9 @@ public class Sc_MoveOnX : MonoBehaviour
     {
         m_time = Time.time;
 
-        while (m_Transform.position.x < m_FirstPosition.x)
+        while (m_Transform.localPosition.x < m_FirstPosition.x)
         {
-            m_Transform.position = Vector3.Lerp(m_HidePos, m_FirstPosition, (Time.time - m_time) * m_Speed);
+            m_Transform.localPosition = Vector3.Lerp(m_HidePos, m_FirstPosition, (Time.time - m_time) * m_Speed);
             Debug.Log("Show");
             yield return null;
         }
@@ -103,9 +103,9 @@ public class Sc_MoveOnX : MonoBehaviour
         m_time = Time.time;
 
 
-        while (m_Transform.position.x > m_HidePos.x)
+        while (m_Transform.localPosition.x > m_HidePos.x)
         {
-            m_Transform.position = Vector3.Lerp(m_FirstPosition, m_HidePos, (Time.time - m_time)*m_Speed);
+            m_Transform.localPosition = Vector3.Lerp(m_FirstPosition, m_HidePos, (Time.time - m_time)*m_Speed);
             Debug.Log("Hide");
             yield return null;
         }
