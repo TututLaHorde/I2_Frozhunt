@@ -1193,36 +1193,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_blendInStart: 1
   m_deck:
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
-  - {fileID: 11400000, guid: 111662236709d974bb33bcd7ea67c627, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
+  - {fileID: 11400000, guid: b56320ddc3f994b4fbfb18ba70be8278, type: 2}
   m_boardCards: []
   m_discardDeck: []
   m_effectCard: []
@@ -1241,7 +1241,7 @@ MonoBehaviour:
   m_maxBonusCard: 3
   m_distBetweenBonusCards: 250
   m_distBetweenBoardCards: 400
-  m_delayBeteweenCards: 0.5
+  m_delayBeteweenCards: 1
 --- !u!1 &587909826
 GameObject:
   m_ObjectHideFlags: 0
