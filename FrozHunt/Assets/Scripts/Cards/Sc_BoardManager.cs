@@ -66,6 +66,8 @@ public class Sc_BoardManager : MonoBehaviour
     }
     public IEnumerator GetCard(int n)
     {
+        CenterGameObjectList(m_cardPrefabEmplacements, m_distBetweenBoardCards, n);
+
         for (int i = 0; i < n; i++)
         {
             m_boardCards.Add(m_deck[0]);
@@ -80,7 +82,12 @@ public class Sc_BoardManager : MonoBehaviour
             if (m_deck.Count < 1)
                 SwitchDescardToDeck();
 
-            CenterCard(m_cardPrefabEmplacements, m_distBetweenBoardCards);
+            CenterCard(m_cardPrefabEmplacements, m_distBetweenBoardCards, 0, false);
+            MoveBoardCard(inst, () =>
+            {
+
+            });
+
             yield return new WaitForSeconds(m_delayBeteweenCards);
         }
 
@@ -94,10 +101,20 @@ public class Sc_BoardManager : MonoBehaviour
 
             if (childCount > 0)
             {
-                Sc_PbCard pbCard = item.transform.GetChild(0).GetComponent<Sc_PbCard>();
+                Sc_BoardCardAnimation pbCard = item.transform.GetChild(0).GetComponent<Sc_BoardCardAnimation>();
                 pbCard.StartRotateAnimation();
             }
         }
+    }
+    public void RotateBoardCard(GameObject rotateCard)
+    {
+        Sc_BoardCardAnimation animator = rotateCard.GetComponent<Sc_BoardCardAnimation>();
+        animator.StartRotateAnimation();
+    }
+    public void MoveBoardCard(GameObject moveCard, System.Action actionAfterMove)
+    {
+        Sc_BoardCardAnimation animator = moveCard.GetComponent<Sc_BoardCardAnimation>();
+        animator.StartMoveAnimation(actionAfterMove);
     }
 
     public bool HasCardInBoard()
@@ -235,7 +252,7 @@ public class Sc_BoardManager : MonoBehaviour
         CenterCard(m_bonusCardPrefabEmplacements, m_distBetweenBonusCards, 1);
     }
 
-    public void CenterCard(List<GameObject> e, float cardSpacing, int childCountEnable = 0)
+    public void CenterCard(List<GameObject> e, float cardSpacing, int childCountEnable = 0, bool centerAfterEnable = true)
     {
         int activeNumber = 0;
         List<GameObject> l = new List<GameObject>();
@@ -252,7 +269,8 @@ public class Sc_BoardManager : MonoBehaviour
             }
         }
 
-        CenterGameObjectList(l, cardSpacing, activeNumber);
+        if (centerAfterEnable)
+            CenterGameObjectList(l, cardSpacing, activeNumber);
     }
     public void CenterGameObjectList(List<GameObject> e, float p, int n)
     {

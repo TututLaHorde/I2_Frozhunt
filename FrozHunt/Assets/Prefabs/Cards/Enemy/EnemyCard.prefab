@@ -247,8 +247,8 @@ RectTransform:
   - {fileID: 4774078037087495208}
   m_Father: {fileID: 7622155234535249022}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 215.8329, y: 298.58002}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -380,7 +380,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.74, y: 26}
+  m_AnchoredPosition: {x: -0.73999786, y: 26}
   m_SizeDelta: {x: 190.54, y: 159.91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1021924944661019250
@@ -566,6 +566,7 @@ GameObject:
   - component: {fileID: 7622155234535249022}
   - component: {fileID: 3459146378677770127}
   - component: {fileID: 6044653891000541281}
+  - component: {fileID: 2732905010780252415}
   m_Layer: 0
   m_Name: EnemyCard
   m_TagString: Untagged
@@ -656,8 +657,6 @@ MonoBehaviour:
   m_card: {fileID: 0}
   m_canClick: 1
   m_indexPosition: 0
-  m_backCard: {fileID: 2052730153455057886}
-  m_animationSpeed: 2
   m_CardInfo: {fileID: 0}
   m_Image: {fileID: 3397387674525759669}
   m_NameTxt: {fileID: 268532288050970198}
@@ -666,6 +665,94 @@ MonoBehaviour:
   m_PowerTxt: {fileID: 1800403211702289173}
   m_DescriptionTxt: {fileID: 7337720137794738004}
   m_MeatDropTxt: {fileID: 4368937134119948237}
+--- !u!114 &2732905010780252415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4451963801897301524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f711c96ef2d55f4593988786b02c875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rectTransform: {fileID: 3087010298767054559}
+  m_backCard: {fileID: 2052730153455057886}
+  m_animationSpeed: 2
+  m_xMoveAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_yMoveAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_zRotateAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_startMovePosition: {x: -900, y: 800}
 --- !u!1 &4607390878771960237
 GameObject:
   m_ObjectHideFlags: 0
