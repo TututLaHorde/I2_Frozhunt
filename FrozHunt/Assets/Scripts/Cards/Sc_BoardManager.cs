@@ -155,11 +155,12 @@ public class Sc_BoardManager : MonoBehaviour
                     m_boardCards.RemoveAt(0);
                 }
 
-                Destroy(g);
+                DiscardCardAnimation(g, () =>
+                {
+                    Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
+                });
             }
         }
-
-        Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
     }
     public void RemoveAllPrefabCardWithDiscardIndex(int index)
     {
@@ -177,11 +178,12 @@ public class Sc_BoardManager : MonoBehaviour
                     m_discardDeck.Add(m_boardCards[0]);
 
                 m_boardCards.RemoveAt(0);
-                Destroy(g);
+                DiscardCardAnimation(g, () =>
+                {
+                    Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
+                });
             }
         }
-
-        Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
     }
     public void RemoveAllPrefabCardWithout(int index)
     {
@@ -197,11 +199,12 @@ public class Sc_BoardManager : MonoBehaviour
 
                 m_discardDeck.Add(m_boardCards[0]);
                 m_boardCards.RemoveAt(0);
-                Destroy(g);
+                DiscardCardAnimation(g, () =>
+                {
+                    Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
+                });
             }
         }
-
-        Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
     }
     public void RemoveBonusCard(int i)
     {
@@ -214,8 +217,10 @@ public class Sc_BoardManager : MonoBehaviour
             m_effectCard.RemoveAt(i);
             m_bonusCardNumber--;
 
-            Destroy(e);
-            Invoke(nameof(ReparentBonusCard), Time.deltaTime * 3f);
+            DiscardCardAnimation(e, () =>
+            {
+                Invoke(nameof(ReparentBonusCard), Time.deltaTime * 3f);
+            });
         }
     }
 
@@ -339,5 +344,15 @@ public class Sc_BoardManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void DiscardCardAnimation(GameObject card, System.Action actionAfterDestroy)
+    {
+        Sc_BoardCardAnimation animator = card.GetComponent<Sc_BoardCardAnimation>();
+        animator.StartDiscardAnimation(() =>
+        {
+            Destroy(card);
+            actionAfterDestroy?.Invoke();
+        });
     }
 }

@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class Sc_BoardCardAnimation : MonoBehaviour
@@ -17,6 +19,9 @@ public class Sc_BoardCardAnimation : MonoBehaviour
     [SerializeField] private AnimationCurve m_zRotateAnimationCurve;
     [SerializeField] private Vector2 m_startMovePosition = new Vector2(-900f, 800f);
 
+    [Header("Discard Move Animation")]
+    [SerializeField] private float m_discardMoveAnimation = 0.01f;
+
     public void StartRotateAnimation()
     {
         StartCoroutine(RotateAnimationCard());
@@ -24,6 +29,10 @@ public class Sc_BoardCardAnimation : MonoBehaviour
     public void StartMoveAnimation(Action actionAfterMove)
     {
         StartCoroutine(MoveAnimationCard(actionAfterMove));
+    }
+    public void StartDiscardAnimation(Action actionAfterMove)
+    {
+        StartCoroutine(MoveToDiscardAnimation(actionAfterMove));
     }
 
     private IEnumerator RotateAnimationCard()
@@ -68,6 +77,18 @@ public class Sc_BoardCardAnimation : MonoBehaviour
                 Mathf.Lerp(-90f, 0f, resultZCurve)
             );
 
+            yield return null;
+        }
+
+        actionAfterMove?.Invoke();
+    }
+    private IEnumerator MoveToDiscardAnimation(Action actionAfterMove)
+    {
+        float timer = 1f;
+        while (timer > 0f)
+        {
+            timer -= Time.deltaTime;
+            transform.localPosition += Vector3.left * 8f;
             yield return null;
         }
 
