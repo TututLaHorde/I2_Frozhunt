@@ -90,6 +90,8 @@ public class Sc_BoardManager : MonoBehaviour
 
             yield return new WaitForSeconds(m_delayBeteweenCards);
         }
+        Sc_TutorialManager.Instance.ShowEventTuto(true);
+
     }
     public void RotateBoardCard()
     {
@@ -113,9 +115,6 @@ public class Sc_BoardManager : MonoBehaviour
     {
         Sc_BoardCardAnimation animator = moveCard.GetComponent<Sc_BoardCardAnimation>();
         animator.StartMoveAnimation(actionAfterMove);
-        yield return new WaitForSeconds(t);
-        GetCard(r);
-        Sc_TutorialManager.Instance.ShowEventTuto(true);
     }
 
     public bool HasCardInBoard()
