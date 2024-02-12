@@ -61,9 +61,9 @@ public class Sc_NewPlayerController : MonoBehaviour
         Debug.Log("Set Competence");
         switch (m_PlayerCard)
         {
-            case PlayerCard.Lance: m_competence = gameObject.AddComponent<Sc_DoubleDmgCritique>(); break;
-            case PlayerCard.Massue: m_competence = gameObject.AddComponent<Sc_StunCompetence>(); break;
-            case PlayerCard.Druide: m_competence = gameObject.AddComponent<Sc_HealCompetence>(); break;
+            case PlayerCard.Sula: m_competence = gameObject.AddComponent<Sc_DoubleDmgCritique>(); break;
+            case PlayerCard.Gada : m_competence = gameObject.AddComponent<Sc_StunCompetence>(); break;
+            case PlayerCard.Muni: m_competence = gameObject.AddComponent<Sc_HealCompetence>(); break;
         }
     }
 }
