@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -18,6 +19,10 @@ public class Sc_GameManager : MonoBehaviour
     public List<Sc_PlayerCardControler> playerList;
 
     public ScriptableObject So_Enemy;
+
+    public UnityEvent m_DrawEvent = new();
+    public UnityEvent m_SelectionEvent = new();
+    public UnityEvent m_AttackEvent = new();
 
     [Header("Button")]
     public Button m_draw;
@@ -75,17 +80,20 @@ public class Sc_GameManager : MonoBehaviour
         {
             case eTurnPhase.Draw:
                 m_draw.interactable = true;
+                m_DrawEvent.Invoke();
                 SetPlayerAttackButton(false);
 
                 break;
 
             case eTurnPhase.Selection:
                 m_draw.interactable = false;
+                m_SelectionEvent.Invoke();
                 SetPlayerAttackButton(false);
                 break;
 
             case eTurnPhase.Attack:
                 m_draw.interactable = false;
+                m_AttackEvent.Invoke();
                 SetPlayerAttackButton(true);
                 break;
         }

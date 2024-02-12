@@ -37,7 +37,7 @@ public class Sc_FightManager : MonoBehaviour
     void Start()
     {
         if (Instance == null) { Instance = this; }
-        m_pop_up.SetActive(false);
+        m_pop_up.GetComponent<Sc_MoveOnX>().ShowObject();
     }
 
     // Call when an enemy card is choose for set the enemy 
@@ -46,7 +46,7 @@ public class Sc_FightManager : MonoBehaviour
         Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Attack);
         m_Enemy = enemy;
         m_canAttack = true;
-        m_infoDicePopUp.InitPopUp(true);
+        //m_infoDicePopUp.InitPopUp(true);
 
     }
 
@@ -107,7 +107,7 @@ public class Sc_FightManager : MonoBehaviour
                     else
                         m_textPopUp.text = m_textPopUpLife;
 
-                    m_pop_up.SetActive(true);
+                    m_pop_up.GetComponent<Sc_MoveOnX>().HideObject();
                     m_infoDicePopUp.SetAbilityStateText(AbilityState.Nothing);
                 }
 
@@ -132,9 +132,9 @@ public class Sc_FightManager : MonoBehaviour
                     m_textPopUp.text = m_textPopUpFood;
                 else
                     m_textPopUp.text = m_textPopUpLife;
-                m_pop_up.SetActive(true);
+                m_pop_up.GetComponent<Sc_MoveOnX>().HideObject();
 
-                m_pop_up.SetActive(true);
+                //m_pop_up.SetActive(true);
                 m_infoDicePopUp.SetAbilityStateText(AbilityState.Nothing);
             }
 
@@ -166,7 +166,7 @@ public class Sc_FightManager : MonoBehaviour
         m_infoDicePopUp.SetPopUps(false);
         Sc_TutorialManager.Instance.m_isFirstFight = false;
         Sc_TutorialManager.Instance.m_confirmAttackWindow.SetActive(Sc_TutorialManager.Instance.m_isFirstFight);
-        m_pop_up.SetActive(false);
+        m_pop_up.GetComponent<Sc_MoveOnX>().ShowObject();
         m_isCrit = false;
         m_damage = 0;
         m_IsPlayerAttack = false;
@@ -198,14 +198,14 @@ public class Sc_FightManager : MonoBehaviour
 
         }
 
-        m_pop_up.SetActive(false);
+        m_pop_up.GetComponent<Sc_MoveOnX>().ShowObject();
         m_isCrit = true;
     }
 
     public void DontWantToCritique() // The Player clique on No on the critical pop_up
     {
         Debug.Log("Don't crit");
-        m_pop_up.SetActive(false);
+        m_pop_up.GetComponent<Sc_MoveOnX>().ShowObject();
     }
 
 
@@ -220,11 +220,11 @@ public class Sc_FightManager : MonoBehaviour
     public void EndFight()
     {
         Sc_BoardManager.Instance.SetActiveSpecialHandCardWithTag(false, "DesactiveOnEndFight");
-        m_infoDicePopUp.m_background.SetActive(false);
+        m_infoDicePopUp.SetPopUps(false);
         AllPlayerCanAttack();
         Debug.Log("END OF THE FIGHT");
         Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Draw);
         Sc_BoardManager.Instance.RemoveAllPrefabCard();
-        m_infoDicePopUp.InitPopUp(false);
+        //m_infoDicePopUp.InitPopUp(false);
     }
 }
