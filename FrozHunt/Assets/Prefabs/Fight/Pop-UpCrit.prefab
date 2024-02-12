@@ -171,7 +171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -300, y: -200}
+  m_AnchoredPosition: {x: -252, y: -165}
   m_SizeDelta: {x: 451.94, y: 263.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1548604323237648248
@@ -622,6 +622,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8628787988410604313}
+  - component: {fileID: 5079045913446569077}
   m_Layer: 5
   m_Name: Pop-UpCrit
   m_TagString: Untagged
@@ -649,6 +650,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.000030518}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5079045913446569077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5346486552850837101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772cf03a1dfaece43ac52c5848afdd28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MovementInX: -550
+  m_Speed: 2
+  m_EventDraw: 2
+  m_EventSelection: 2
+  m_EventAttack: 2
 --- !u!1 &5738830992415068498
 GameObject:
   m_ObjectHideFlags: 0
