@@ -7,6 +7,7 @@ public class Sc_PbCard : MonoBehaviour
 
     public bool m_canClick = true;
     public int m_indexPosition;
+    [SerializeField] private GameObject m_cardAnim;
 
     public virtual void InitDisplayCard(So_Card c)
     {
@@ -17,13 +18,14 @@ public class Sc_PbCard : MonoBehaviour
         if (m_canClick)
         {
             Sc_BoardManager.Instance.RemoveAllPrefabCardWithout(m_indexPosition);
+
             StartCoroutine(UseCardAfterTimer());
         }
     }
 
     private IEnumerator UseCardAfterTimer()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(m_cardAnim.GetComponent<SC_CardAnim>().Zoom()+0.5f);
 
         m_card.SelectedCard(this.gameObject);
         if(gameObject.TryGetComponent<Sc_EnemyCardControler>(out Sc_EnemyCardControler s))
