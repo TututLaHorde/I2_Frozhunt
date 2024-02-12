@@ -1194,6 +1194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tuto
       objectReference: {fileID: 0}
+    - target: {fileID: 7774704596019396905, guid: 10724639dd360184ba0ba3d002b486e7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1295,6 +1299,7 @@ MonoBehaviour:
   m_maxBonusCard: 3
   m_distBetweenBonusCards: 250
   m_distBetweenBoardCards: 400
+  m_delayBeteweenCards: 0.5
 --- !u!1 &636437530
 GameObject:
   m_ObjectHideFlags: 0
