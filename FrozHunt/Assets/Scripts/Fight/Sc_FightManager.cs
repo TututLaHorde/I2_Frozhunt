@@ -47,6 +47,7 @@ public class Sc_FightManager : MonoBehaviour
         m_Enemy = enemy;
         m_canAttack = true;
         m_infoDicePopUp.InitPopUp(true);
+        Sc_TutorialManager.Instance.m_AttackSelectTuto.SetActive(Sc_TutorialManager.Instance.m_isFirstFight);
 
     }
 
@@ -56,6 +57,8 @@ public class Sc_FightManager : MonoBehaviour
     // Call in the button of the card
     public void Attack(Sc_PlayerCardControler player)
     {
+        Sc_TutorialManager.Instance.m_AttackSelectTuto.SetActive(false);
+
         if (m_canAttack)
         {
             StartCoroutine(AttackCoroutine(player));

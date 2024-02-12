@@ -81,6 +81,7 @@ public class Sc_BoardManager : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
         GetCard(r);
+        Sc_TutorialManager.Instance.ShowEventTuto(true);
     }
 
     public bool HasCardInBoard()
