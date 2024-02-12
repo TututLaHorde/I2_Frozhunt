@@ -248,6 +248,10 @@ public class Sc_BoardManager : MonoBehaviour
                     Transform move = m_bonusCardPrefabEmplacements[item.i + 1].transform.GetChild(1);
                     RectTransform t = move.GetComponent<RectTransform>();
 
+                    Sc_HandCard nextHandCard = m_bonusCardPrefabEmplacements[item.i + 1].GetComponent<Sc_HandCard>();
+                    Sc_HandCard handCard = item.v.GetComponent<Sc_HandCard>();
+
+                    handCard.m_effectCard = nextHandCard.m_effectCard;
                     move.SetParent(item.v.transform);
                     t.localPosition = Vector3.zero;
                 }
