@@ -765,7 +765,10 @@ MonoBehaviour:
   m_background: {fileID: 4235488631806844075}
   m_attackStateText: {fileID: 1091700778777875322}
   m_abilityStateText: {fileID: 450760795319712542}
+  m_continueButtonText: {fileID: 6250163995887877429}
   m_continueButton: {fileID: 4871138719799599517}
+  m_continueImage: {fileID: 4200872989472816999}
+  m_AnimSpeed: 1
 --- !u!1 &8236776020850343240
 GameObject:
   m_ObjectHideFlags: 0
