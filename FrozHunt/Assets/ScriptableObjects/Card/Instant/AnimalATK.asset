@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_cardTag: default
   m_name: Animal Attack
-  m_description: If players have at least 2 foods, they lose 2 foods. If they do
-    not have enough food, each player loses 2 life points per missing food.
+  m_description: If players have at least 2 food items, they lose 2 food items. If
+    they don't have enough food, each player loses 2 life points for each missing
+    food.
   m_icon: {fileID: 2800000, guid: 76dbd348a3f501d4aab8b87b1015462d, type: 3}
   m_prebafInBoard: {fileID: 4848208697342805524, guid: 3fbae2e45ff30a84b8b8a6c85cccbd6f, type: 3}
   m_effectType: Instant
   m_canDiscardCard: 1
   m_destroyOnUse: 1
   m_enableButton: 1
-  m_numberOfDamage: 2
-  m_numberOfLostFood: 2
+  m_numberOfDamage: 4
