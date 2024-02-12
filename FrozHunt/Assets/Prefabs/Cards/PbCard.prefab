@@ -322,6 +322,7 @@ GameObject:
   - component: {fileID: 8133775059347323467}
   - component: {fileID: 7889515503493631769}
   - component: {fileID: 448451546599867374}
+  - component: {fileID: 2551716848792648484}
   m_Layer: 0
   m_Name: PbCard
   m_TagString: Untagged
@@ -400,6 +401,7 @@ MonoBehaviour:
   m_card: {fileID: 0}
   m_canClick: 1
   m_indexPosition: 0
+  m_cardAnim: {fileID: 4848208697342805524}
   m_nameText: {fileID: 6911426181700571822}
   m_effectTypeText: {fileID: 3440506169077636922}
   m_descriptionText: {fileID: 799083023912362712}
@@ -548,6 +550,54 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_startMovePosition: {x: -900, y: 800}
+--- !u!114 &2551716848792648484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4848208697342805524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159ac709888dc8b478c0819674515e5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_animCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -2
+      outSlope: -2
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_card: {fileID: 4848208697342805524}
+  m_maxScale: 2
+  m_maxTime: 0.7
 --- !u!1 &9019939633640986680
 GameObject:
   m_ObjectHideFlags: 0

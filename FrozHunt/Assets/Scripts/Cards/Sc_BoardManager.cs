@@ -85,13 +85,11 @@ public class Sc_BoardManager : MonoBehaviour
             CenterCard(m_cardPrefabEmplacements, m_distBetweenBoardCards, 0, false);
             MoveBoardCard(inst, () =>
             {
-
+                RotateBoardCard(inst);
             });
 
             yield return new WaitForSeconds(m_delayBeteweenCards);
         }
-
-        RotateBoardCard();
     }
     public void RotateBoardCard()
     {
