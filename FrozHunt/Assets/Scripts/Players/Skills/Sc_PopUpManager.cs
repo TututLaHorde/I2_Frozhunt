@@ -17,7 +17,6 @@ public class Sc_PopUpManager : MonoBehaviour
     public GameObject Image1;
     public GameObject Image2;
     public GameObject PlayersHealCard;
-    private GridLayoutGroup HealGridLayout;
 
 
     private int m_healValue;
@@ -32,13 +31,6 @@ public class Sc_PopUpManager : MonoBehaviour
         {
             Instance = this;
         }
-
-        HealGridLayout = PlayersHealCard.GetComponent<GridLayoutGroup>();
-
-        if (Sc_GameManager.Instance.playerList.Count % 3 == 0)
-            HealGridLayout.constraintCount = 3;
-        else
-            HealGridLayout.constraintCount = 2;
 
         SetNumberOfPlayer(Sc_GameManager.Instance.playerList.Count);
     }
@@ -57,9 +49,10 @@ public class Sc_PopUpManager : MonoBehaviour
 
     public void SetHealCard(Transform card, Sc_PlayerCardControler player)
     {
-        card.GetChild(1).GetComponent<TextMeshProUGUI>().text = player.m_NameTxt.text;
-        card.GetChild(2).GetComponent<TextMeshProUGUI>().text = player.m_HPTxt.text + "/20";
-        card.GetChild(0).GetComponent<Image>().sprite = player.m_Image.GetComponent<Sprite>();
+        card.GetChild(2).GetComponent<TextMeshProUGUI>().text = player.m_NameTxt.text;
+        card.GetChild(3).GetComponent<TextMeshProUGUI>().text = player.m_HPTxt.text + "/20";
+        card.GetChild(0).GetComponent<Image>().sprite = player.m_CardInfo.BigCardArt;
+        
     }
 
     public void SetHealthValue(int h)

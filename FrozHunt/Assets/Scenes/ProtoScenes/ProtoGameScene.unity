@@ -336,11 +336,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d97082f099d375c42aa4de45f13e4acc, type: 3}
---- !u!1 &73106375 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4440495503872304383, guid: d97082f099d375c42aa4de45f13e4acc, type: 3}
-  m_PrefabInstance: {fileID: 73106374}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &73106376 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1256142563359711429, guid: d97082f099d375c42aa4de45f13e4acc, type: 3}
@@ -351,31 +346,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1440223840928477572, guid: d97082f099d375c42aa4de45f13e4acc, type: 3}
   m_PrefabInstance: {fileID: 73106374}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &73106378 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4082498191562226639, guid: d97082f099d375c42aa4de45f13e4acc, type: 3}
-  m_PrefabInstance: {fileID: 73106374}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &73106379 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8377296153811336931, guid: d97082f099d375c42aa4de45f13e4acc, type: 3}
-  m_PrefabInstance: {fileID: 73106374}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &73106380 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8256219612381809270, guid: d97082f099d375c42aa4de45f13e4acc, type: 3}
   m_PrefabInstance: {fileID: 73106374}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -1288,11 +1261,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35ae94b53bd4054598f61486557ab23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_blendInStart: 1
+  m_blendInStart: 0
   m_deck:
+  - {fileID: 11400000, guid: 38b280a9232784246a4fdb54e8298f3f, type: 2}
   - {fileID: 11400000, guid: 2c35b6f20b2908a4692e6adb6f7b3a7f, type: 2}
   - {fileID: 11400000, guid: 9e86963f4c5c8f640b48284ceab943bb, type: 2}
-  - {fileID: 11400000, guid: 38b280a9232784246a4fdb54e8298f3f, type: 2}
   - {fileID: 11400000, guid: 9e86963f4c5c8f640b48284ceab943bb, type: 2}
   - {fileID: 11400000, guid: 38b280a9232784246a4fdb54e8298f3f, type: 2}
   - {fileID: 11400000, guid: 9e86963f4c5c8f640b48284ceab943bb, type: 2}
@@ -1393,11 +1366,11 @@ MonoBehaviour:
   ButtonQuit: {fileID: 1668174965}
   HealPopUp: {fileID: 73106382}
   Name1: {fileID: 73106381}
-  Name2: {fileID: 73106380}
+  Name2: {fileID: 0}
   Life1: {fileID: 73106379}
-  Life2: {fileID: 73106378}
+  Life2: {fileID: 0}
   Image1: {fileID: 73106377}
-  Image2: {fileID: 73106375}
+  Image2: {fileID: 0}
   PlayersHealCard: {fileID: 1210362754}
 --- !u!114 &636437533
 MonoBehaviour:
