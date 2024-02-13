@@ -13,6 +13,9 @@ public class Sc_HandCard : MonoBehaviour
     {
         m_enable = enable;
         m_useActive = enable;
+
+        Sc_PbCard card = transform.GetChild(1).GetComponent<Sc_PbCard>();
+        card.SetGreyScreen(enable);
     }
 
     public void RemoveEffectCard()
