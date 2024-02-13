@@ -13,6 +13,7 @@ public class So_CardPlayer : ScriptableObject
     public int life;
     public int damage;
     public Sprite cardArt;
+    public Sprite BigCardArt;
     public string description;
     public string attackName; 
 }
