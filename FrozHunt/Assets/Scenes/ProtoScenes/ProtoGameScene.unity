@@ -3520,7 +3520,7 @@ GameObject:
   - component: {fileID: 1800367311}
   - component: {fileID: 1800367310}
   m_Layer: 0
-  m_Name: BoardImg (1)
+  m_Name: BoardImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
