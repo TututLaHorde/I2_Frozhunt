@@ -568,6 +568,7 @@ GameObject:
   - component: {fileID: 6044653891000541281}
   - component: {fileID: 2732905010780252415}
   - component: {fileID: 2239021431798806553}
+  - component: {fileID: 4657159439591485620}
   m_Layer: 0
   m_Name: EnemyCard
   m_TagString: Untagged
@@ -755,6 +756,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_startMovePosition: {x: -900, y: 800}
+  m_discardMoveAnimation: 0.01
 --- !u!114 &2239021431798806553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -803,6 +805,53 @@ MonoBehaviour:
   m_card: {fileID: 4451963801897301524}
   m_maxScale: 2
   m_maxTime: 0.7
+--- !u!114 &4657159439591485620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4451963801897301524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6194b9b30c8dda54f8d8573078734d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CardToAnim: {fileID: 4451963801897301524}
+  m_PosYForLoadAttack: -200
+  m_EnemyPosition: {fileID: 0}
+  m_anim: 0
+  m_state: 0
+  m_speedLoad: 4
+  m_speedAttack: 5
+  m_speedReturn: 2
+  m_ShakeDuration: 1
+  m_shakeMagnitude: 30
+  m_ShakeObject: {fileID: 0}
+  m_AnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.7713657
+      outSlope: -0.7713657
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.0726353
+    - serializedVersion: 3
+      time: 3.0106812
+      value: 0.2
+      inSlope: -0.004293977
+      outSlope: -0.004293977
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.43161607
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4607390878771960237
 GameObject:
   m_ObjectHideFlags: 0
