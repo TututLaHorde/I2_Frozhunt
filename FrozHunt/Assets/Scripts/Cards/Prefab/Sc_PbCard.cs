@@ -7,7 +7,9 @@ public class Sc_PbCard : MonoBehaviour
 
     public bool m_canClick = true;
     public int m_indexPosition;
+
     [SerializeField] private GameObject m_cardAnim;
+    [SerializeField] private GameObject m_greyCard; 
 
     public virtual void InitDisplayCard(So_Card c)
     {
@@ -17,7 +19,6 @@ public class Sc_PbCard : MonoBehaviour
     {
         if (m_canClick)
         {
-            Sc_BoardManager.Instance.SetEnableCard(false);
             Sc_BoardManager.Instance.RemoveAllPrefabCardWithout(m_indexPosition);
             Sc_TutorialManager.Instance.ShowEventTuto(false);
             StartCoroutine(UseCardAfterTimer());
@@ -35,5 +36,11 @@ public class Sc_PbCard : MonoBehaviour
             yield break;
         }
         Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Draw);
+    }
+
+    public void SetGreyScreen(bool enable)
+    {
+        if (m_greyCard)
+            m_greyCard.SetActive(!enable);
     }
 }
