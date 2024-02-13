@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class Sc_BoardManager : MonoBehaviour
 {
@@ -78,6 +79,8 @@ public class Sc_BoardManager : MonoBehaviour
             c.InitDisplayCard(m_deck[0]);
             c.m_indexPosition = i;
 
+            SetEnableCard(inst, false);
+
             m_deck.RemoveAt(0);
             if (m_deck.Count < 1)
                 SwitchDescardToDeck();
@@ -102,14 +105,17 @@ public class Sc_BoardManager : MonoBehaviour
             if (childCount > 0)
             {
                 Sc_BoardCardAnimation pbCard = item.transform.GetChild(0).GetComponent<Sc_BoardCardAnimation>();
-                pbCard.StartRotateAnimation();
+                pbCard.StartRotateAnimation(null);
             }
         }
     }
     public void RotateBoardCard(GameObject rotateCard)
     {
         Sc_BoardCardAnimation animator = rotateCard.GetComponent<Sc_BoardCardAnimation>();
-        animator.StartRotateAnimation();
+        animator.StartRotateAnimation(() =>
+        {
+            SetEnableCard(rotateCard, true);
+        });
     }
     public void MoveBoardCard(GameObject moveCard, System.Action actionAfterMove)
     {
@@ -324,7 +330,7 @@ public class Sc_BoardManager : MonoBehaviour
         foreach (var item in m_cardPrefabEmplacements)
         {
             if (item.transform.childCount < 1)
-                return;
+                continue;
 
             GameObject g = item.transform.GetChild(0).gameObject;
             if (g)
@@ -332,6 +338,13 @@ public class Sc_BoardManager : MonoBehaviour
                 Sc_PbCard s = g.GetComponent<Sc_PbCard>();
                 s.m_canClick = enable;
             }
+        }
+    }
+    public void SetEnableCard(GameObject card, bool enable)
+    {
+        if (card.TryGetComponent<Sc_PbCard>(out var c))
+        {
+            c.m_canClick = enable;
         }
     }
 

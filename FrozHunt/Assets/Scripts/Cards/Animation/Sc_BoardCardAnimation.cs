@@ -22,9 +22,9 @@ public class Sc_BoardCardAnimation : MonoBehaviour
     [Header("Discard Move Animation")]
     [SerializeField] private float m_discardMoveAnimation = 0.01f;
 
-    public void StartRotateAnimation()
+    public void StartRotateAnimation(Action actionAfterRotate)
     {
-        StartCoroutine(RotateAnimationCard());
+        StartCoroutine(RotateAnimationCard(actionAfterRotate));
     }
     public void StartMoveAnimation(Action actionAfterMove)
     {
@@ -35,7 +35,7 @@ public class Sc_BoardCardAnimation : MonoBehaviour
         StartCoroutine(MoveToDiscardAnimation(actionAfterMove));
     }
 
-    private IEnumerator RotateAnimationCard()
+    private IEnumerator RotateAnimationCard(Action actionAfterRotate)
     {
         float timer = 0f;
         while (timer < 1f)
@@ -53,6 +53,8 @@ public class Sc_BoardCardAnimation : MonoBehaviour
             transform.eulerAngles = Vector3.Lerp(new Vector3(0f, -90f, 0f), Vector3.zero, timer);
             yield return null;
         }
+
+        actionAfterRotate?.Invoke();
     }
     private IEnumerator MoveAnimationCard(Action actionAfterMove)
     {
