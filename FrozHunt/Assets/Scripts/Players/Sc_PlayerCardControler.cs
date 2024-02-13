@@ -31,11 +31,17 @@ public class Sc_PlayerCardControler : MonoBehaviour
     private int m_damage = 0;
     [SerializeField]private bool m_canAttack = true;
 
+    private Sc_HearthAnim1 m_hearthAnim;
+
     // Start is called before the first frame update
     void Start()
     {
         m_Button = gameObject.GetComponentInChildren<Button>();
         Assign();
+
+        m_hearthAnim = GetComponentInChildren<Sc_HearthAnim1>();
+        m_hearthAnim.m_CurrentLife = m_Health;
+        m_hearthAnim.m_MaxLife = m_maxHealth;
     }
 
     public void Assign()
@@ -66,6 +72,8 @@ public class Sc_PlayerCardControler : MonoBehaviour
         }
         m_HPTxt.text = m_Health.ToString();
         Debug.Log("Player Take Damage");
+
+        m_hearthAnim.m_CurrentLife = m_Health;
     }
 
     public void Heal(int heal)
