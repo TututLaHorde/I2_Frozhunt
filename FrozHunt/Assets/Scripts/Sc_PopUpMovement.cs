@@ -18,24 +18,24 @@ public class Sc_PopUpMovement : MonoBehaviour
 
         if(m_OnXAxis)
         {
-            newPos = transform.position + new Vector3(m_dir * m_speed * Time.deltaTime, 0, 0);
-            transform.position = newPos;
+            newPos = transform.localPosition + new Vector3(m_dir * m_speed * Time.deltaTime, 0, 0);
+            transform.localPosition = newPos;
 
-            if (transform.position.x < min)
+            if (transform.localPosition.x < min)
                 m_dir = 1;
 
-            if (transform.position.x > max)
+            if (transform.localPosition.x > max)
                 m_dir = -1;
         }
         else
         {
-            newPos = transform.position + new Vector3(0, m_dir * m_speed * Time.deltaTime, 0);
-            transform.position = newPos;
+            newPos = transform.localPosition + new Vector3(0, m_dir * m_speed * Time.deltaTime, 0);
+            transform.localPosition = newPos;
 
-            if (transform.position.y < min)
+            if (transform.localPosition.y < min)
                  m_dir = 1;
             
-            if (transform.position.y > max)
+            if (transform.localPosition.y > max)
                 m_dir = -1;
             
         }
