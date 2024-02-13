@@ -19,8 +19,7 @@ public class Sc_BoardCardAnimation : MonoBehaviour
     [SerializeField] private AnimationCurve m_zRotateAnimationCurve;
     [SerializeField] private Vector2 m_startMovePosition = new Vector2(-900f, 800f);
 
-    [Header("Discard Move Animation")]
-    [SerializeField] private float m_discardMoveAnimation = 0.01f;
+    private float m_discardMoveAnimation = 2000f;
 
     public void StartRotateAnimation(Action actionAfterRotate)
     {
@@ -90,7 +89,7 @@ public class Sc_BoardCardAnimation : MonoBehaviour
         while (timer > 0f)
         {
             timer -= Time.deltaTime;
-            transform.localPosition += Vector3.left * 8f;
+            transform.localPosition += Vector3.left * m_discardMoveAnimation * Time.deltaTime;
             yield return null;
         }
 
