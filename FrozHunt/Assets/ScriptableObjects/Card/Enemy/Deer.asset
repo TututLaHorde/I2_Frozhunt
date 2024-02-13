@@ -15,11 +15,11 @@ MonoBehaviour:
   m_cardTag: default
   m_name: Deer
   m_description: Attack if the player rolls less than his power
-  m_icon: {fileID: 0}
-  m_prebafInBoard: {fileID: 4451963801897301524, guid: 90834bf18be72264c9ac1fb71edab8f0, type: 3}
+  m_icon: {fileID: 2800000, guid: 80ea4ff0cc2b68f4f8e9e530bb8af196, type: 3}
+  m_prebafInBoard: {fileID: 4245674522190709122, guid: fd8166e772809a24897c444dde5c1756, type: 3}
   EnemyCapacity: 1
   HealthPoint: 10
   AttackDamage: 3
   MeatDrop: 2
   Power: 5
-  CardArt: {fileID: 21300000, guid: b162e7c5fbfe40040817f5565484538e, type: 3}
+  CardArt: {fileID: 21300000, guid: 80ea4ff0cc2b68f4f8e9e530bb8af196, type: 3}
