@@ -5,31 +5,45 @@ using UnityEngine;
 public class Sc_AnimAttackPlayer : MonoBehaviour
 {
 
-    [SerializeField] GameObject m_CardToAnim;
+    public GameObject m_CardToAnim;
 
     private Transform m_transformCard;
 
     public float m_PosYForLoadAttack = 100;
 
+    [Header("Position Of Enemy")]
     public GameObject m_EnemyPosition;
+
     private Vector3 m_FirstPosition = Vector3.zero;
     private Vector3 m_NewPos = Vector3.zero;
 
     private float time = 0;
 
-    private bool m_anim = false;
+    [SerializeField]private bool m_anim = false;
 
     private bool m_canContinue = false; 
 
-    private int m_state = 0;
+    [SerializeField]private int m_state = 0;
 
+    [Header("Movement Speed")]
     public float m_speedLoad = 1;
     public float m_speedAttack = 1;
     public float m_speedReturn = 1;
 
+    [Header("Shake")]
+    public float m_ShakeDuration = 2;
+    private float m_ShakeTime = 0;
+    public float m_shakeMagnitude = 2;
+    public GameObject m_ShakeObject;
+    public AnimationCurve m_AnimationCurve;
+
+    private Sc_HandCardAnim m_cardAnimHand;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        m_cardAnimHand = gameObject.GetComponent<Sc_HandCardAnim>();
         m_transformCard = m_CardToAnim.transform;
         m_FirstPosition = m_transformCard.localPosition;
     }
@@ -38,13 +52,20 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyUp(KeyCode.R)) 
-        { StartCoroutine(AnimAttack()); }
-        
+        { StartCoroutine(AnimAttack());}
     }
 
 
     public IEnumerator AnimAttack()
     {
+        if(m_cardAnimHand != null)
+        {
+            m_cardAnimHand.m_CanUpCard = false;
+            m_cardAnimHand.DownCardAnimation();
+        }
+
+
+
         m_anim = true;
         m_state = 0;
         m_canContinue = true;
@@ -68,14 +89,17 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
                     case 2:
                         StartCoroutine(AnimReturnToInitialPos());
                         break;
+                    default: m_anim = false; break;
                 }
             }
+
 
 
             yield return null;
         }
 
-
+        if (m_cardAnimHand != null)
+            m_cardAnimHand.m_CanUpCard = true;
 
         yield return null;
     }
@@ -113,6 +137,8 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
 
         m_state++;
         m_canContinue = true;
+        Sc_FightManager.Instance.TriggerEffect();
+        StartCoroutine(Shake());
 
         yield return null;
     }
@@ -132,9 +158,35 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
         }
 
         m_state++;
+        m_canContinue = true;
+
+        yield return null;
+    }
+
+    private IEnumerator Shake()
+    {
+        m_ShakeTime = Time.time + m_ShakeDuration;
+        //Vector3 initialPosition = m_ShakeObject.transform.localPosition;
+
+        Debug.Log("    initial POS 1 ::  " );
+        float timePass = 0;
+        while (Time.time < m_ShakeTime)
+        {
+            timePass += Time.deltaTime;
+            Debug.Log("Shake  : " + ((m_AnimationCurve.Evaluate(timePass) * m_shakeMagnitude)));
+            m_ShakeObject.transform.localPosition = Vector3.zero + Random.insideUnitSphere * (m_AnimationCurve.Evaluate(timePass) * m_shakeMagnitude);
+            yield return null;
+        }
+
+
+        m_ShakeObject.transform.localPosition = Vector3.zero;
+
+        Debug.Log("    initial POS 2 ::  " + m_ShakeObject.transform.localPosition);
+
 
         yield return null;
     }
 
 
+    public void SetFirstPos(Vector3 value) => m_FirstPosition = value;
 }

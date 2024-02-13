@@ -149,6 +149,24 @@ public class Sc_FightManager : MonoBehaviour
     }
     
 
+    public void MakeAttackAnimation()
+    {
+        if (!m_IsPlayerAttack)
+        {
+            StartCoroutine(m_lastPlayer.gameObject.GetComponent<Sc_AnimAttackPlayer>().AnimAttack());
+        }
+        else
+        {
+
+            Sc_AnimAttackPlayer temp = m_Enemy.gameObject.GetComponent<Sc_AnimAttackPlayer>();
+            temp.m_EnemyPosition = m_lastPlayer.gameObject;
+            temp.m_ShakeObject = GameObject.FindGameObjectWithTag("Shake");
+            temp.m_CardToAnim = m_Enemy.gameObject;
+            temp.SetFirstPos(m_Enemy.gameObject.transform.localPosition);
+            StartCoroutine(temp.AnimAttack());
+        }
+    }
+
     public void TriggerEffect()
     {
         if(!m_IsPlayerAttack)

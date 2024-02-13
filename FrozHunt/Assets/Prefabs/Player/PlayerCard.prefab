@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 292902862776505602}
   - component: {fileID: 2191627294936344521}
   - component: {fileID: 5340106262898123696}
+  - component: {fileID: 2838167124648664171}
   m_Layer: 0
   m_Name: PlayerCard
   m_TagString: Untagged
@@ -269,6 +270,7 @@ MonoBehaviour:
   m_onCardDown:
     m_PersistentCalls:
       m_Calls: []
+  m_CanUpCard: 1
 --- !u!114 &5340106262898123696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +316,53 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2838167124648664171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4451963801897301524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6194b9b30c8dda54f8d8573078734d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CardToAnim: {fileID: 6833445237178658618}
+  m_PosYForLoadAttack: 200
+  m_EnemyPosition: {fileID: 0}
+  m_anim: 0
+  m_state: 0
+  m_speedLoad: 4
+  m_speedAttack: 5
+  m_speedReturn: 2
+  m_ShakeDuration: 1
+  m_shakeMagnitude: 30
+  m_ShakeObject: {fileID: 0}
+  m_AnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.7713657
+      outSlope: -0.7713657
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.0726353
+    - serializedVersion: 3
+      time: 3.0106812
+      value: 0.2
+      inSlope: -0.004293977
+      outSlope: -0.004293977
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.43161607
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5079594422987419815
 GameObject:
   m_ObjectHideFlags: 0
