@@ -85,11 +85,14 @@ public class Sc_BoardCardAnimation : MonoBehaviour
     }
     private IEnumerator MoveToDiscardAnimation(Action actionAfterMove)
     {
+        float distanceTravel = 0;
         float timer = 1f;
-        while (timer > 0f)
+
+        while (transform.position.x > -(float)Screen.width)
         {
             timer -= Time.deltaTime;
             transform.localPosition += Vector3.left * m_discardMoveAnimation * Time.deltaTime;
+            distanceTravel += 1f * m_discardMoveAnimation * Time.deltaTime;
             yield return null;
         }
 

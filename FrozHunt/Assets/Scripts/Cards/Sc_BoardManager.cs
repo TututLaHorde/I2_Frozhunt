@@ -96,6 +96,7 @@ public class Sc_BoardManager : MonoBehaviour
         Sc_TutorialManager.Instance.ShowEventTuto(true);
 
     }
+    
     public void RotateBoardCard()
     {
         foreach (var item in m_cardPrefabEmplacements)
@@ -221,6 +222,8 @@ public class Sc_BoardManager : MonoBehaviour
         if (childCount > 1)
         {
             GameObject e = m_bonusCardPrefabEmplacements[i].transform.GetChild(1).gameObject;
+            Sc_HandCard handCard = e.GetComponent<Sc_HandCard>();
+
             m_discardDeck.Add(m_effectCard[i]);
             m_effectCard.RemoveAt(i);
             m_bonusCardNumber--;
