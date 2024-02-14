@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -86,14 +85,10 @@ public class SC_MusicManager : MonoBehaviour
         if (Instance != null)
         {
             print("error already instanced");
+            Destroy(gameObject);
             return;
         }
         Instance = this;
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("Music");
-        if (objs.Length > 1)
-        {
-            Destroy(gameObject);
-        }
         DontDestroyOnLoad(gameObject);
     }
 
