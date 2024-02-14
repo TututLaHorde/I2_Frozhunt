@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -40,12 +41,44 @@ public class SC_MusicManager : MonoBehaviour
 
     public void windStop()
     {
-       StartCoroutine(AmbientStop());  
+       StartCoroutine(Stop(m_ambientSource));  
+    }
+
+    public void musicStop()
+    {
+        StartCoroutine(Stop(m_musicSource));
     }
 
     public void ChangeAmbient(WindEffect windEffect)
     {
         StartCoroutine(AudioFade(m_ambientSource, m_ambientClip[windEffect.GetHashCode()]));
+    }
+
+    public void PlayLowHPSound(int maxhealth, int health, WindEffect windEffect)
+    {
+        float percent = (health*100 / maxhealth);
+        print(percent);
+        if (percent <= 35)
+        {
+            StartCoroutine(AudioFade(m_ambientSource, m_ambientClip[windEffect.GetHashCode()]));
+        }
+    }
+
+    public void normalAmbient(WindEffect windEffect,int maxhealth)
+    {
+        int highhealth = 0;
+        for (int i = 0; i < Sc_GameManager.Instance.playerList.Count; i++)
+        {
+            if (Sc_GameManager.Instance.playerList[i].GetCurrentHealth * 100 / maxhealth > 35)
+            {
+                highhealth++;
+            }
+        }
+        if (highhealth >= Sc_GameManager.Instance.playerList.Count)
+        {
+            StartCoroutine(AudioFade(m_ambientSource, m_ambientClip[windEffect.GetHashCode()]));
+        }
+
     }
 
     void Awake()
@@ -80,17 +113,17 @@ public class SC_MusicManager : MonoBehaviour
         return SFXsource;
     }
 
-    private IEnumerator AmbientStop ()
+    private IEnumerator Stop (AudioSource audioSource)
     {
         float time = timer;
         while (time >= 0)
         {
             //lower volume until it's muted
             time -= Time.deltaTime;
-            m_ambientSource.volume = time / timer;
+            audioSource.volume = time / timer;
             yield return null;
         }
-        m_ambientSource.clip = null;
+        audioSource.clip = null;
     }
 
     private IEnumerator AudioFade(AudioSource audioSource, AudioClip clip)

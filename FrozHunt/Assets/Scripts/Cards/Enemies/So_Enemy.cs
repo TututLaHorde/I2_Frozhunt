@@ -14,6 +14,7 @@ public class So_Enemy : So_Card
     public int MeatDrop;
     public int Power;
     public Sprite CardArt;
+    public AudioClip clip;
 
     public override void SelectedCard(GameObject owner)
     {

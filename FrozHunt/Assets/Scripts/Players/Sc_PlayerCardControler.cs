@@ -66,7 +66,8 @@ public class Sc_PlayerCardControler : MonoBehaviour
     public void TakeDamage(int damage)
     {
         m_Health -= damage;
-        if(m_Health <= 0) 
+        SC_MusicManager.Instance.PlayLowHPSound(m_maxHealth,m_Health, WindEffect.StrongWind);
+        if (m_Health <= 0) 
         {
             m_Health = 0;
             Dead();
@@ -80,6 +81,7 @@ public class Sc_PlayerCardControler : MonoBehaviour
     public void Heal(int heal)
     {
         m_Health += heal;
+        SC_MusicManager.Instance.normalAmbient(WindEffect.lightWind,m_maxHealth);
         if(m_Health > m_maxHealth) 
         {
             m_Health = m_maxHealth;
