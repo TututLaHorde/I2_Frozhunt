@@ -18,6 +18,11 @@ public class SC_AudioParameter : MonoBehaviour
     {
         audioMixer.SetFloat("SFX", volume);
     }
+
+    public void setAmbientVolume(float volume)
+    {
+        audioMixer.SetFloat("Ambient", volume);
+    }
     public void close()
     {
         gameObject.SetActive(false);
