@@ -513,7 +513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1517463750089764384, guid: e96509833592b90409718e1406f6bcc0, type: 3}
       propertyPath: m_TagString
-      value: Music
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3349769073239459321, guid: e96509833592b90409718e1406f6bcc0, type: 3}
       propertyPath: m_SFXgroup
@@ -679,6 +679,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 815584166}
     m_Modifications:
+    - target: {fileID: 8399723839553595, guid: c87041d50854ede4583bb9469a9b5afa, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8399723839553595, guid: c87041d50854ede4583bb9469a9b5afa, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8399723839553595, guid: c87041d50854ede4583bb9469a9b5afa, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 270367153594075709, guid: c87041d50854ede4583bb9469a9b5afa, type: 3}
       propertyPath: m_Color.a
       value: 0.69803923
@@ -788,6 +800,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4337670969663598158, guid: c87041d50854ede4583bb9469a9b5afa, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509360570605260761, guid: c87041d50854ede4583bb9469a9b5afa, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509360570605260761, guid: c87041d50854ede4583bb9469a9b5afa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
