@@ -156,6 +156,8 @@ public class Sc_BoardManager : MonoBehaviour
             GameObject g = item.v.transform.GetChild(0).gameObject;
             if (g)
             {
+                SetEnableCard(g, false);
+
                 Sc_PbCard pbCard = g.GetComponent<Sc_PbCard>();
                 if (!pbCard.enabled)
                     continue;
@@ -186,6 +188,8 @@ public class Sc_BoardManager : MonoBehaviour
             GameObject g = item.v.transform.GetChild(0).gameObject;
             if (g)
             {
+                SetEnableCard(g, false);
+
                 Sc_PbCard pbCard = g.GetComponent<Sc_PbCard>();
                 if (!pbCard.enabled)
                     continue;
@@ -215,6 +219,8 @@ public class Sc_BoardManager : MonoBehaviour
             GameObject g = item.v.transform.GetChild(0).gameObject;
             if (g && item.i != index)
             {
+                SetEnableCard(g, false);
+
                 Sc_PbCard pbCard = g.GetComponent<Sc_PbCard>();
                 if (!pbCard.enabled)
                     continue;
