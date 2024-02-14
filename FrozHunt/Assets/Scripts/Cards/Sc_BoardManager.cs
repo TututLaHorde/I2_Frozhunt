@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class Sc_BoardManager : MonoBehaviour
 {
@@ -235,12 +233,16 @@ public class Sc_BoardManager : MonoBehaviour
                 m_boardCards.RemoveAt(0);
                 pbCard.enabled = false;
 
-                DiscardCardAnimation(g, () =>
-                {
-                    Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
-                });
+                DiscardCardAnimation(g, null);
+            }
+            else
+            {
+                RectTransform rectTransform = item.v.GetComponent<RectTransform>();
+                rectTransform.localPosition = Vector3.zero;
             }
         }
+
+        //Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
     }
     public void RemoveBonusCard(int i)
     {
