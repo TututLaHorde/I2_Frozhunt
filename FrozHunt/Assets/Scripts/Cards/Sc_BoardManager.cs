@@ -20,8 +20,11 @@ public class Sc_BoardManager : MonoBehaviour
     public List<GameObject> m_cardPrefabEmplacements;
     public List<GameObject> m_bonusCardPrefabEmplacements;
 
+    [Header("Dice")]
     public SC_Dice m_dice;
+    public Sc_HearthAnim1 m_diceAnimation;
 
+    [Header("Bonus Card")]
     public int m_bonusCardNumber = 0;
     public int m_maxBonusCard = 3;
 
@@ -57,7 +60,9 @@ public class Sc_BoardManager : MonoBehaviour
         int r = 0;
         float t = m_dice.ThrowDice(ref r);
         StartCoroutine(GetCardAfterTimer(t + 1f, r));
+
         m_canClickDice = false;
+        m_diceAnimation.m_CurrentLife = m_diceAnimation.m_MaxLife;
 
         Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Selection);
         Sc_GameManager.Instance.AddTurn();
@@ -66,7 +71,9 @@ public class Sc_BoardManager : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
         StartCoroutine(GetCard(r));
+
         m_canClickDice = true;
+        m_diceAnimation.m_CurrentLife = 14;
     }
     public IEnumerator GetCard(int n)
     {
