@@ -19,7 +19,7 @@ public class So_Enraged : So_Passive
         Sc_FightManager f = Sc_FightManager.Instance;
         int newResult = f.m_diceResult.Item1 + f.m_diceResult.Item2 + m_enragedDiceBonus;
 
-        if (newResult >= f.m_Enemy.GetPower())
+        if (newResult >= f.m_Enemy.Power)
         {
             f.m_infoDicePopUp.SetAttackStateText(AttackState.Success);
             f.m_IsPlayerAttack = false;

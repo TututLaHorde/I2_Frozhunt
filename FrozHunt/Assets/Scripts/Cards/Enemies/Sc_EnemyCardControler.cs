@@ -97,8 +97,26 @@ public class Sc_EnemyCardControler : Sc_PbCard
         m_HPTxt.text = m_Health.ToString();
     }
 
-    public int GetDamage() => m_damage;
-    public int GetPower() => m_power;
+    public int Damage
+    {
+        get { return m_damage; }
+
+        set
+        {
+            m_damage = value;
+            m_DamageTxt.text = m_damage.ToString();
+        }
+    }
+    public int Power
+    {
+        get { return m_power; }
+
+        set 
+        { 
+            m_power = value;  
+            m_PowerTxt.text = m_power.ToString();
+        }
+    }
     public int GetMeat() => m_meat;
 
     private void Dead()
