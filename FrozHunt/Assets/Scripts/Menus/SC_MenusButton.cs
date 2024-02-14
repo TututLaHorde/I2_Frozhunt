@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class SC_MenusButton : MonoBehaviour
 {
     [SerializeField] private GameObject m_pauseMenu;
+    [SerializeField] private GameObject m_settingsMenu;
     [SerializeField] private List<So_CardPlayer> m_players = new();
     public List<Sc_PlayerCardControler> m_playersControler = new();
 
@@ -63,6 +64,11 @@ public class SC_MenusButton : MonoBehaviour
     {
         Time.timeScale = 1f;
         m_pauseMenu.SetActive(false);
+    }
+
+    public void settings()
+    {
+        m_settingsMenu.SetActive(true);
     }
 
     public void Quit()
