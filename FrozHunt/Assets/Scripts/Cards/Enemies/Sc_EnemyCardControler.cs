@@ -77,8 +77,8 @@ public class Sc_EnemyCardControler : Sc_PbCard
         m_Health -= damage;
         if (m_Health <= 0)
         {
-            print(Meat + "this is how much food that should be given");
-            Sc_GameManager.Instance.AddFood(Meat);
+            print(GetMeat() + "this is how much food that should be given");
+            Sc_GameManager.Instance.AddFood(GetMeat());
             m_Health = 0;
             Dead();
         }
@@ -95,19 +95,6 @@ public class Sc_EnemyCardControler : Sc_PbCard
             m_Health = m_maxHealth;
         }
         m_HPTxt.text = m_Health.ToString();
-    }
-
-    public int Health
-    {
-        get { return m_Health; }
-
-        set
-        {
-            m_Health = value;
-            if (m_Health > m_maxHealth)
-                m_maxHealth = m_Health;
-            m_HPTxt.text = m_Health.ToString();
-        }
     }
 
     public int Damage
@@ -130,17 +117,7 @@ public class Sc_EnemyCardControler : Sc_PbCard
             m_PowerTxt.text = m_power.ToString();
         }
     }
-    public int Meat
-    {
-        get { return m_meat; }
-
-        set
-        {
-            m_meat = value;
-            m_MeatDropTxt.text = m_meat.ToString();
-        }
-    }
-
+    public int GetMeat() => m_meat;
 
     private void Dead()
     {

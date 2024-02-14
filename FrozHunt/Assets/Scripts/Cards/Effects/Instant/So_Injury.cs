@@ -5,7 +5,7 @@ using UnityEngine;
 public class So_Injury : So_Instant
 {
     private int m_randomIndex = 0;
-    public int m_numberOfDamage = 4;
+    public int m_numberOfDamage = 2;
 
     public override void SelectedCard(GameObject owner)
     {
