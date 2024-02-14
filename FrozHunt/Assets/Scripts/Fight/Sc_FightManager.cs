@@ -50,6 +50,7 @@ public class Sc_FightManager : MonoBehaviour
         m_Enemy = enemy;
         m_canAttack = true;
         m_infoDicePopUp.InitPopUp(true);
+        SC_MusicManager.Instance.ChangeMusic(enemy.m_CardInfo.clip);
         Sc_TutorialManager.Instance.m_AttackSelectTuto.SetActive(Sc_TutorialManager.Instance.m_isFirstFight);
 
         SetEffectOnEnemy();
@@ -271,6 +272,7 @@ public class Sc_FightManager : MonoBehaviour
 
     public void EndFight()
     {
+        SC_MusicManager.Instance.musicStop();
         Sc_BoardManager.Instance.SetActiveSpecialHandCardWithTag(false, "DesactiveOnEndFight");
         m_infoDicePopUp.SetPopUps(false);
         AllPlayerCanAttack();
