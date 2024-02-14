@@ -30,6 +30,15 @@ public class Sc_EnemyCardControler : Sc_PbCard
 
     private bool m_stun = false;
 
+    private Sc_HearthAnim1 m_heartAnim;
+
+    private void Start()
+    {
+        m_heartAnim = GetComponentInChildren<Sc_HearthAnim1>();
+        m_heartAnim.m_MaxLife = m_maxHealth;
+        m_heartAnim.m_CurrentLife = m_Health;
+    }
+
     public override void InitDisplayCard(So_Card c)
     {
         base.InitDisplayCard(c);
@@ -75,6 +84,7 @@ public class Sc_EnemyCardControler : Sc_PbCard
         }
         m_HPTxt.text = m_Health.ToString();
         Debug.Log("Enemy Take Damage");
+        m_heartAnim.m_CurrentLife = m_Health;
     }
 
     public void Heal(int heal)
@@ -87,8 +97,26 @@ public class Sc_EnemyCardControler : Sc_PbCard
         m_HPTxt.text = m_Health.ToString();
     }
 
-    public int GetDamage() => m_damage;
-    public int GetPower() => m_power;
+    public int Damage
+    {
+        get { return m_damage; }
+
+        set
+        {
+            m_damage = value;
+            m_DamageTxt.text = m_damage.ToString();
+        }
+    }
+    public int Power
+    {
+        get { return m_power; }
+
+        set 
+        { 
+            m_power = value;  
+            m_PowerTxt.text = m_power.ToString();
+        }
+    }
     public int GetMeat() => m_meat;
 
     private void Dead()

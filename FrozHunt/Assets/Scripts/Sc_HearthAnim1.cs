@@ -6,9 +6,9 @@ public class Sc_HearthAnim1 : MonoBehaviour
     public float m_CurrentLife = 20;
     public float m_MaxLife = 20;
     public float m_speedSlow = 1.0f;
-    [SerializeField] private float m_speedNormal = 1.0f;
-    [SerializeField] private float m_speedFast = 1.0f;
-    [SerializeField] private float m_speedSuperFast = 1.0f;
+    [SerializeField] private float m_speedNormal = 2.0f;
+    [SerializeField] private float m_speedFast = 4.0f;
+    [SerializeField] private float m_speedSuperFast = 8.0f;
 
     private int m_direction = 1;
 
@@ -85,4 +85,5 @@ public class Sc_HearthAnim1 : MonoBehaviour
         
         }
     }
+
 }

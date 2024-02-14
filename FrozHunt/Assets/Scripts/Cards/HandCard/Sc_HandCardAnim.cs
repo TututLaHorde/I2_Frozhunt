@@ -14,6 +14,8 @@ public class Sc_HandCardAnim : MonoBehaviour
     public UnityEvent m_onCardUp;
     public UnityEvent m_onCardDown;
 
+    public bool m_CanUpCard = true;
+
     private Coroutine m_animationCoroutine;
 
     private void Start()
@@ -21,19 +23,11 @@ public class Sc_HandCardAnim : MonoBehaviour
         SetDownPosition();
     }
 
-    private void OnMouseEnter()
-    {
-        Debug.Log("Enter");
-    }
-    private void OnMouseExit()
-    {
-        Debug.Log("Exits");
-    }
-
     public void UpCardAnimation()
     {
         StopAnimationCoroutine();
-        m_animationCoroutine = StartCoroutine(UpAnimationCoroutine());
+        if(m_CanUpCard)
+            m_animationCoroutine = StartCoroutine(UpAnimationCoroutine());
     }
     public void DownCardAnimation() 
     {

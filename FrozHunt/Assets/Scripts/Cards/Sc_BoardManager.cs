@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
@@ -33,6 +34,8 @@ public class Sc_BoardManager : MonoBehaviour
     [Header("Draw Animation")]
     [SerializeField] private float m_delayBeteweenCards = .5f;
 
+    private bool m_canClickDice = true;
+
     private void Awake()
     {
         Instance = this;
@@ -50,12 +53,13 @@ public class Sc_BoardManager : MonoBehaviour
 
     public void GetCard()
     {
-        if (HasCardInBoard())
+        if (HasCardInBoard() || !m_canClickDice)
             return;
 
         int r = 0;
         float t = m_dice.ThrowDice(ref r);
         StartCoroutine(GetCardAfterTimer(t *1.4f, r));
+        m_canClickDice = false;
 
         Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Selection);
         Sc_GameManager.Instance.AddTurn();
@@ -64,6 +68,7 @@ public class Sc_BoardManager : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
         StartCoroutine(GetCard(r));
+        m_canClickDice = true;
     }
     public IEnumerator GetCard(int n)
     {
@@ -96,6 +101,7 @@ public class Sc_BoardManager : MonoBehaviour
         Sc_TutorialManager.Instance.ShowEventTuto(true);
 
     }
+    
     public void RotateBoardCard()
     {
         foreach (var item in m_cardPrefabEmplacements)
@@ -151,17 +157,23 @@ public class Sc_BoardManager : MonoBehaviour
             if (item.v.transform.childCount < 1)
                 continue;
 
-            Debug.Log("Remove this card");
             GameObject g = item.v.transform.GetChild(0).gameObject;
             if (g)
             {
+                SetEnableCard(g, false);
+
+                Sc_PbCard pbCard = g.GetComponent<Sc_PbCard>();
+                if (!pbCard.enabled)
+                    continue;
+
                 g.GetComponent<MonoBehaviour>().StopAllCoroutines();
-                
+
                 if (m_boardCards.Count > 0)
                 {
                     m_discardDeck.Add(m_boardCards[0]);
                     m_boardCards.RemoveAt(0);
                 }
+                pbCard.enabled = false;
 
                 DiscardCardAnimation(g, () =>
                 {
@@ -180,12 +192,20 @@ public class Sc_BoardManager : MonoBehaviour
             GameObject g = item.v.transform.GetChild(0).gameObject;
             if (g)
             {
+                SetEnableCard(g, false);
+
+                Sc_PbCard pbCard = g.GetComponent<Sc_PbCard>();
+                if (!pbCard.enabled)
+                    continue;
+
                 g.GetComponent<MonoBehaviour>().StopAllCoroutines();
 
                 if (!item.i.Equals(index))
                     m_discardDeck.Add(m_boardCards[0]);
 
                 m_boardCards.RemoveAt(0);
+                pbCard.enabled = false;
+
                 DiscardCardAnimation(g, () =>
                 {
                     Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
@@ -203,10 +223,18 @@ public class Sc_BoardManager : MonoBehaviour
             GameObject g = item.v.transform.GetChild(0).gameObject;
             if (g && item.i != index)
             {
+                SetEnableCard(g, false);
+
+                Sc_PbCard pbCard = g.GetComponent<Sc_PbCard>();
+                if (!pbCard.enabled)
+                    continue;
+
                 g.GetComponent<MonoBehaviour>().StopAllCoroutines();
 
                 m_discardDeck.Add(m_boardCards[0]);
                 m_boardCards.RemoveAt(0);
+                pbCard.enabled = false;
+
                 DiscardCardAnimation(g, () =>
                 {
                     Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
@@ -220,14 +248,24 @@ public class Sc_BoardManager : MonoBehaviour
 
         if (childCount > 1)
         {
-            GameObject e = m_bonusCardPrefabEmplacements[i].transform.GetChild(1).gameObject;
+            GameObject e    = m_bonusCardPrefabEmplacements[i].transform.GetChild(1).gameObject;
+            GameObject tuto = m_bonusCardPrefabEmplacements[i].transform.GetChild(0).gameObject;
+
+            Sc_HandCard handCard = e.GetComponent<Sc_HandCard>();
+            Sc_HandCardAnim handCardAnimator = m_bonusCardPrefabEmplacements[i].GetComponent<Sc_HandCardAnim>();
+
             m_discardDeck.Add(m_effectCard[i]);
             m_effectCard.RemoveAt(i);
             m_bonusCardNumber--;
 
+            tuto.SetActive(false);
+            handCardAnimator.m_CanUpCard = false;
+            handCardAnimator.DownCardAnimation();
+
             DiscardCardAnimation(e, () =>
             {
                 Invoke(nameof(ReparentBonusCard), Time.deltaTime * 3f);
+                handCardAnimator.m_CanUpCard = false;
             });
         }
     }
