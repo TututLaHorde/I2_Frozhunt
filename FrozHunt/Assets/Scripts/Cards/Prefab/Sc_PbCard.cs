@@ -22,6 +22,7 @@ public class Sc_PbCard : MonoBehaviour
             Sc_BoardManager.Instance.RemoveAllPrefabCardWithout(m_indexPosition);
             Sc_TutorialManager.Instance.ShowEventTuto(false);
             StartCoroutine(UseCardAfterTimer());
+            m_canClick = false;
         }
     }
 
@@ -30,6 +31,7 @@ public class Sc_PbCard : MonoBehaviour
         yield return new WaitForSeconds(m_cardAnim.GetComponent<SC_CardAnim>().Zoom()+0.5f);
 
         m_card.SelectedCard(this.gameObject);
+
         if (gameObject.TryGetComponent<Sc_EnemyCardControler>(out Sc_EnemyCardControler s))
         {
             Debug.Log("enemy here guys ");
