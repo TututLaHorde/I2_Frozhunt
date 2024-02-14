@@ -85,6 +85,7 @@ public class Sc_PlayerCardControler : MonoBehaviour
             m_Health = m_maxHealth;
         }
         m_HPTxt.text = m_Health.ToString();
+        m_hearthAnim.m_CurrentLife = m_Health;
     }
 
     public int GetDamage() => m_damage;
