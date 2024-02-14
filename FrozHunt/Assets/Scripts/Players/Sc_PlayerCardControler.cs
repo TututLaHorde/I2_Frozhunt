@@ -121,9 +121,9 @@ public class Sc_PlayerCardControler : MonoBehaviour
             case PlayerCard.Sula: m_competence = gameObject.AddComponent<Sc_DoubleDmgCritique>(); break;
             case PlayerCard.Gada: m_competence = gameObject.AddComponent<Sc_StunCompetence>(); break;
             case PlayerCard.Muni: m_competence = gameObject.AddComponent<Sc_HealCompetence>(); break;
-            case PlayerCard.Berserk: m_competence = gameObject.AddComponent<Sc_BoostCompetence>(); break;
-            case PlayerCard.Trapper: m_competence = gameObject.AddComponent<Sc_SurpriseCompetence>(); break;
-            case PlayerCard.Torch: m_competence = gameObject.AddComponent<Sc_FireCompetence>(); break;
+            case PlayerCard.Krodha: m_competence = gameObject.AddComponent<Sc_BoostCompetence>(); break;
+            case PlayerCard.Grhnati: m_competence = gameObject.AddComponent<Sc_SurpriseCompetence>(); break;
+            case PlayerCard.Agni: m_competence = gameObject.AddComponent<Sc_FireCompetence>(); break;
         }
     }
 

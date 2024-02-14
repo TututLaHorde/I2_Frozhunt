@@ -17,5 +17,6 @@ MonoBehaviour:
   damage: 6
   cardArt: {fileID: 0}
   BigCardArt: {fileID: 0}
-  description: this is a competence
+  description: Loses 1 power but increases the enemy's attack by 1 until the end
+    of the fight
   attackName: Surprise

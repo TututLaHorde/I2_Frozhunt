@@ -17,5 +17,5 @@ MonoBehaviour:
   damage: 7
   cardArt: {fileID: 0}
   BigCardArt: {fileID: 0}
-  description: Lose 1 attack point (cannot go below 1 attack).
+  description: The enemy loses 1 attack point (cannot go below 1 attack).
   attackName: Fire
