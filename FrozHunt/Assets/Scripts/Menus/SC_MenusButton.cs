@@ -11,12 +11,16 @@ public class SC_MenusButton : MonoBehaviour
     public void LoadMainMenu()
     {
         Time.timeScale = 1f;
+        SC_MusicManager.Instance.windStop();
+        SC_MusicManager.Instance.menuMusic(MenuMusic.menu1);
         SceneManager.LoadScene("MainMenuScene"); 
     }
 
     public void ChooseChar()
     {
         Time.timeScale = 1f;
+        SC_MusicManager.Instance.windStop();
+        SC_MusicManager.Instance.menuMusic(MenuMusic.menu1);     
         SceneManager.LoadScene("ChooseCharacterScene");
     }
     public void LoadLore()
@@ -31,6 +35,8 @@ public class SC_MenusButton : MonoBehaviour
     }
     public void LoadPlayScene()
     {
+        SC_MusicManager.Instance.menuMusic(MenuMusic.menu2);
+        SC_MusicManager.Instance.ChangeAmbient(WindEffect.lightWind);
         SceneManager.LoadScene("ProtoGameScene");
     }
 
@@ -41,11 +47,15 @@ public class SC_MenusButton : MonoBehaviour
 
     public void LoadVictory()
     {
+        SC_MusicManager.Instance.windStop();
+        SC_MusicManager.Instance.menuMusic(MenuMusic.victoire);
         SceneManager.LoadScene("VictoryScene");
     }
 
     public void LoadDefeat()
     {
+        SC_MusicManager.Instance.windStop();
+        SC_MusicManager.Instance.menuMusic(MenuMusic.gameover);
         SceneManager.LoadScene("DefeatScene");
     }
 
