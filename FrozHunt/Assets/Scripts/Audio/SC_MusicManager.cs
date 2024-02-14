@@ -38,6 +38,18 @@ public class SC_MusicManager : MonoBehaviour
         StartCoroutine(AudioFade(m_musicSource, m_menuClip[menumusic.GetHashCode()]));
     }
 
+    public IEnumerator windStop()
+    {
+        float time = timer;
+        while (time >= 0)
+        {
+            //lower volume until it's muted
+            time -= Time.deltaTime;
+            m_ambientSource.volume = time / timer;
+            yield return null;
+        }
+        m_ambientSource.Stop();
+    }
 
     public void ChangeAmbient(WindEffect windEffect)
     {
@@ -78,23 +90,26 @@ public class SC_MusicManager : MonoBehaviour
 
     private IEnumerator AudioFade(AudioSource audioSource, AudioClip clip)
     {
-        float time = timer;
-        while (time >= 0)
+        if (audioSource.clip != clip)
         {
-            //lower volume until it's muted
-            time -= Time.deltaTime;
-            audioSource.volume = time / timer;
-            yield return null;
-        }
-        //change clip
-        audioSource.clip = clip;
-        audioSource.Play();
-        while (time <= timer)
-        {
-            //increase volume until it's max volume
-            time += Time.deltaTime;
-            audioSource.volume = time / timer;
-            yield return null;
+            float time = timer;
+            while (time >= 0)
+            {
+                //lower volume until it's muted
+                time -= Time.deltaTime;
+                audioSource.volume = time / timer;
+                yield return null;
+            }
+            //change clip
+            audioSource.clip = clip;
+            audioSource.Play();
+            while (time <= timer)
+            {
+                //increase volume until it's max volume
+                time += Time.deltaTime;
+                audioSource.volume = time / timer;
+                yield return null;
+            }
         }
     }
 }
