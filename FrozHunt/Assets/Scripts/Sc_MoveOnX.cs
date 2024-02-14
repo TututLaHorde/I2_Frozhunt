@@ -10,7 +10,6 @@ public class Sc_MoveOnX : MonoBehaviour
         Show, Hide, Nothing
     }
 
-
     private Vector3 m_FirstPosition = new();
     private float m_time = 0;
 
@@ -34,8 +33,6 @@ public class Sc_MoveOnX : MonoBehaviour
         MyListeners(m_EventDraw, 0);
         MyListeners(m_EventSelection, 1);
         MyListeners(m_EventAttack, 2);
-
-
     }
 
     private void MyListeners(m_State state,int index)
@@ -77,7 +74,6 @@ public class Sc_MoveOnX : MonoBehaviour
     {
         StartCoroutine(Show());
     }
-
     public void HideObject()
     {
         StartCoroutine (Hide());
@@ -97,7 +93,6 @@ public class Sc_MoveOnX : MonoBehaviour
 
         yield return null;
     }
-
     private IEnumerator Hide()
     {
         m_time = Time.time;

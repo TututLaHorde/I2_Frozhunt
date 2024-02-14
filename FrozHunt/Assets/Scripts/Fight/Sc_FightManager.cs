@@ -173,7 +173,6 @@ public class Sc_FightManager : MonoBehaviour
         }
     }
     
-
     public void MakePlayerAttackAnimation(System.Action onAnimationEnd)
     {
         StartCoroutine(m_lastPlayer.gameObject.GetComponent<Sc_AnimAttackPlayer>().AnimAttack(onAnimationEnd));

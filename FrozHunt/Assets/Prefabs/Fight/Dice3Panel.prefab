@@ -473,6 +473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MovementInX: -500
   m_Speed: 2
+  m_showInStart: 1
   m_EventDraw: 0
   m_EventSelection: 2
   m_EventAttack: 1
