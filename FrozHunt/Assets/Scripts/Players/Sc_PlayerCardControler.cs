@@ -142,5 +142,12 @@ public class Sc_PlayerCardControler : MonoBehaviour
 
     public int GetCurrentHealth => m_Health;
 
+    public void SetMalusOfDamage(int malus)
+    {
+        int temp = (m_damage + malus) < 0 ? 0 : (m_damage + malus);
+        m_DamageTxt.text = temp.ToString();
+        Debug.Log("Make It ");
+    }
+
     //abstract public void Competence();
 }
