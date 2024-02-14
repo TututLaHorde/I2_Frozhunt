@@ -2747,6 +2747,18 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4823455944185890916, guid: 433201e73c25f60448b00419069f6746, type: 3}
+      propertyPath: m_EventDraw
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823455944185890916, guid: 433201e73c25f60448b00419069f6746, type: 3}
+      propertyPath: m_EventAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823455944185890916, guid: 433201e73c25f60448b00419069f6746, type: 3}
+      propertyPath: m_MovementInX
+      value: -500
+      objectReference: {fileID: 0}
     - target: {fileID: 5517532510993503174, guid: 433201e73c25f60448b00419069f6746, type: 3}
       propertyPath: m_Name
       value: Dice3Panel

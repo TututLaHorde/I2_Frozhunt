@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Card", menuName = "Card/Effet/Keepable")]
@@ -13,12 +14,9 @@ public class So_Keepable : So_Effect
         if (canSet)
         {
             Sc_BoardManager.Instance.InstantiateBonusCard(this);
-            Sc_BoardManager.Instance.RemoveAllPrefabCardWithDiscardIndex(c.m_indexPosition);
         }
-        else
-        {
-            Sc_BoardManager.Instance.RemoveAllPrefabCard();
-        }
+
+        Destroy(owner);
     }
 
     public override void UseEffect()
