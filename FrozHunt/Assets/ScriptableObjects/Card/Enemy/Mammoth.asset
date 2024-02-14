@@ -23,3 +23,4 @@ MonoBehaviour:
   MeatDrop: 8
   Power: 10
   CardArt: {fileID: 21300000, guid: 80e9abebfedded443b5d1eb27e88057a, type: 3}
+  clip: {fileID: 8300000, guid: 5d52479733a269c4a81759044fb51503, type: 3}
