@@ -1288,7 +1288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35ae94b53bd4054598f61486557ab23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_blendInStart: 0
+  m_blendInStart: 1
   m_deck:
   - {fileID: 11400000, guid: 2c35b6f20b2908a4692e6adb6f7b3a7f, type: 2}
   - {fileID: 11400000, guid: 9e86963f4c5c8f640b48284ceab943bb, type: 2}

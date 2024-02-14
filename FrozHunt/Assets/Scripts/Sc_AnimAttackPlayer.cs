@@ -52,11 +52,11 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyUp(KeyCode.R)) 
-        { StartCoroutine(AnimAttack());}
+        { StartCoroutine(AnimAttack(null));}
     }
 
 
-    public IEnumerator AnimAttack()
+    public IEnumerator AnimAttack(System.Action onAnimEnd)
     {
         if(m_cardAnimHand != null)
         {
@@ -64,13 +64,9 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
             m_cardAnimHand.DownCardAnimation();
         }
 
-
-
         m_anim = true;
         m_state = 0;
         m_canContinue = true;
-
-
         while (m_anim)
         {
             if(m_canContinue)
@@ -81,11 +77,9 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
                     case 0:
                         StartCoroutine(AnimLoadAttack());
                         break;
-
                     case 1:
-                        StartCoroutine(AnimAttackEnemy());
+                        StartCoroutine(AnimAttackEnemy(onAnimEnd));
                         break;
-
                     case 2:
                         StartCoroutine(AnimReturnToInitialPos());
                         break;
@@ -122,7 +116,7 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
         yield return null;
     }
 
-    public IEnumerator AnimAttackEnemy()
+    public IEnumerator AnimAttackEnemy(System.Action onAnimEnd)
     {
         time = Time.time;
 
@@ -135,9 +129,9 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
             yield return null;
         }
 
+        onAnimEnd?.Invoke();
         m_state++;
         m_canContinue = true;
-        Sc_FightManager.Instance.TriggerEffect();
         StartCoroutine(Shake());
 
         yield return null;
@@ -173,7 +167,7 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
         while (Time.time < m_ShakeTime)
         {
             timePass += Time.deltaTime;
-            Debug.Log("Shake  : " + ((m_AnimationCurve.Evaluate(timePass) * m_shakeMagnitude)));
+            // Debug.Log("Shake  : " + ((m_AnimationCurve.Evaluate(timePass) * m_shakeMagnitude)));
             m_ShakeObject.transform.localPosition = Vector3.zero + Random.insideUnitSphere * (m_AnimationCurve.Evaluate(timePass) * m_shakeMagnitude);
             yield return null;
         }
