@@ -18,6 +18,7 @@ public class Sc_BoardCardAnimation : MonoBehaviour
     [SerializeField] private AnimationCurve m_yMoveAnimationCurve;
     [SerializeField] private AnimationCurve m_zRotateAnimationCurve;
     [SerializeField] private Vector2 m_startMovePosition = new Vector2(-900f, 800f);
+    [SerializeField] private float m_animationDrawSpeed = 2f;
 
     private float m_discardMoveAnimation = 2000f;
 
@@ -60,7 +61,7 @@ public class Sc_BoardCardAnimation : MonoBehaviour
         float timer = 0f;
         while (timer < 1f)
         {
-            timer += Time.deltaTime;
+            timer += Time.deltaTime * m_animationDrawSpeed;
 
             float resultXCurve = m_xMoveAnimationCurve.Evaluate(timer);
             float resultYCurve = m_yMoveAnimationCurve.Evaluate(timer);
