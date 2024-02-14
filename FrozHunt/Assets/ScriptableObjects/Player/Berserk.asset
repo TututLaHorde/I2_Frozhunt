@@ -17,5 +17,5 @@ MonoBehaviour:
   damage: 7
   cardArt: {fileID: 0}
   BigCardArt: {fileID: 0}
-  description: this is a competence
+  description: Additionally inflicts this damage taken
   attackName: Boost
