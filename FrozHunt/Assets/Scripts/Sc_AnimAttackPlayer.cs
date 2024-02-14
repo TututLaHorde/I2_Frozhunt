@@ -55,7 +55,6 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
         { StartCoroutine(AnimAttack(null));}
     }
 
-
     public IEnumerator AnimAttack(System.Action onAnimEnd)
     {
         if(m_cardAnimHand != null)
@@ -137,7 +136,6 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
         yield return null;
     }
 
-
     public IEnumerator AnimReturnToInitialPos()
     {
         time = Time.time;
@@ -180,7 +178,6 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
 
         yield return null;
     }
-
 
     public void SetFirstPos(Vector3 value) => m_FirstPosition = value;
 }

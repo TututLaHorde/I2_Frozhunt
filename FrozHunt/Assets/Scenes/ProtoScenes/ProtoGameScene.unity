@@ -723,7 +723,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 1b6f6ba72f1ca144faaedd79e54f905d, type: 2}
     - target: {fileID: 2191627294936344521, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
       propertyPath: m_animationSpeed
-      value: 600
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 2191627294936344521, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
       propertyPath: m_upPositionValue
@@ -741,6 +741,14 @@ PrefabInstance:
       propertyPath: m_EnemyPosition
       value: 
       objectReference: {fileID: 352558464}
+    - target: {fileID: 2838167124648664171, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
+      propertyPath: m_ShakeDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2838167124648664171, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
+      propertyPath: m_shakeMagnitude
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 4451963801897301524, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
       propertyPath: m_Name
       value: PlayerCard (3)
@@ -1088,6 +1096,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 256497950501925497, guid: 10724639dd360184ba0ba3d002b486e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779133210388075354, guid: 10724639dd360184ba0ba3d002b486e7, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7774704596019396905, guid: 10724639dd360184ba0ba3d002b486e7, type: 3}
@@ -2019,7 +2031,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 1b6f6ba72f1ca144faaedd79e54f905d, type: 2}
     - target: {fileID: 2191627294936344521, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
       propertyPath: m_animationSpeed
-      value: 600
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 2191627294936344521, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
       propertyPath: m_upPositionValue
@@ -2037,6 +2049,14 @@ PrefabInstance:
       propertyPath: m_EnemyPosition
       value: 
       objectReference: {fileID: 352558464}
+    - target: {fileID: 2838167124648664171, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
+      propertyPath: m_ShakeDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2838167124648664171, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
+      propertyPath: m_shakeMagnitude
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 4451963801897301524, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
       propertyPath: m_Name
       value: PlayerCard
@@ -3134,7 +3154,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 1b6f6ba72f1ca144faaedd79e54f905d, type: 2}
     - target: {fileID: 2191627294936344521, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
       propertyPath: m_animationSpeed
-      value: 600
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 2191627294936344521, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
       propertyPath: m_upPositionValue
@@ -3152,6 +3172,14 @@ PrefabInstance:
       propertyPath: m_EnemyPosition
       value: 
       objectReference: {fileID: 352558464}
+    - target: {fileID: 2838167124648664171, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
+      propertyPath: m_ShakeDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2838167124648664171, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
+      propertyPath: m_shakeMagnitude
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 4451963801897301524, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
       propertyPath: m_Name
       value: PlayerCard (1)
@@ -3920,7 +3948,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 1b6f6ba72f1ca144faaedd79e54f905d, type: 2}
     - target: {fileID: 2191627294936344521, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
       propertyPath: m_animationSpeed
-      value: 600
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 2191627294936344521, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
       propertyPath: m_upPositionValue
@@ -3938,6 +3966,14 @@ PrefabInstance:
       propertyPath: m_EnemyPosition
       value: 
       objectReference: {fileID: 352558464}
+    - target: {fileID: 2838167124648664171, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
+      propertyPath: m_ShakeDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2838167124648664171, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
+      propertyPath: m_shakeMagnitude
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 4451963801897301524, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
       propertyPath: m_Name
       value: PlayerCard (2)

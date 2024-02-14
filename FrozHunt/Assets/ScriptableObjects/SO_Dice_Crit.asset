@@ -19,4 +19,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 013fd41eacd75ac4b9e367e8fa5b9146, type: 3}
   - {fileID: 21300000, guid: 0524e227eb133a1478f87db27b999701, type: 3}
   - {fileID: 21300000, guid: d215917bc191cbb4f81c5b6705104da9, type: 3}
-  m_maxTime: 2
+  m_maxTime: 1.2

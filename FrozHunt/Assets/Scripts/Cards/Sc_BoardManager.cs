@@ -58,7 +58,7 @@ public class Sc_BoardManager : MonoBehaviour
 
         int r = 0;
         float t = m_dice.ThrowDice(ref r);
-        StartCoroutine(GetCardAfterTimer(t + .8f, r));
+        StartCoroutine(GetCardAfterTimer(t + 1f, r));
         m_canClickDice = false;
 
         Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Selection);
