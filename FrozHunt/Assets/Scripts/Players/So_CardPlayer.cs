@@ -2,7 +2,7 @@ using UnityEngine;
 
 public enum PlayerCard
 {
-    Gada, Muni, Sula, test1, test2, test3
+    Gada, Muni, Sula, Berserk, Trapper, Torch
 }
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/PlayerCardInfo", order = 1)]

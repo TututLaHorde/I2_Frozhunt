@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -120,6 +121,9 @@ public class Sc_PlayerCardControler : MonoBehaviour
             case PlayerCard.Sula: m_competence = gameObject.AddComponent<Sc_DoubleDmgCritique>(); break;
             case PlayerCard.Gada: m_competence = gameObject.AddComponent<Sc_StunCompetence>(); break;
             case PlayerCard.Muni: m_competence = gameObject.AddComponent<Sc_HealCompetence>(); break;
+            case PlayerCard.Berserk: m_competence = gameObject.AddComponent<Sc_BoostCompetence>(); break;
+            case PlayerCard.Trapper: m_competence = gameObject.AddComponent<Sc_SurpriseCompetence>(); break;
+            case PlayerCard.Torch: m_competence = gameObject.AddComponent<Sc_FireCompetence>(); break;
         }
     }
 
@@ -134,6 +138,8 @@ public class Sc_PlayerCardControler : MonoBehaviour
         m_Button.interactable = true;
         CanAttack = true;
     }
+
+    public int GetCurrentHealth => m_Health;
 
     //abstract public void Competence();
 }

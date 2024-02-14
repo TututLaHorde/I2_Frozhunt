@@ -88,7 +88,7 @@ public class Sc_FightManager : MonoBehaviour
 
             m_infoDicePopUp.SetPopUps(true);
             Sc_TutorialManager.Instance.m_confirmAttackWindow.SetActive(Sc_TutorialManager.Instance.m_isFirstFight);
-            if(result < m_Enemy.GetPower() && !m_Enemy.Stun)
+            if(result < m_Enemy.Power && !m_Enemy.Stun)
             {
                 m_infoDicePopUp.SetAttackStateText(AttackState.Failure);
                 m_infoDicePopUp.SetAbilityStateText(AbilityState.Nothing);
@@ -179,7 +179,7 @@ public class Sc_FightManager : MonoBehaviour
         else 
         {
             m_Enemy.Competence();
-            m_lastPlayer.TakeDamage(m_Enemy.GetDamage());
+            m_lastPlayer.TakeDamage(m_Enemy.Damage);
         }
         
         m_canAttack = true;
