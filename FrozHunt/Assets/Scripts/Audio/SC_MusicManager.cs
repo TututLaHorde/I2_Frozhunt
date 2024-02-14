@@ -38,17 +38,9 @@ public class SC_MusicManager : MonoBehaviour
         StartCoroutine(AudioFade(m_musicSource, m_menuClip[menumusic.GetHashCode()]));
     }
 
-    public IEnumerator windStop()
+    public void windStop()
     {
-        float time = timer;
-        while (time >= 0)
-        {
-            //lower volume until it's muted
-            time -= Time.deltaTime;
-            m_ambientSource.volume = time / timer;
-            yield return null;
-        }
-        m_ambientSource.Stop();
+       StartCoroutine(AmbientStop());  
     }
 
     public void ChangeAmbient(WindEffect windEffect)
@@ -86,6 +78,19 @@ public class SC_MusicManager : MonoBehaviour
         //destroy temp once it's done;
         Destroy(tempGO, clip.length);
         return SFXsource;
+    }
+
+    private IEnumerator AmbientStop ()
+    {
+        float time = timer;
+        while (time >= 0)
+        {
+            //lower volume until it's muted
+            time -= Time.deltaTime;
+            m_ambientSource.volume = time / timer;
+            yield return null;
+        }
+        m_ambientSource.clip = null;
     }
 
     private IEnumerator AudioFade(AudioSource audioSource, AudioClip clip)
