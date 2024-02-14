@@ -33,6 +33,9 @@ public class Sc_FightManager : MonoBehaviour
 
     public bool m_IsPlayerAttack = false;
 
+    [HideInInspector]
+    public int m_MeatPlus, m_DamagePlus, m_PowerPlus, m_PlusLife, m_PlayerAttaque = 0;
+
 
     void Start()
     {
@@ -49,6 +52,28 @@ public class Sc_FightManager : MonoBehaviour
         m_infoDicePopUp.InitPopUp(true);
         Sc_TutorialManager.Instance.m_AttackSelectTuto.SetActive(Sc_TutorialManager.Instance.m_isFirstFight);
 
+        SetEffectOnEnemy();
+
+    }
+
+    private void SetEffectOnEnemy()
+    {
+        m_Enemy.Meat += m_MeatPlus;
+        m_Enemy.Damage += m_DamagePlus;
+        m_Enemy.Power += m_PowerPlus;
+        m_Enemy.Health += m_PlusLife;
+
+        if (m_Enemy.Meat < 0)
+            m_Enemy.Meat = 0;
+
+        if (m_Enemy.Damage < 0)
+            m_Enemy.Damage = 0;
+
+        if (m_Enemy.Power < 0)
+            m_Enemy.Power = 0;
+
+        if (m_Enemy.Health < 0)
+            m_Enemy.Health = 0;
     }
 
     // m_lastPlayer.CanAttack= true; need To remove this if you want him to stop attack. make him inactive instead
@@ -171,10 +196,14 @@ public class Sc_FightManager : MonoBehaviour
 
             MakePlayerAttackAnimation(() =>
             {
-                m_Enemy.TakeDamage(m_damage);
+                //m_Enemy.TakeDamage(m_damage);
 
                 if (m_isCrit)
                     m_lastPlayer.Crit(m_Enemy);
+
+                if(m_PlayerAttaque != 0)
+                    m_damage  = (m_damage + m_PlayerAttaque) <= 0 ? 0 : m_damage + m_PlayerAttaque;
+                m_Enemy.TakeDamage(m_damage);
 
                 m_damage = 0;
                 m_isCrit = false;
@@ -193,6 +222,7 @@ public class Sc_FightManager : MonoBehaviour
         Sc_TutorialManager.Instance.m_confirmAttackWindow.SetActive(Sc_TutorialManager.Instance.m_isFirstFight);
         m_pop_up.GetComponent<Sc_MoveOnX>().ShowObject();
         m_IsPlayerAttack = false;
+        ResetPlayerMalus();
     }
 
     private void AllPlayerCanAttack()
@@ -248,6 +278,23 @@ public class Sc_FightManager : MonoBehaviour
         Debug.Log("END OF THE FIGHT");
         Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Draw);
         Sc_BoardManager.Instance.RemoveAllPrefabCard();
+        m_MeatPlus = 0;
+        m_DamagePlus = 0;
+        m_PowerPlus = 0;
+        m_PlusLife = 0;
+
         //m_infoDicePopUp.InitPopUp(false);
+    }
+
+    private void ResetPlayerMalus()
+    {
+        if(m_PlayerAttaque != 0)
+        {
+            for (int j = 0; j < Sc_GameManager.Instance.playerList.Count; j++)
+            {
+                Sc_GameManager.Instance.playerList[j].SetMalusOfDamage(0);
+            }
+            m_PlayerAttaque = 0;
+        }
     }
 }
