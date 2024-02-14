@@ -149,22 +149,18 @@ public class Sc_FightManager : MonoBehaviour
     }
     
 
-    public void MakeAttackAnimation()
+    public void MakePlayerAttackAnimation(System.Action onAnimationEnd)
     {
-        if (!m_IsPlayerAttack)
-        {
-            StartCoroutine(m_lastPlayer.gameObject.GetComponent<Sc_AnimAttackPlayer>().AnimAttack());
-        }
-        else
-        {
-
-            Sc_AnimAttackPlayer temp = m_Enemy.gameObject.GetComponent<Sc_AnimAttackPlayer>();
-            temp.m_EnemyPosition = m_lastPlayer.gameObject;
-            temp.m_ShakeObject = GameObject.FindGameObjectWithTag("Shake");
-            temp.m_CardToAnim = m_Enemy.gameObject;
-            temp.SetFirstPos(m_Enemy.gameObject.transform.localPosition);
-            StartCoroutine(temp.AnimAttack());
-        }
+        StartCoroutine(m_lastPlayer.gameObject.GetComponent<Sc_AnimAttackPlayer>().AnimAttack(onAnimationEnd));
+    }
+    public void MakeEnemyAttackAnimation()
+    {
+        Sc_AnimAttackPlayer temp = m_Enemy.gameObject.GetComponent<Sc_AnimAttackPlayer>();
+        temp.m_EnemyPosition = m_lastPlayer.gameObject;
+        temp.m_ShakeObject = GameObject.FindGameObjectWithTag("Shake");
+        temp.m_CardToAnim = m_Enemy.gameObject;
+        temp.SetFirstPos(m_Enemy.gameObject.transform.localPosition);
+        StartCoroutine(temp.AnimAttack(null));
     }
 
     public void TriggerEffect()
@@ -172,9 +168,15 @@ public class Sc_FightManager : MonoBehaviour
         if(!m_IsPlayerAttack)
         {
             m_damage += m_lastPlayer.GetDamage();
+
             if (m_isCrit)
                 m_lastPlayer.Crit(m_Enemy);
-            m_Enemy.TakeDamage(m_damage);
+
+            MakePlayerAttackAnimation(() =>
+            {
+                m_Enemy.TakeDamage(m_damage);
+                m_damage = 0;
+            });
         }
         else 
         {
@@ -189,7 +191,6 @@ public class Sc_FightManager : MonoBehaviour
         Sc_TutorialManager.Instance.m_confirmAttackWindow.SetActive(Sc_TutorialManager.Instance.m_isFirstFight);
         m_pop_up.GetComponent<Sc_MoveOnX>().ShowObject();
         m_isCrit = false;
-        m_damage = 0;
         m_IsPlayerAttack = false;
     }
 
