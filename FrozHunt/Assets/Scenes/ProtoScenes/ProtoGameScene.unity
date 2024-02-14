@@ -2029,6 +2029,10 @@ PrefabInstance:
       propertyPath: m_CardInfo
       value: 
       objectReference: {fileID: 11400000, guid: 1b6f6ba72f1ca144faaedd79e54f905d, type: 2}
+    - target: {fileID: 379295639152316696, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
+      propertyPath: m_card
+      value: 
+      objectReference: {fileID: 1662120247}
     - target: {fileID: 2191627294936344521, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
       propertyPath: m_animationSpeed
       value: 2000
@@ -2223,7 +2227,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 292902862776505602, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
   m_PrefabInstance: {fileID: 1046323419}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1662120247}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d33cf518f751004eb3a8891ab6b07f8, type: 3}
@@ -3424,6 +3428,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645671855}
   m_CullTransparentMesh: 1
+--- !u!1 &1662120247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4451963801897301524, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
+  m_PrefabInstance: {fileID: 1046323419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1668174965 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5171600121049961873, guid: d97082f099d375c42aa4de45f13e4acc, type: 3}

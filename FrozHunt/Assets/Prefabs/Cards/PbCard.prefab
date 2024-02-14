@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 7889515503493631769}
   - component: {fileID: 448451546599867374}
   - component: {fileID: 2551716848792648484}
+  - component: {fileID: 8557860850101632763}
   m_Layer: 0
   m_Name: PbCard
   m_TagString: Untagged
@@ -463,6 +464,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_startMovePosition: {x: -900, y: 800}
+  m_animationDrawSpeed: 2
 --- !u!114 &2551716848792648484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,3 +513,48 @@ MonoBehaviour:
   m_card: {fileID: 4848208697342805524}
   m_maxScale: 2
   m_maxTime: 0.7
+--- !u!114 &8557860850101632763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4848208697342805524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2551716848792648484}
+          m_TargetAssemblyTypeName: SC_CardAnim, Assembly-CSharp
+          m_MethodName: ZoomUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2551716848792648484}
+          m_TargetAssemblyTypeName: SC_CardAnim, Assembly-CSharp
+          m_MethodName: ZoomDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
