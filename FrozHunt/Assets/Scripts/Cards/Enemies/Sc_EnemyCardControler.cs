@@ -95,6 +95,7 @@ public class Sc_EnemyCardControler : Sc_PbCard
             m_Health = m_maxHealth;
         }
         m_HPTxt.text = m_Health.ToString();
+        m_heartAnim.m_CurrentLife = m_Health;
     }
 
     public int Damage
