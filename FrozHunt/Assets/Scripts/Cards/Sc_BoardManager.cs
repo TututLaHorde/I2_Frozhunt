@@ -34,6 +34,8 @@ public class Sc_BoardManager : MonoBehaviour
     [Header("Draw Animation")]
     [SerializeField] private float m_delayBeteweenCards = .5f;
 
+    private bool m_canClickDice = true;
+
     private void Awake()
     {
         Instance = this;
@@ -51,12 +53,13 @@ public class Sc_BoardManager : MonoBehaviour
 
     public void GetCard()
     {
-        if (HasCardInBoard())
+        if (HasCardInBoard() || !m_canClickDice)
             return;
 
         int r = 0;
         float t = m_dice.ThrowDice(ref r);
         StartCoroutine(GetCardAfterTimer(t *1.4f, r));
+        m_canClickDice = false;
 
         Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Selection);
         Sc_GameManager.Instance.AddTurn();
@@ -65,6 +68,7 @@ public class Sc_BoardManager : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
         StartCoroutine(GetCard(r));
+        m_canClickDice = true;
     }
     public IEnumerator GetCard(int n)
     {
