@@ -1258,6 +1258,7 @@ MonoBehaviour:
   - {fileID: 909608299}
   - {fileID: 1683528064}
   m_dice: {fileID: 1932342583}
+  m_diceAnimation: {fileID: 1932342587}
   m_bonusCardNumber: 0
   m_maxBonusCard: 3
   m_distBetweenBonusCards: 100
@@ -2674,29 +2675,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1821474258}
     m_Modifications:
-    - target: {fileID: 2803465491798184157, guid: 433201e73c25f60448b00419069f6746, type: 3}
-      propertyPath: m_text
-      value: Throw Dice To Draw Events
-      objectReference: {fileID: 0}
-    - target: {fileID: 2803465491798184157, guid: 433201e73c25f60448b00419069f6746, type: 3}
-      propertyPath: m_fontSize
-      value: 60.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2803465491798184157, guid: 433201e73c25f60448b00419069f6746, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 895218dcf1ff6d7428d2359b074f08c3, type: 2}
-    - target: {fileID: 2803465491798184157, guid: 433201e73c25f60448b00419069f6746, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 60.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2803465491798184157, guid: 433201e73c25f60448b00419069f6746, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 4100245144722411584, guid: 895218dcf1ff6d7428d2359b074f08c3, type: 2}
-    - target: {fileID: 2803465491798184157, guid: 433201e73c25f60448b00419069f6746, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
+    - target: {fileID: 2557933823942892951, guid: 433201e73c25f60448b00419069f6746, type: 3}
+      propertyPath: m_CurrentLife
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3445962731103587534, guid: 433201e73c25f60448b00419069f6746, type: 3}
       propertyPath: m_Pivot.x
@@ -2778,70 +2759,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4790443406119119384, guid: 433201e73c25f60448b00419069f6746, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4790443406119119384, guid: 433201e73c25f60448b00419069f6746, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f604b405e3b220345b215474293f242b, type: 3}
-    - target: {fileID: 4790443406119119384, guid: 433201e73c25f60448b00419069f6746, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4823455944185890916, guid: 433201e73c25f60448b00419069f6746, type: 3}
-      propertyPath: m_EventDraw
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4823455944185890916, guid: 433201e73c25f60448b00419069f6746, type: 3}
-      propertyPath: m_EventAttack
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4823455944185890916, guid: 433201e73c25f60448b00419069f6746, type: 3}
-      propertyPath: m_MovementInX
-      value: -500
-      objectReference: {fileID: 0}
     - target: {fileID: 5517532510993503174, guid: 433201e73c25f60448b00419069f6746, type: 3}
       propertyPath: m_Name
       value: Dice3Panel
       objectReference: {fileID: 0}
     - target: {fileID: 5925640934858131463, guid: 433201e73c25f60448b00419069f6746, type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
-      objectReference: {fileID: 1216944901}
-    - target: {fileID: 5925640934858131463, guid: 433201e73c25f60448b00419069f6746, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 563381442}
-    - target: {fileID: 5925640934858131463, guid: 433201e73c25f60448b00419069f6746, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GetCard
-      objectReference: {fileID: 0}
-    - target: {fileID: 6625222827782719357, guid: 433201e73c25f60448b00419069f6746, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 6625222827782719357, guid: 433201e73c25f60448b00419069f6746, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 6625222827782719357, guid: 433201e73c25f60448b00419069f6746, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6625222827782719357, guid: 433201e73c25f60448b00419069f6746, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6625222827782719357, guid: 433201e73c25f60448b00419069f6746, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6625222827782719357, guid: 433201e73c25f60448b00419069f6746, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 80.68
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2852,17 +2777,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3445962731103587534, guid: 433201e73c25f60448b00419069f6746, type: 3}
   m_PrefabInstance: {fileID: 1216944899}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1216944901 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5151393301437025197, guid: 433201e73c25f60448b00419069f6746, type: 3}
-  m_PrefabInstance: {fileID: 1216944899}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1268104894 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5312985332194062066, guid: ada9938ec5e28d04b83558aab0eae954, type: 3}
@@ -3757,6 +3671,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c018a0a05317c149bea90d01f266de6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1932342587 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2557933823942892951, guid: 433201e73c25f60448b00419069f6746, type: 3}
+  m_PrefabInstance: {fileID: 1216944899}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c00ba1872434b4b898f959cce1594c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &2005109228 stripped
