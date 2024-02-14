@@ -278,7 +278,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quel joueur souhaitez vous soignez de 5PV ?
+  m_text: Which player would you like to heal for 5VP?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f5a75e8537fedce4abf370b76398ccb1, type: 2}
   m_sharedMaterial: {fileID: -4215435526767948962, guid: f5a75e8537fedce4abf370b76398ccb1, type: 2}
@@ -379,11 +379,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6289129769417363286}
-  m_Father: {fileID: 3133112834936319882}
+  m_Father: {fileID: 1256142563359711429}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50.000015, y: -145.65793}
   m_SizeDelta: {x: 116.7865, y: 56.4222}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3255412033739088790
@@ -589,7 +589,6 @@ RectTransform:
   m_Children:
   - {fileID: 2722799733007415131}
   - {fileID: 4201588786723841842}
-  - {fileID: 6043193811095623431}
   m_Father: {fileID: 1256142563359711429}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -651,7 +650,7 @@ MonoBehaviour:
     m_Left: 25
     m_Right: 25
     m_Top: 25
-    m_Bottom: 20
+    m_Bottom: 100
   m_ChildAlignment: 1
   m_Spacing: 10
   m_ChildForceExpandWidth: 1
@@ -705,6 +704,7 @@ RectTransform:
   m_Children:
   - {fileID: 5289690675330173828}
   - {fileID: 3133112834936319882}
+  - {fileID: 6043193811095623431}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

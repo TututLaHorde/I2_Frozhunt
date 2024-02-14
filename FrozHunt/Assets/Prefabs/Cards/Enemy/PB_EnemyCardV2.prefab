@@ -931,7 +931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CardToAnim: {fileID: 4245674522190709122}
-  m_PosYForLoadAttack: 200
+  m_PosYForLoadAttack: -200
   m_EnemyPosition: {fileID: 0}
   m_anim: 0
   m_state: 0
