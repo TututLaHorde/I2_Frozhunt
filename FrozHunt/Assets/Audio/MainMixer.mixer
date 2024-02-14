@@ -63,6 +63,8 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: d3805db3ed37ed949a91d1ebe5ebb1d5
+    name: Ambient
   - guid: 659b4c1233aefc041a23191bf0fcf9f2
     name: Master
   - guid: 68d97bd0e5bf52142b04465ddd46e666
@@ -74,6 +76,7 @@ AudioMixerController:
     - 6a6d7e5557c162d45bf53c653c128249
     - 5f2fcc9b185e79c449fe264395435b09
     - 7df4bfeb189816141ad169690d8aa16f
+    - a890b6085b6e16040bd1f299b29f1121
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -88,6 +91,7 @@ AudioMixerGroupController:
   m_GroupID: 6a6d7e5557c162d45bf53c653c128249
   m_Children:
   - {fileID: 235344462697223414}
+  - {fileID: 7175362702612009699}
   - {fileID: -2779776091172415823}
   m_Volume: 659b4c1233aefc041a23191bf0fcf9f2
   m_Pitch: 40c06bf3ed07d6d4a8c1da352e27dc38
@@ -122,7 +126,7 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 6aace4e2f8aadd048ba45cea9df1011f
   m_FloatValues:
-    68d97bd0e5bf52142b04465ddd46e666: -19.658215
+    68d97bd0e5bf52142b04465ddd46e666: -0.05730971
   m_TransitionOverrides: {}
 --- !u!243 &235344462697223414
 AudioMixerGroupController:
@@ -139,6 +143,39 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: -6926751062409116749}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &6941051030049593083
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 7f9f11c958cb5d94d89203c5890ef936
+  m_EffectName: Attenuation
+  m_MixLevel: 3b11c2596bd20c14c9451a8f2e1f70c4
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &7175362702612009699
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ambient
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: a890b6085b6e16040bd1f299b29f1121
+  m_Children: []
+  m_Volume: d3805db3ed37ed949a91d1ebe5ebb1d5
+  m_Pitch: e0e36b4c3a18dd94c87cce81f5d8a188
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 6941051030049593083}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
