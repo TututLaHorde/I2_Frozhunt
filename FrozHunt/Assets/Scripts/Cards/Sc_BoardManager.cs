@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
@@ -152,17 +153,21 @@ public class Sc_BoardManager : MonoBehaviour
             if (item.v.transform.childCount < 1)
                 continue;
 
-            Debug.Log("Remove this card");
             GameObject g = item.v.transform.GetChild(0).gameObject;
             if (g)
             {
+                Sc_PbCard pbCard = g.GetComponent<Sc_PbCard>();
+                if (!pbCard.enabled)
+                    continue;
+
                 g.GetComponent<MonoBehaviour>().StopAllCoroutines();
-                
+
                 if (m_boardCards.Count > 0)
                 {
                     m_discardDeck.Add(m_boardCards[0]);
                     m_boardCards.RemoveAt(0);
                 }
+                pbCard.enabled = false;
 
                 DiscardCardAnimation(g, () =>
                 {
@@ -181,12 +186,18 @@ public class Sc_BoardManager : MonoBehaviour
             GameObject g = item.v.transform.GetChild(0).gameObject;
             if (g)
             {
+                Sc_PbCard pbCard = g.GetComponent<Sc_PbCard>();
+                if (!pbCard.enabled)
+                    continue;
+
                 g.GetComponent<MonoBehaviour>().StopAllCoroutines();
 
                 if (!item.i.Equals(index))
                     m_discardDeck.Add(m_boardCards[0]);
 
                 m_boardCards.RemoveAt(0);
+                pbCard.enabled = false;
+
                 DiscardCardAnimation(g, () =>
                 {
                     Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
@@ -204,10 +215,16 @@ public class Sc_BoardManager : MonoBehaviour
             GameObject g = item.v.transform.GetChild(0).gameObject;
             if (g && item.i != index)
             {
+                Sc_PbCard pbCard = g.GetComponent<Sc_PbCard>();
+                if (!pbCard.enabled)
+                    continue;
+
                 g.GetComponent<MonoBehaviour>().StopAllCoroutines();
 
                 m_discardDeck.Add(m_boardCards[0]);
                 m_boardCards.RemoveAt(0);
+                pbCard.enabled = false;
+
                 DiscardCardAnimation(g, () =>
                 {
                     Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
@@ -221,16 +238,24 @@ public class Sc_BoardManager : MonoBehaviour
 
         if (childCount > 1)
         {
-            GameObject e = m_bonusCardPrefabEmplacements[i].transform.GetChild(1).gameObject;
+            GameObject e    = m_bonusCardPrefabEmplacements[i].transform.GetChild(1).gameObject;
+            GameObject tuto = m_bonusCardPrefabEmplacements[i].transform.GetChild(0).gameObject;
+
             Sc_HandCard handCard = e.GetComponent<Sc_HandCard>();
+            Sc_HandCardAnim handCardAnimator = m_bonusCardPrefabEmplacements[i].GetComponent<Sc_HandCardAnim>();
 
             m_discardDeck.Add(m_effectCard[i]);
             m_effectCard.RemoveAt(i);
             m_bonusCardNumber--;
 
+            tuto.SetActive(false);
+            handCardAnimator.m_CanUpCard = false;
+            handCardAnimator.DownCardAnimation();
+
             DiscardCardAnimation(e, () =>
             {
                 Invoke(nameof(ReparentBonusCard), Time.deltaTime * 3f);
+                handCardAnimator.m_CanUpCard = false;
             });
         }
     }
