@@ -155,10 +155,14 @@ public class Sc_GameManager : MonoBehaviour
     {
         if(m_currentFood < m_foodMax)
         {
+            SC_MusicManager.Instance.windStop();
+            SC_MusicManager.Instance.menuMusic(MenuMusic.gameover);
             SceneManager.LoadScene("DefeatScene");
         }
         else
         {
+            SC_MusicManager.Instance.windStop();
+            SC_MusicManager.Instance.menuMusic(MenuMusic.victoire);
             SceneManager.LoadScene("VictoryScene");
         }
     }
