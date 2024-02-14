@@ -77,10 +77,10 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
                         StartCoroutine(AnimLoadAttack());
                         break;
                     case 1:
-                        StartCoroutine(AnimAttackEnemy(onAnimEnd));
+                        StartCoroutine(AnimAttackEnemy(null));
                         break;
                     case 2:
-                        StartCoroutine(AnimReturnToInitialPos());
+                        StartCoroutine(AnimReturnToInitialPos(onAnimEnd));
                         break;
                     default: m_anim = false; break;
                 }
@@ -136,7 +136,7 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
         yield return null;
     }
 
-    public IEnumerator AnimReturnToInitialPos()
+    public IEnumerator AnimReturnToInitialPos(System.Action onAnimEnd)
     {
         time = Time.time;
 
@@ -151,6 +151,9 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
 
         m_state++;
         m_canContinue = true;
+        m_transformCard.localPosition = m_FirstPosition;
+
+        onAnimEnd?.Invoke();
 
         yield return null;
     }

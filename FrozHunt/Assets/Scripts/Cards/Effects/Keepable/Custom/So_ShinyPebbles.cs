@@ -17,7 +17,7 @@ public class So_ShinyPebbles : So_Keepable
         if (canSet)
         {
             Sc_BoardManager.Instance.InstantiateBonusCard(this);
-            Sc_BoardManager.Instance.RemoveAllPrefabCardWithDiscardIndex(c.m_indexPosition);
+            Destroy(owner);
         }
         else
         {
