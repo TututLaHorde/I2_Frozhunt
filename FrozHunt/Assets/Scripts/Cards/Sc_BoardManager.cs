@@ -277,6 +277,7 @@ public class Sc_BoardManager : MonoBehaviour
             tuto.SetActive(false);
             handCardAnimator.m_CanUpCard = false;
             handCardAnimator.DownCardAnimation();
+            handCard.m_useActive = false;
 
             DiscardCardAnimation(e, () =>
             {
