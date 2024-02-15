@@ -1237,6 +1237,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0d94b1595a2e09e499872afb712e8e65, type: 2}
   - {fileID: 11400000, guid: 998285db9fdec4548b74383ffe19eee2, type: 2}
   - {fileID: 11400000, guid: 998285db9fdec4548b74383ffe19eee2, type: 2}
+  - {fileID: 11400000, guid: 52fe09a0c521a3049bced404633c6f5b, type: 2}
+  - {fileID: 11400000, guid: 52fe09a0c521a3049bced404633c6f5b, type: 2}
+  - {fileID: 11400000, guid: 52fe09a0c521a3049bced404633c6f5b, type: 2}
+  - {fileID: 11400000, guid: d81b0683e1f855e42a9eec21561156ce, type: 2}
+  - {fileID: 11400000, guid: d81b0683e1f855e42a9eec21561156ce, type: 2}
   m_boardCards: []
   m_discardDeck: []
   m_effectCard: []
