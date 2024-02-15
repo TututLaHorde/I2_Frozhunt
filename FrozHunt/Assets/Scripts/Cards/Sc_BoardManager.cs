@@ -274,10 +274,7 @@ public class Sc_BoardManager : MonoBehaviour
 
             DiscardCardAnimation(e, () =>
             {
-<<<<<<< Updated upstream
-                Invoke(nameof(ReparentBonusCard), Time.deltaTime * 3f);
                 handCardAnimator.m_CanUpCard = false;
-=======
                 m_discardDeck.Add(m_effectCard[i]);
                 m_effectCard.RemoveAt(i);
                 m_bonusCardNumber--;
@@ -288,7 +285,6 @@ public class Sc_BoardManager : MonoBehaviour
                 Invoke(nameof(ReparentBonusCard), Time.deltaTime * 3f);
 
                 m_canDiscardBonusCard = true;
->>>>>>> Stashed changes
             });
         }
         else
