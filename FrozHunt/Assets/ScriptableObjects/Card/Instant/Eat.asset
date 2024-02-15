@@ -15,10 +15,12 @@ MonoBehaviour:
   m_cardTag: default
   m_name: 
   m_description: 
-  m_icon: {fileID: 0}
-  m_prebafInBoard: {fileID: 0}
+  m_icon: {fileID: 2800000, guid: 54e10bab23ce07845b4aad58d6252ad2, type: 3}
+  m_prebafInBoard: {fileID: 4848208697342805524, guid: 3fbae2e45ff30a84b8b8a6c85cccbd6f, type: 3}
   m_effectType: 
   m_canDiscardCard: 1
   m_destroyOnUse: 1
   m_enableButton: 1
+  m_numberOfDamage: 2
+  m_lostFood: -2
   m_useFoodPerPlayer: -1

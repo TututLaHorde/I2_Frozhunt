@@ -205,6 +205,7 @@ public class Sc_FightManager : MonoBehaviour
                     m_damage  = (m_damage + m_PlayerAttaque) <= 0 ? 0 : m_damage + m_PlayerAttaque;
                 m_Enemy.TakeDamage(m_damage);
 
+                ResetPlayerMalus();
                 m_damage = 0;
                 m_isCrit = false;
             });
@@ -222,7 +223,6 @@ public class Sc_FightManager : MonoBehaviour
         Sc_TutorialManager.Instance.m_confirmAttackWindow.SetActive(Sc_TutorialManager.Instance.m_isFirstFight);
         m_pop_up.GetComponent<Sc_MoveOnX>().ShowObject();
         m_IsPlayerAttack = false;
-        ResetPlayerMalus();
     }
 
     private void AllPlayerCanAttack()

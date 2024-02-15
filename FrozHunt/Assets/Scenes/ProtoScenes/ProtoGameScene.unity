@@ -2878,22 +2878,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BonusCard
       objectReference: {fileID: 0}
-    - target: {fileID: 4350435689958378582, guid: 07f8311e7fe58f442a85a590caaec21c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350435689958378582, guid: 07f8311e7fe58f442a85a590caaec21c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350435689958378582, guid: 07f8311e7fe58f442a85a590caaec21c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350435689958378582, guid: 07f8311e7fe58f442a85a590caaec21c, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4362494643221371169, guid: 07f8311e7fe58f442a85a590caaec21c, type: 3}
       propertyPath: m_upPositionValue
       value: 300
