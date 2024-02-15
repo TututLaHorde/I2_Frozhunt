@@ -327,6 +327,7 @@ public class Sc_BoardManager : MonoBehaviour
                     Sc_HandCard handCard = item.v.GetComponent<Sc_HandCard>();
 
                     handCard.m_effectCard = nextHandCard.m_effectCard;
+                    handCard.m_useActive = nextHandCard.m_useActive;
                     nextHandCard.m_effectCard = null;
                     move.SetParent(item.v.transform);
                     t.localPosition = Vector3.zero;
