@@ -99,7 +99,7 @@ public class Sc_GameManager : MonoBehaviour
         }
     }
 
-    private void SetPlayerAttackButton(bool isInteractible)
+    public void SetPlayerAttackButton(bool isInteractible)
     {
         foreach(var b in m_playerButton)
         {

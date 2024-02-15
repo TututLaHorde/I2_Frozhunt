@@ -48,13 +48,6 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
         m_FirstPosition = m_transformCard.localPosition;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyUp(KeyCode.R)) 
-        { StartCoroutine(AnimAttack(null));}
-    }
-
     public IEnumerator AnimAttack(System.Action onAnimEnd)
     {
         if(m_cardAnimHand != null)
