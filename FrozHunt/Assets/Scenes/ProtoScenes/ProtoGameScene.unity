@@ -959,7 +959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_pauseMenu: {fileID: 798760344}
-  m_settingsMenu: {fileID: 0}
+  m_settingsMenu: {fileID: 280054188}
 --- !u!114 &522225552
 MonoBehaviour:
   m_ObjectHideFlags: 0
