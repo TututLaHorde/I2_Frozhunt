@@ -94,6 +94,8 @@ public class Sc_PlayerCardControler : MonoBehaviour
 
     private void Dead()
     {
+        SC_MusicManager.Instance.windStop();
+        SC_MusicManager.Instance.menuMusic(MenuMusic.gameover);
         Debug.Log("Player is Dead, You Loose");
         SceneManager.LoadScene("DefeatScene");
     }
