@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class FleeCompetenceEnemy : Sc_enemyCompetence
 {
-    public override void Competence() { Debug.Log("Enemy Flee"); Sc_FightManager.Instance.EndFight(); }
+    public override void Competence(System.Action onAnimEnd) 
+    { 
+        Debug.Log("Enemy Flee");
+        Sc_FightManager.Instance.EndFight();
+        onAnimEnd?.Invoke();
+    }
 }

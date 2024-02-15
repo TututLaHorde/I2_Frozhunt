@@ -178,14 +178,14 @@ public class Sc_FightManager : MonoBehaviour
     {
         StartCoroutine(m_lastPlayer.gameObject.GetComponent<Sc_AnimAttackPlayer>().AnimAttack(onAnimationEnd));
     }
-    public void MakeEnemyAttackAnimation()
+    public void MakeEnemyAttackAnimation(System.Action onAnimationEnd)
     {
         Sc_AnimAttackPlayer temp = m_Enemy.gameObject.GetComponent<Sc_AnimAttackPlayer>();
         temp.m_EnemyPosition = m_lastPlayer.gameObject;
         temp.m_ShakeObject = GameObject.FindGameObjectWithTag("Shake");
         temp.m_CardToAnim = m_Enemy.gameObject;
         temp.SetFirstPos(m_Enemy.gameObject.transform.localPosition);
-        StartCoroutine(temp.AnimAttack(null));
+        StartCoroutine(temp.AnimAttack(onAnimationEnd));
     }
 
     public void TriggerEffect()
@@ -210,10 +210,12 @@ public class Sc_FightManager : MonoBehaviour
                 m_isCrit = false;
             });
         }
-        else 
+        else
         {
-            m_Enemy.Competence();
-            m_lastPlayer.TakeDamage(m_Enemy.Damage);
+            m_Enemy.Competence(() =>
+            {
+                m_lastPlayer.TakeDamage(m_Enemy.Damage);
+            });
         }
         
         m_canAttack = true;

@@ -63,14 +63,14 @@ public class Sc_BoardManager : MonoBehaviour
 
         m_canClickDice = false;
         m_diceAnimation.m_CurrentLife = m_diceAnimation.m_MaxLife;
+        m_diceAnimation.transform.localScale = Vector3.one;
     }
     private IEnumerator GetCardAfterTimer(float t, int r)
     {
         yield return new WaitForSeconds(t);
         StartCoroutine(GetCard(r));
 
-        m_canClickDice = true;
-        m_diceAnimation.m_CurrentLife = 14;
+        Invoke(nameof(ReplayDiceHeartAnimation), 1f);
     }
     public IEnumerator GetCard(int n)
     {
@@ -105,6 +105,12 @@ public class Sc_BoardManager : MonoBehaviour
         Sc_GameManager.Instance.AddTurn();
         Sc_TutorialManager.Instance.ShowEventTuto(true);
 
+    }
+
+    private void ReplayDiceHeartAnimation()
+    {
+        m_canClickDice = true;
+        m_diceAnimation.m_CurrentLife = 14;
     }
     
     public void RotateBoardCard()
@@ -274,7 +280,7 @@ public class Sc_BoardManager : MonoBehaviour
             DiscardCardAnimation(e, () =>
             {
                 Invoke(nameof(ReparentBonusCard), Time.deltaTime * 3f);
-                handCardAnimator.m_CanUpCard = false;
+                handCardAnimator.m_CanUpCard = true;
             });
         }
     }

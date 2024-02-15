@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -155,9 +156,9 @@ public class Sc_EnemyCardControler : Sc_PbCard
         set { m_stun = value; }
     }
 
-    public void Competence()
+    public void Competence(Action onEndCompetence)
     {
-        m_competence.Competence();
+        m_competence.Competence(onEndCompetence);
     }
 
     private void SetMyCompetence() // Add the component with the good critical fonction  
