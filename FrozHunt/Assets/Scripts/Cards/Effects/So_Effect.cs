@@ -11,6 +11,7 @@ public class So_Effect : So_Card
     public bool m_canDiscardCard = true;
     public bool m_destroyOnUse = true;
     public bool m_enableButton = true;
+    public bool m_forceAddHand = false;
 
     public virtual void UseEffect() { }
 }
