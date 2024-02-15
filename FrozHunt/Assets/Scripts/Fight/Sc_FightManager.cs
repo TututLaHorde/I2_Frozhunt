@@ -276,7 +276,10 @@ public class Sc_FightManager : MonoBehaviour
 
     public void EndFight()
     {
-        SC_MusicManager.Instance.musicStop();
+        if (Sc_GameManager.Instance.m_currentFood < Sc_GameManager.Instance.m_foodMax)
+        {
+            SC_MusicManager.Instance.musicStop();
+        }  
         Sc_BoardManager.Instance.SetActiveSpecialHandCardWithTag(false, "DesactiveOnEndFight");
         m_infoDicePopUp.SetPopUps(false);
         AllPlayerCanAttack();
