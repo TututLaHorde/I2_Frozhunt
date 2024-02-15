@@ -332,6 +332,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98829402}
   m_CullTransparentMesh: 1
+--- !u!114 &105659156 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 108286899210976292, guid: c87041d50854ede4583bb9469a9b5afa, type: 3}
+  m_PrefabInstance: {fileID: 1622147562}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &317760762
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,6 +901,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899980881}
   m_CullTransparentMesh: 1
+--- !u!114 &934825510 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8536004756250087096, guid: c87041d50854ede4583bb9469a9b5afa, type: 3}
+  m_PrefabInstance: {fileID: 1622147562}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1087497500 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8923517400491474691, guid: c87041d50854ede4583bb9469a9b5afa, type: 3}
+  m_PrefabInstance: {fileID: 1622147562}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1109888189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,7 +1127,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8399723839553595, guid: c87041d50854ede4583bb9469a9b5afa, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.85714287
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8399723839553595, guid: c87041d50854ede4583bb9469a9b5afa, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1102,7 +1135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8399723839553595, guid: c87041d50854ede4583bb9469a9b5afa, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.85714287
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1791953387492112514, guid: c87041d50854ede4583bb9469a9b5afa, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1214,7 +1247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5509360570605260761, guid: c87041d50854ede4583bb9469a9b5afa, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.85714287
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5509360570605260761, guid: c87041d50854ede4583bb9469a9b5afa, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1252,6 +1285,18 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7444342168062346697, guid: c87041d50854ede4583bb9469a9b5afa, type: 3}
+      propertyPath: SliderMusic
+      value: 
+      objectReference: {fileID: 934825510}
+    - target: {fileID: 7444342168062346697, guid: c87041d50854ede4583bb9469a9b5afa, type: 3}
+      propertyPath: SliderAmbient
+      value: 
+      objectReference: {fileID: 105659156}
+    - target: {fileID: 7444342168062346697, guid: c87041d50854ede4583bb9469a9b5afa, type: 3}
+      propertyPath: SliderMasters
+      value: 
+      objectReference: {fileID: 1087497500}
     - target: {fileID: 7932669908289735774, guid: c87041d50854ede4583bb9469a9b5afa, type: 3}
       propertyPath: m_Name
       value: Settings
