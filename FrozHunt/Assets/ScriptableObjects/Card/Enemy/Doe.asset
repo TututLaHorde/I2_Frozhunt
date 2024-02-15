@@ -22,5 +22,5 @@ MonoBehaviour:
   AttackDamage: 0
   MeatDrop: 2
   Power: 5
-  CardArt: {fileID: 21300000, guid: 8919e8f122b92e840ba493e6d4fb56f5, type: 3}
+  CardArt: {fileID: 21300000, guid: a8a304099f730b4468d46c2dc17501dd, type: 3}
   clip: {fileID: 8300000, guid: 7b04d54c9c379ba40beb2be864638ce4, type: 3}
