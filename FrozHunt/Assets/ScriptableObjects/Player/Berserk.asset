@@ -16,6 +16,6 @@ MonoBehaviour:
   life: 20
   damage: 7
   cardArt: {fileID: 21300000, guid: 7a648b93d84ffe349a5155aadf7162c3, type: 3}
-  BigCardArt: {fileID: 0}
+  BigCardArt: {fileID: 21300000, guid: e312f6a263cf8cd4996aea08e67c0183, type: 3}
   description: Additionally inflicts this damage taken
   attackName: Boost

@@ -16,6 +16,6 @@ MonoBehaviour:
   life: 20
   damage: 6
   cardArt: {fileID: 21300000, guid: a63d7514bf4183c4fbcbadf4f78b9aea, type: 3}
-  BigCardArt: {fileID: 21300000, guid: 9d240902b6b18ff48bd1df0c401043d5, type: 3}
+  BigCardArt: {fileID: 21300000, guid: d2ee50a63af8ff243b8bb474db0cd397, type: 3}
   description: Stun ennemy for the next attack.
   attackName: Stun

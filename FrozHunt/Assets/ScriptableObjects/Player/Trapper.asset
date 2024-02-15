@@ -16,7 +16,7 @@ MonoBehaviour:
   life: 20
   damage: 6
   cardArt: {fileID: 21300000, guid: d571842a51010ee438eac9e00a8add71, type: 3}
-  BigCardArt: {fileID: 0}
+  BigCardArt: {fileID: 21300000, guid: 59ce7937c46aaf44885df102dc229f25, type: 3}
   description: Loses 1 power but increases the enemy's attack by 1 until the end
     of the fight
   attackName: Surprise
