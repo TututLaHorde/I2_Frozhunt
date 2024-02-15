@@ -22,6 +22,12 @@ public class Sc_PbCard : MonoBehaviour
             Sc_BoardManager.Instance.RemoveAllPrefabCardWithout(m_indexPosition);
             Sc_TutorialManager.Instance.ShowEventTuto(false);
             StartCoroutine(UseCardAfterTimer());
+
+            So_Keepable k = m_card as So_Keepable;
+            if (k)
+                if (k.m_forceAddHand)
+                    return;
+
             m_canClick = false;
         }
     }

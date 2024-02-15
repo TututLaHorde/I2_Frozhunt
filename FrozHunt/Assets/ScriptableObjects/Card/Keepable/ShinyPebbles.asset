@@ -22,3 +22,4 @@ MonoBehaviour:
   m_canDiscardCard: 0
   m_destroyOnUse: 0
   m_enableButton: 0
+  m_forceAddHand: 1
