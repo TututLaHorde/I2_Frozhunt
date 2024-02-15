@@ -209,6 +209,7 @@ public class Sc_FightManager : MonoBehaviour
                 ResetPlayerMalus();
                 m_damage = 0;
                 m_isCrit = false;
+                m_canAttack = true;
             });
         }
         else
@@ -216,10 +217,10 @@ public class Sc_FightManager : MonoBehaviour
             m_Enemy.Competence(() =>
             {
                 m_lastPlayer.TakeDamage(m_Enemy.Damage);
+                m_canAttack = true;
             });
         }
         
-        m_canAttack = true;
         m_enragedPlayerBonus = 0;
         m_infoDicePopUp.SetPopUps(false);
         Sc_TutorialManager.Instance.m_isFirstFight = false;
@@ -279,6 +280,7 @@ public class Sc_FightManager : MonoBehaviour
         Sc_BoardManager.Instance.SetActiveSpecialHandCardWithTag(false, "DesactiveOnEndFight");
         m_infoDicePopUp.SetPopUps(false);
         AllPlayerCanAttack();
+        Sc_GameManager.Instance.SetPlayerAttackButton(false);
         Debug.Log("END OF THE FIGHT");
         Invoke(nameof(NextPhaseDraw), 1.2f);
         Sc_BoardManager.Instance.RemoveAllPrefabCard();
