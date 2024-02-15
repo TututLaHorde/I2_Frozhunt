@@ -30,13 +30,11 @@ public class SC_MusicManager : MonoBehaviour
     public static SC_MusicManager Instance;
     public void ChangeMusic(AudioClip clip)
     {
-        StopAllCoroutines();
         StartCoroutine(AudioFade(m_musicSource, clip));
     }
 
     public void menuMusic(MenuMusic menumusic)
     {
-        StopAllCoroutines();
         StartCoroutine(AudioFade(m_musicSource, m_menuClip[menumusic.GetHashCode()]));
     }
 
@@ -52,7 +50,6 @@ public class SC_MusicManager : MonoBehaviour
 
     public void ChangeAmbient(WindEffect windEffect)
     {
-        StopAllCoroutines();
         StartCoroutine(AudioFade(m_ambientSource, m_ambientClip[windEffect.GetHashCode()]));
     }
 
@@ -62,7 +59,6 @@ public class SC_MusicManager : MonoBehaviour
         print(percent);
         if (percent <= 35)
         {
-            StopAllCoroutines();
             StartCoroutine(AudioFade(m_ambientSource, m_ambientClip[windEffect.GetHashCode()]));
         }
     }
@@ -79,7 +75,6 @@ public class SC_MusicManager : MonoBehaviour
         }
         if (highhealth >= Sc_GameManager.Instance.playerList.Count)
         {
-            StopAllCoroutines();
             StartCoroutine(AudioFade(m_ambientSource, m_ambientClip[windEffect.GetHashCode()]));
         }
 
