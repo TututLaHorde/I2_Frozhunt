@@ -53,8 +53,9 @@ public class Sc_FightManager : MonoBehaviour
         SC_MusicManager.Instance.ChangeMusic(enemy.m_CardInfo.clip);
         Sc_TutorialManager.Instance.m_AttackSelectTuto.SetActive(Sc_TutorialManager.Instance.m_isFirstFight);
 
-        SetEffectOnEnemy();
+        Sc_BoardManager.Instance.SetActiveSpecialHandCardWithTag(true, "ActiveOnStartFight");
 
+        SetEffectOnEnemy();
     }
 
     private void SetEffectOnEnemy()
