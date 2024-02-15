@@ -128,12 +128,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c00ba1872434b4b898f959cce1594c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CurrentLife: 20
+  m_CurrentLife: 14
   m_MaxLife: 20
-  m_speedSlow: 1
-  m_speedNormal: 2
-  m_speedFast: 4
-  m_speedSuperFast: 8
+  m_speedSlow: 0.7
+  m_speedNormal: 0.7
+  m_speedFast: 0.7
+  m_speedSuperFast: 0.7
 --- !u!1 &2665388828652168398
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,5 +493,5 @@ MonoBehaviour:
   m_MovementInX: -500
   m_Speed: 2
   m_EventDraw: 0
-  m_EventSelection: 2
+  m_EventSelection: 1
   m_EventAttack: 1
