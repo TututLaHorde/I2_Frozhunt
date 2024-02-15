@@ -5,11 +5,12 @@ using UnityEngine;
 public class So_AnimalsAttack : So_Instant
 {
     public int m_numberOfDamage = 4;
+    public int m_lostFood = -2;
     public override void SelectedCard(GameObject owner)
     {
-        if (Sc_GameManager.Instance.GetFood() > 1)
+        if (Sc_GameManager.Instance.GetFood() >= Mathf.Abs(m_lostFood))
         {
-            Sc_GameManager.Instance.AddFood(-2);
+            Sc_GameManager.Instance.AddFood(m_lostFood);
         }
         else
         {
