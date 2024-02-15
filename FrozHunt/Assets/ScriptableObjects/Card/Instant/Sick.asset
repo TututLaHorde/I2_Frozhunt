@@ -21,4 +21,4 @@ MonoBehaviour:
   m_canDiscardCard: 1
   m_destroyOnUse: 1
   m_enableButton: 1
-  m_meatPlus: -2
+  m_meatPlus: -3

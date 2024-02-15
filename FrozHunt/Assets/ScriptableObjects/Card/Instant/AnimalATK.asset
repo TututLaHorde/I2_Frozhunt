@@ -23,3 +23,4 @@ MonoBehaviour:
   m_destroyOnUse: 1
   m_enableButton: 1
   m_numberOfDamage: 4
+  m_lostFood: -1

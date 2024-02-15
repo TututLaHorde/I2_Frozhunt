@@ -20,7 +20,7 @@ MonoBehaviour:
   EnemyCapacity: 1
   HealthPoint: 10
   AttackDamage: 3
-  MeatDrop: 2
+  MeatDrop: 3
   Power: 5
   CardArt: {fileID: 21300000, guid: 80ea4ff0cc2b68f4f8e9e530bb8af196, type: 3}
   clip: {fileID: 8300000, guid: 7b04d54c9c379ba40beb2be864638ce4, type: 3}

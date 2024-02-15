@@ -7,7 +7,6 @@ public class So_Eat : So_Instant
 {
     [Header("Eat")]
     public int m_numberOfDamage = 2;
-    public int m_lostFood = -2;
     public int m_useFoodPerPlayer = -1;
 
     public override void SelectedCard(GameObject owner)
