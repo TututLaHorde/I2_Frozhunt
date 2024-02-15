@@ -21,4 +21,4 @@ MonoBehaviour:
   m_effectType: 
   m_canDiscardCard: 0
   m_destroyOnUse: 0
-  m_enableButton: 1
+  m_enableButton: 0

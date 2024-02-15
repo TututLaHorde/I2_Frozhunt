@@ -16,6 +16,6 @@ MonoBehaviour:
   life: 20
   damage: 7
   cardArt: {fileID: 21300000, guid: e95d59be4bcfcba42b1894b1487e38e8, type: 3}
-  BigCardArt: {fileID: 0}
+  BigCardArt: {fileID: 21300000, guid: 7d42db6d0cdcf5945bcb83a6eb34619e, type: 3}
   description: The enemy loses 1 attack point (cannot go below 1 attack).
   attackName: Fire
