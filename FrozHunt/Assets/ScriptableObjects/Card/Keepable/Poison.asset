@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2520fb15404430245951cb1df96fb375, type: 3}
   m_Name: Poison
   m_EditorClassIdentifier: 
-  m_cardTag: default
+  m_cardTag: DesactiveOnEndFight.ActiveOnStartFight
   m_name: Poison
   m_description: Decreases enemy power by 1
   m_icon: {fileID: 2800000, guid: 452b783e3663a8a47b8e7c8b0d35a509, type: 3}
@@ -20,5 +20,5 @@ MonoBehaviour:
   m_effectType: 
   m_canDiscardCard: 1
   m_destroyOnUse: 1
-  m_enableButton: 1
+  m_enableButton: 0
   m_numberOfPowerToLower: 1

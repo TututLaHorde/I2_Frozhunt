@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ada8a3ece61cd0d48a9b39580b72effa, type: 3}
   m_Name: StoneThrow
   m_EditorClassIdentifier: 
-  m_cardTag: default
+  m_cardTag: DesactiveOnEndFight.ActiveOnStartFight
   m_name: 
   m_description: 
   m_icon: {fileID: 2800000, guid: 0dea9d748a79ad34eb9b2beeb738e0b0, type: 3}
@@ -20,5 +20,5 @@ MonoBehaviour:
   m_effectType: 
   m_canDiscardCard: 1
   m_destroyOnUse: 1
-  m_enableButton: 1
+  m_enableButton: 0
   m_damage: 3
