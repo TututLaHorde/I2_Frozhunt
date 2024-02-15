@@ -9,6 +9,7 @@ public class Sc_BoardManager : MonoBehaviour
     public static Sc_BoardManager Instance;
 
     public bool m_blendInStart = false;
+    [SerializeField] private bool m_canDiscardBonusCard = true;
 
     [Header("all cards")]
     public List<So_Card> m_deck;
@@ -259,6 +260,10 @@ public class Sc_BoardManager : MonoBehaviour
     }
     public void RemoveBonusCard(int i)
     {
+        if (!m_canDiscardBonusCard)
+            return;
+
+        m_canDiscardBonusCard = false;
         int childCount = m_bonusCardPrefabEmplacements[i].transform.childCount;
 
         if (childCount > 1)
@@ -266,12 +271,8 @@ public class Sc_BoardManager : MonoBehaviour
             GameObject e    = m_bonusCardPrefabEmplacements[i].transform.GetChild(1).gameObject;
             GameObject tuto = m_bonusCardPrefabEmplacements[i].transform.GetChild(0).gameObject;
 
-            Sc_HandCard handCard = e.GetComponent<Sc_HandCard>();
+            Sc_HandCard handCard = m_bonusCardPrefabEmplacements[i].GetComponent<Sc_HandCard>();
             Sc_HandCardAnim handCardAnimator = m_bonusCardPrefabEmplacements[i].GetComponent<Sc_HandCardAnim>();
-
-            m_discardDeck.Add(m_effectCard[i]);
-            m_effectCard.RemoveAt(i);
-            m_bonusCardNumber--;
 
             tuto.SetActive(false);
             handCardAnimator.m_CanUpCard = false;
@@ -279,9 +280,23 @@ public class Sc_BoardManager : MonoBehaviour
 
             DiscardCardAnimation(e, () =>
             {
-                Invoke(nameof(ReparentBonusCard), Time.deltaTime * 3f);
                 handCardAnimator.m_CanUpCard = true;
+
+                m_discardDeck.Add(m_effectCard[i]);
+                m_effectCard.RemoveAt(i);
+                m_bonusCardNumber--;
+
+                handCard.m_effectCard = null;
+                handCardAnimator.m_CanUpCard = true;
+
+                Invoke(nameof(ReparentBonusCard), Time.deltaTime * 3f);
+
+                m_canDiscardBonusCard = true;
             });
+        }
+        else
+        {
+            m_canDiscardBonusCard = true;
         }
     }
 
