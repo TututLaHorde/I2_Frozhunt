@@ -18,7 +18,7 @@ MonoBehaviour:
   m_icon: {fileID: 2800000, guid: f577e7952016622428d3e44019440a50, type: 3}
   m_prebafInBoard: {fileID: 4245674522190709122, guid: fd8166e772809a24897c444dde5c1756, type: 3}
   EnemyCapacity: 1
-  HealthPoint: 18
+  HealthPoint: 25
   AttackDamage: 6
   MeatDrop: 4
   Power: 6

@@ -21,4 +21,4 @@ MonoBehaviour:
   m_canDiscardCard: 1
   m_destroyOnUse: 1
   m_enableButton: 1
-  m_numberOfWinFood: 1
+  m_numberOfWinFood: 2
