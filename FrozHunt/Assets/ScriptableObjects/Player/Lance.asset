@@ -15,7 +15,7 @@ MonoBehaviour:
   playerCard: 2
   life: 20
   damage: 8
-  cardArt: {fileID: 21300000, guid: 4fcd81eeee02cca498c13b789c931a24, type: 3}
+  cardArt: {fileID: 21300000, guid: ce2a3eead417c0b45bf383aa102292b6, type: 3}
   BigCardArt: {fileID: 21300000, guid: 59b649f86ca9ba94a89c11d321a78766, type: 3}
   description: Doubles damage dealt.
   attackName: Critical hit
