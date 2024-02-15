@@ -275,14 +275,17 @@ public class Sc_FightManager : MonoBehaviour
         m_infoDicePopUp.SetPopUps(false);
         AllPlayerCanAttack();
         Debug.Log("END OF THE FIGHT");
-        Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Draw);
+        Invoke(nameof(NextPhaseDraw), 1.2f);
         Sc_BoardManager.Instance.RemoveAllPrefabCard();
         m_MeatPlus = 0;
         m_DamagePlus = 0;
         m_PowerPlus = 0;
         m_PlusLife = 0;
+    }
 
-        //m_infoDicePopUp.InitPopUp(false);
+    private void NextPhaseDraw()
+    {
+        Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Draw);
     }
 
     private void ResetPlayerMalus()
