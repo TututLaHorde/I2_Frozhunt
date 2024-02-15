@@ -63,9 +63,6 @@ public class Sc_BoardManager : MonoBehaviour
 
         m_canClickDice = false;
         m_diceAnimation.m_CurrentLife = m_diceAnimation.m_MaxLife;
-
-        Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Selection);
-        Sc_GameManager.Instance.AddTurn();
     }
     private IEnumerator GetCardAfterTimer(float t, int r)
     {
@@ -103,6 +100,9 @@ public class Sc_BoardManager : MonoBehaviour
 
             yield return new WaitForSeconds(m_delayBeteweenCards);
         }
+
+        Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Selection);
+        Sc_GameManager.Instance.AddTurn();
         Sc_TutorialManager.Instance.ShowEventTuto(true);
 
     }
