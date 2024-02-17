@@ -255,8 +255,6 @@ public class Sc_BoardManager : MonoBehaviour
                 rectTransform.localPosition = Vector3.zero;
             }
         }
-
-        //Invoke(nameof(UpdateEmplacementCard), Time.deltaTime * 3f);
     }
     public void RemoveBonusCard(int i)
     {

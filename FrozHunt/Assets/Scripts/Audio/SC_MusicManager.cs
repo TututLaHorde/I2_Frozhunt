@@ -56,7 +56,6 @@ public class SC_MusicManager : MonoBehaviour
     public void PlayLowHPSound(int maxhealth, int health, WindEffect windEffect)
     {
         float percent = (health*100 / maxhealth);
-        print(percent);
         if (percent <= 35)
         {
             StartCoroutine(AudioFade(m_ambientSource, m_ambientClip[windEffect.GetHashCode()]));
@@ -84,7 +83,6 @@ public class SC_MusicManager : MonoBehaviour
     {
         if (Instance != null)
         {
-            print("error already instanced");
             Destroy(gameObject);
             return;
         }
@@ -97,12 +95,15 @@ public class SC_MusicManager : MonoBehaviour
         //create tempaudio object
         GameObject tempGO = new GameObject("TempAudio");
         tempGO.transform.localPosition = Vector3.zero;
+        
         //assign to temp the audiosource
         AudioSource SFXsource = tempGO.AddComponent<AudioSource>();
+        
         //make temp play sound
         SFXsource.clip = clip;
         SFXsource.outputAudioMixerGroup = m_SFXgroup;     
         SFXsource.Play();
+        
         //destroy temp once it's done;
         Destroy(tempGO, clip.length);
         return SFXsource;

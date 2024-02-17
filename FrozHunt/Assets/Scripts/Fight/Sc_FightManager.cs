@@ -111,7 +111,6 @@ public class Sc_FightManager : MonoBehaviour
             }
 
             int result = m_diceResult.Item1 + m_diceResult.Item2;
-            Debug.Log(result + "     ////    " + m_diceResult.Item2);
 
             m_infoDicePopUp.SetPopUps(true);
             Sc_TutorialManager.Instance.m_confirmAttackWindow.SetActive(Sc_TutorialManager.Instance.m_isFirstFight);
@@ -234,7 +233,6 @@ public class Sc_FightManager : MonoBehaviour
         m_numberOfPlayerAttack = 0;
         for (int i = 0; i < Sc_GameManager.Instance.playerList.Count; i++)
         {
-            Debug.Log("I m called");
             Sc_GameManager.Instance.playerList[i].SetAttackActive();
         }
 
@@ -250,9 +248,6 @@ public class Sc_FightManager : MonoBehaviour
                 Sc_GameManager.Instance.AddFood(-1);
             else
                 m_lastPlayer.TakeDamage(2);
-
-            Debug.Log("Remove Food");
-
         }
 
         m_pop_up.GetComponent<Sc_MoveOnX>().ShowObject();
@@ -261,7 +256,6 @@ public class Sc_FightManager : MonoBehaviour
 
     public void DontWantToCritique() // The Player clique on No on the critical pop_up
     {
-        Debug.Log("Don't crit");
         m_pop_up.GetComponent<Sc_MoveOnX>().ShowObject();
     }
 
@@ -284,7 +278,7 @@ public class Sc_FightManager : MonoBehaviour
         m_infoDicePopUp.SetPopUps(false);
         AllPlayerCanAttack();
         Sc_GameManager.Instance.SetPlayerAttackButton(false);
-        Debug.Log("END OF THE FIGHT");
+
         Invoke(nameof(NextPhaseDraw), 1.2f);
         Sc_BoardManager.Instance.RemoveAllPrefabCard();
         m_MeatPlus = 0;

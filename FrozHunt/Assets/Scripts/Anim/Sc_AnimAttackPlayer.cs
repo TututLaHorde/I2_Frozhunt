@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Sc_AnimAttackPlayer : MonoBehaviour
@@ -97,7 +96,6 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
 
         while ((Time.time - time) *m_speedLoad < 1)
         {
-            Debug.Log("Move Card For Load Attack   "  + m_FirstPosition.x + "    " + m_FirstPosition.y);
             m_transformCard.localPosition = Vector3.Lerp(m_FirstPosition, m_NewPos, (Time.time - time) * m_speedLoad);
             yield return null;
         }
@@ -116,7 +114,6 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
 
         while ((Time.time - time) * m_speedAttack < 1f)
         {
-            Debug.Log("Move Card For Attack Enemy  ");
             m_transformCard.position = Vector3.Lerp(m_NewPos, m_EnemyPosition.transform.position, (Time.time - time) * m_speedAttack);
             yield return null;
         }
@@ -137,7 +134,6 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
 
         while ((Time.time - time) * m_speedReturn < 1f)
         {
-            Debug.Log("Move Card For Attack Enemy  ");
             m_transformCard.localPosition = Vector3.Lerp(m_NewPos, m_FirstPosition, (Time.time - time) * m_speedReturn);
             yield return null;
         }
@@ -154,23 +150,16 @@ public class Sc_AnimAttackPlayer : MonoBehaviour
     private IEnumerator Shake()
     {
         m_ShakeTime = Time.time + m_ShakeDuration;
-        //Vector3 initialPosition = m_ShakeObject.transform.localPosition;
 
-        Debug.Log("    initial POS 1 ::  " );
         float timePass = 0;
         while (Time.time < m_ShakeTime)
         {
             timePass += Time.deltaTime;
-            // Debug.Log("Shake  : " + ((m_AnimationCurve.Evaluate(timePass) * m_shakeMagnitude)));
             m_ShakeObject.transform.localPosition = Vector3.zero + Random.insideUnitSphere * (m_AnimationCurve.Evaluate(timePass) * m_shakeMagnitude);
             yield return null;
         }
 
-
         m_ShakeObject.transform.localPosition = Vector3.zero;
-
-        Debug.Log("    initial POS 2 ::  " + m_ShakeObject.transform.localPosition);
-
 
         yield return null;
     }

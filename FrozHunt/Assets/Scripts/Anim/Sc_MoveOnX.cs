@@ -21,7 +21,6 @@ public class Sc_MoveOnX : MonoBehaviour
     private Transform m_Transform;
     private Vector3 m_HidePos = Vector3.zero;
 
-    // Start is called before the first frame update
     void Start()
     {
         m_Transform = gameObject.transform;
@@ -75,7 +74,7 @@ public class Sc_MoveOnX : MonoBehaviour
     }
     public void HideObject()
     {
-        StartCoroutine (Hide());
+        StartCoroutine(Hide());
     }
 
     private IEnumerator Show()
@@ -85,7 +84,6 @@ public class Sc_MoveOnX : MonoBehaviour
         while (m_Transform.localPosition.x < m_FirstPosition.x)
         {
             m_Transform.localPosition = Vector3.Lerp(m_HidePos, m_FirstPosition, (Time.time - m_time) * m_Speed);
-            Debug.Log("Show");
             yield return null;
         }
 
@@ -96,14 +94,11 @@ public class Sc_MoveOnX : MonoBehaviour
     {
         m_time = Time.time;
 
-
         while (m_Transform.localPosition.x > m_HidePos.x)
         {
             m_Transform.localPosition = Vector3.Lerp(m_FirstPosition, m_HidePos, (Time.time - m_time)*m_Speed);
-            Debug.Log("Hide");
             yield return null;
         }
-
 
         yield return null;
     }

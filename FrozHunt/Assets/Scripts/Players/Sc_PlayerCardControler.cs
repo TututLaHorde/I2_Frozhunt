@@ -1,4 +1,3 @@
-using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -73,7 +72,6 @@ public class Sc_PlayerCardControler : MonoBehaviour
             Dead();
         }
         m_HPTxt.text = m_Health.ToString();
-        Debug.Log("Player Take Damage");
 
         m_hearthAnim.m_CurrentLife = m_Health;
     }
@@ -96,20 +94,12 @@ public class Sc_PlayerCardControler : MonoBehaviour
     {
         SC_MusicManager.Instance.windStop();
         SC_MusicManager.Instance.menuMusic(MenuMusic.gameover);
-        Debug.Log("Player is Dead, You Loose");
         SceneManager.LoadScene("DefeatScene");
     }
 
     public void Crit(Sc_EnemyCardControler enemy)
     {
-        Debug.Log("Player Crit");
         m_competence.Critique(enemy);
-    }
-
-    public void CanCrit()
-    {
-        Debug.Log("Player Can Crit");
-
     }
 
     public bool CanAttack 
@@ -120,7 +110,6 @@ public class Sc_PlayerCardControler : MonoBehaviour
 
     private void SetMyCompetence() // Add the component with the good critical fonction  
     {
-        Debug.Log("Set Competence");
         switch (m_PlayerCard)
         {
             case PlayerCard.Sula: m_competence = gameObject.AddComponent<Sc_DoubleDmgCritique>(); break;
@@ -150,8 +139,5 @@ public class Sc_PlayerCardControler : MonoBehaviour
     {
         int temp = (m_damage + malus) < 0 ? 0 : (m_damage + malus);
         m_DamageTxt.text = temp.ToString();
-        Debug.Log("Make It ");
     }
-
-    //abstract public void Competence();
 }

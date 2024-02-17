@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class Sc_DoubleDmgCritique : Sc_PlayerCompetence
 {
     Sc_PlayerCardControler m_player;
@@ -14,7 +10,6 @@ public class Sc_DoubleDmgCritique : Sc_PlayerCompetence
     public override void Critique(Sc_EnemyCardControler enemy)
     {
         enemy.TakeDamage(m_player.GetDamage());       
-        Debug.Log("Crit DDmg");
     }
 
     public override void Dodge()

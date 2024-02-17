@@ -40,7 +40,6 @@ public class Sc_PbCard : MonoBehaviour
 
         if (gameObject.TryGetComponent<Sc_EnemyCardControler>(out Sc_EnemyCardControler s))
         {
-            Debug.Log("enemy here guys ");
             yield break;
         }
         Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Draw);

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Sc_HearthAnim1 : MonoBehaviour
@@ -16,7 +17,6 @@ public class Sc_HearthAnim1 : MonoBehaviour
 
     private float m_pourcentage = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(HearthAnim());
@@ -28,62 +28,52 @@ public class Sc_HearthAnim1 : MonoBehaviour
         {
             m_pourcentage = (m_CurrentLife / m_MaxLife) * 100;
 
-            if (gameObject.transform.localScale.x > 1.5)
+            //anim is scaling or discaling
+            if (transform.localScale.x > 1.5)
                 m_direction = -1;
-            else if ((gameObject.transform.localScale.x < 1))
+            else if (transform.localScale.x < 1)
                 m_direction = 1;
 
 
             if (m_pourcentage >= 75)
-            { Debug.Log("OK  " + m_pourcentage); }
-
+            {
+                //no heart anim
+                transform.localScale = Vector3.one;
+            }
             else if(m_pourcentage < 75  && m_pourcentage >= 50)
             {
-                m_NewScale.Set(
-                    gameObject.transform.localScale.x + m_speedSlow * m_direction * Time.deltaTime,
-                    gameObject.transform.localScale.y + m_speedSlow * m_direction* Time.deltaTime,
-                    gameObject.transform.localScale.z + m_speedSlow * m_direction* Time.deltaTime
-                    );
-                gameObject.transform.localScale = m_NewScale;
-                Debug.Log("Slow  " + m_pourcentage);
+                //slow heart anim
+                ChangeHeartScale(m_speedSlow, Time.deltaTime);
             }
-
             else if (m_pourcentage < 50 && m_pourcentage >= 25)
             {
-                m_NewScale.Set(
-                    gameObject.transform.localScale.x + m_speedNormal * m_direction* Time.deltaTime,
-                    gameObject.transform.localScale.y + m_speedNormal * m_direction* Time.deltaTime,
-                    gameObject.transform.localScale.z + m_speedNormal * m_direction* Time.deltaTime
-                    );
-                gameObject.transform.localScale = m_NewScale;
-                Debug.Log("Normal   " + m_pourcentage);
+                //normal heart anim
+                ChangeHeartScale(m_speedNormal, Time.deltaTime);
             }
-
             else if (m_pourcentage < 25 && m_pourcentage >= 10)
             {
-                m_NewScale.Set(
-                    gameObject.transform.localScale.x + m_speedFast * m_direction* Time.deltaTime,
-                    gameObject.transform.localScale.y + m_speedFast * m_direction* Time.deltaTime,
-                    gameObject.transform.localScale.z + m_speedFast * m_direction* Time.deltaTime
-                    );
-                gameObject.transform.localScale = m_NewScale;
-                Debug.Log("Fast  "+ m_pourcentage);
+                //fast heart anim
+                ChangeHeartScale(m_speedFast, Time.deltaTime);
             }
             else
             {
-                m_NewScale.Set(
-                    gameObject.transform.localScale.x + m_speedSuperFast * m_direction* Time.deltaTime,
-                    gameObject.transform.localScale.y + m_speedSuperFast * m_direction* Time.deltaTime,
-                    gameObject.transform.localScale.z + m_speedSuperFast * m_direction* Time.deltaTime
-                    );
-                gameObject.transform.localScale = m_NewScale;
-                Debug.Log("Super Fast  " + m_pourcentage);
+                //super fast heart anim
+                ChangeHeartScale(m_speedSuperFast, Time.deltaTime);
             }
 
+            yield return null;       
+        } 
+    }
 
-            yield return null;
-        
-        }
+    private void ChangeHeartScale(float speed, float deltaTime)
+    {
+        Transform trs = transform;
+        m_NewScale.Set(
+            trs.localScale.x + speed * m_direction * deltaTime,
+            trs.localScale.y + speed * m_direction * deltaTime,
+            trs.localScale.z + speed * m_direction * deltaTime
+            );
+        trs.localScale = m_NewScale;
     }
 
 }

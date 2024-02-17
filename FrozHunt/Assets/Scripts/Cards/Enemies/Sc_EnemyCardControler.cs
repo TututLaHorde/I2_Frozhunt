@@ -62,7 +62,6 @@ public class Sc_EnemyCardControler : Sc_PbCard
         m_DamageTxt.text = m_CardInfo.AttackDamage.ToString();
         m_DescriptionTxt.text = m_CardInfo.m_description;
 
-        //m_HPTxt.text = m_CardInfo.HealthPoint.ToString();
         m_HPTxt.text = m_Health.ToString();
 
         m_MeatDropTxt.text = m_CardInfo.MeatDrop.ToString();
@@ -78,13 +77,11 @@ public class Sc_EnemyCardControler : Sc_PbCard
         m_Health -= damage;
         if (m_Health <= 0)
         {
-            print(Meat + "this is how much food that should be given");
             Sc_GameManager.Instance.AddFood(Meat);
             m_Health = 0;
             Dead();
         }
         m_HPTxt.text = m_Health.ToString();
-        Debug.Log("Enemy Take Damage");
         m_heartAnim.m_CurrentLife = m_Health;
     }
 
@@ -147,7 +144,6 @@ public class Sc_EnemyCardControler : Sc_PbCard
     private void Dead()
     {
         Sc_FightManager.Instance.EndFight();
-        Debug.Log("Enemy is Dead, You Win this Battle");
     }
 
     public bool Stun
@@ -169,6 +165,4 @@ public class Sc_EnemyCardControler : Sc_PbCard
             case Capacity.Basic: m_competence = gameObject.AddComponent<Sc_enemyCompetence>(); break;
         }
     }
-
-    //abstract public void Competence();
 }

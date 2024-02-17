@@ -38,7 +38,7 @@ public class SC_MenusButton : MonoBehaviour
     {
         SC_MusicManager.Instance.musicStop();
         SC_MusicManager.Instance.ChangeAmbient(WindEffect.lightWind);
-        SceneManager.LoadScene("ProtoGameScene");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void LoadCreditScene()

@@ -17,13 +17,11 @@ public class Sc_PopUpManager : MonoBehaviour
     public GameObject Image2;
     public GameObject PlayersHealCard;
 
-
     private int m_healValue;
     private int m_indexCardBonus = 0;
 
     private bool m_isMedicine = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (Instance == null)
@@ -62,19 +60,10 @@ public class Sc_PopUpManager : MonoBehaviour
     public void HealPlayer(int playerIndex)
     {
         Sc_GameManager.Instance.playerList[playerIndex].Heal(m_healValue);
-        Debug.Log("Heal P1");
         HealPopUp.SetActive(false);
         if(m_isMedicine)
             Sc_BoardManager.Instance.RemoveBonusCard(m_indexCardBonus);
     }
-    //public void HealPlayer2()
-    //{
-    //    Sc_GameManager.Instance.playerList[1].Heal(m_healValue);
-    //    Debug.Log("Heal P2");
-    //    HealPopUp.SetActive(false);
-    //    if (m_isMedicine)
-    //        Sc_BoardManager.Instance.RemoveBonusCard(m_indexCardBonus);
-    //}
 
     public void QuitHealPopUp()
     {

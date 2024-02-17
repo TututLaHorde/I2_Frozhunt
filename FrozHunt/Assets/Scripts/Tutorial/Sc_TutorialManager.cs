@@ -8,7 +8,6 @@ public class Sc_TutorialManager : MonoBehaviour
     public static Sc_TutorialManager Instance { get; private set; }
 
     public GameObject m_objectiveWindow;
-    //public GameObject m_drawWindow;
     public GameObject m_confirmAttackWindow;
     public GameObject m_handCapacityWindow;
     public GameObject m_eventTuto;
@@ -16,7 +15,6 @@ public class Sc_TutorialManager : MonoBehaviour
 
     public Image m_panelToFade;
     [SerializeField] private TextMeshProUGUI m_textToFade;
-    private Color m_imageEndColor;
 
     public bool m_tutoIsOn;// from checking if tuto is activated
     public bool m_isFirstFight = true;
@@ -30,24 +28,12 @@ public class Sc_TutorialManager : MonoBehaviour
         m_handCapacityWindow.SetActive(true);
     }
 
-    private void Start()
-    {
-    }
-
     public void ShowTuto()
     {
         if(m_tutoIsOn)
         {
             //objective
             m_objectiveWindow.SetActive(Sc_GameManager.Instance.m_turnCount == 0);
-
-            //draw
-            //m_drawWindow.SetActive(Sc_GameManager.Instance.m_turnCount <= 2 && Sc_GameManager.Instance.m_turnPhase == Sc_GameManager.eTurnPhase.Draw);
-
-            //hand cards
-
-            //change character
-
         }
 
     }
@@ -60,10 +46,8 @@ public class Sc_TutorialManager : MonoBehaviour
 
     IEnumerator FadeCanvas(Image image, TextMeshProUGUI text, float duration, bool state) //true : fade in, false : fade out
     {
-        Debug.Log(" my state is " + state);
         if(state)
             m_eventTuto.SetActive(true);
-
 
         float elapsedTime = 0f;
 
@@ -99,7 +83,6 @@ public class Sc_TutorialManager : MonoBehaviour
         
         if(!state)
             m_eventTuto.SetActive(false);
-
     }
 
 }

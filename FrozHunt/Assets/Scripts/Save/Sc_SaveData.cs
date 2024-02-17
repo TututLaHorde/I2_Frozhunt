@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class Sc_SaveData : MonoBehaviour
 {
-
     public static Sc_SaveData Instance;
+
     public GameObject m_PlayersCard;
+    public Save cards = new Save();
 
     private void Awake()
     {
@@ -20,15 +21,14 @@ public class Sc_SaveData : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.S))
             SaveToJson(cards);
     }
-    public Save cards = new Save();
+
+
     public void SaveToJson(Save save)
     {
         cards = save;
         string Save = JsonUtility.ToJson(cards);
         string FilePath = Application.persistentDataPath + "/Save.json";
-        Debug.Log(FilePath);
         System.IO.File.WriteAllText(FilePath, Save);
-        Debug.Log("Sauvegarder");
     }
 
     public void LoadFromJson()
@@ -44,11 +44,8 @@ public class Sc_SaveData : MonoBehaviour
             Sc_GameManager.Instance.playerList.Add(player.GetComponent<Sc_PlayerCardControler>());
             player.SetActive(true);
 
-            Debug.Log("Player Parameter Loading");
             Sc_GameManager.Instance.playerList[i].m_CardInfo = cards.cardPlayers[i];
         }
-
-        Debug.Log("Load");
     }
 
 }
