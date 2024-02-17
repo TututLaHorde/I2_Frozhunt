@@ -38,6 +38,8 @@ public class Sc_BoardManager : MonoBehaviour
 
     private bool m_canClickDice = true;
 
+    /*--------------------------------------------------------------*/
+
     private void Awake()
     {
         Instance = this;
@@ -47,6 +49,8 @@ public class Sc_BoardManager : MonoBehaviour
         if (m_blendInStart)
             BlendDeck();
     }
+
+    /*--------------------------------------------------------------*/
 
     public void BlendDeck()
     {
@@ -66,56 +70,10 @@ public class Sc_BoardManager : MonoBehaviour
         m_diceAnimation.m_CurrentLife = m_diceAnimation.m_MaxLife;
         m_diceAnimation.transform.localScale = Vector3.one;
     }
-    private IEnumerator GetCardAfterTimer(float t, int r)
-    {
-        yield return new WaitForSeconds(t);
-        StartCoroutine(GetCard(r));
 
-        Invoke(nameof(ReplayDiceHeartAnimation), 1f);
-    }
-    public IEnumerator GetCard(int n)
-    {
-        CenterGameObjectList(m_cardPrefabEmplacements, m_distBetweenBoardCards, n);
-
-        for (int i = 0; i < n; i++)
-        {
-            m_boardCards.Add(m_deck[0]);
-
-            GameObject e = m_cardPrefabEmplacements[i];
-            GameObject inst = Instantiate(m_deck[0].m_prebafInBoard, e.transform);
-            Sc_PbCard c = inst.GetComponent<Sc_PbCard>();
-            c.InitDisplayCard(m_deck[0]);
-            c.m_indexPosition = i;
-
-            SetEnableCard(inst, false);
-
-            m_deck.RemoveAt(0);
-            if (m_deck.Count < 1)
-                SwitchDescardToDeck();
-
-            CenterCard(m_cardPrefabEmplacements, m_distBetweenBoardCards, 0, false);
-            MoveBoardCard(inst, () =>
-            {
-                RotateBoardCard(inst);
-            });
-
-            yield return new WaitForSeconds(m_delayBeteweenCards);
-        }
-
-        Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Selection);
-        Sc_GameManager.Instance.AddTurn();
-        Sc_TutorialManager.Instance.ShowEventTuto(true);
-
-    }
-
-    private void ReplayDiceHeartAnimation()
-    {
-        m_canClickDice = true;
-        m_diceAnimation.m_CurrentLife = 14;
-    }
-    
     public void RotateBoardCard()
     {
+        //rotate from back card to front card
         foreach (var item in m_cardPrefabEmplacements)
         {
             int childCount = item.transform.childCount;
@@ -127,6 +85,7 @@ public class Sc_BoardManager : MonoBehaviour
             }
         }
     }
+
     public void RotateBoardCard(GameObject rotateCard)
     {
         Sc_BoardCardAnimation animator = rotateCard.GetComponent<Sc_BoardCardAnimation>();
@@ -135,8 +94,10 @@ public class Sc_BoardManager : MonoBehaviour
             SetEnableCard(rotateCard, true);
         });
     }
+
     public void MoveBoardCard(GameObject moveCard, System.Action actionAfterMove)
     {
+        //draw animation
         Sc_BoardCardAnimation animator = moveCard.GetComponent<Sc_BoardCardAnimation>();
         animator.StartMoveAnimation(actionAfterMove);
     }
@@ -164,7 +125,7 @@ public class Sc_BoardManager : MonoBehaviour
 
     public void RemoveAllPrefabCard()
     {
-        foreach (var item in m_cardPrefabEmplacements.Select((v, i) => new {v, i}))
+        foreach (var item in m_cardPrefabEmplacements.Select((v, i) => new { v, i }))
         {
             if (item.v.transform.childCount < 1)
                 continue;
@@ -266,7 +227,7 @@ public class Sc_BoardManager : MonoBehaviour
 
         if (childCount > 1)
         {
-            GameObject e    = m_bonusCardPrefabEmplacements[i].transform.GetChild(1).gameObject;
+            GameObject e = m_bonusCardPrefabEmplacements[i].transform.GetChild(1).gameObject;
             GameObject tuto = m_bonusCardPrefabEmplacements[i].transform.GetChild(0).gameObject;
 
             Sc_HandCard handCard = m_bonusCardPrefabEmplacements[i].GetComponent<Sc_HandCard>();
@@ -297,6 +258,60 @@ public class Sc_BoardManager : MonoBehaviour
         {
             m_canDiscardBonusCard = true;
         }
+    }
+
+    /*--------------------------------------------------------------*/
+    private IEnumerator GetCardAfterTimer(float t, int r)
+    {
+        yield return new WaitForSeconds(t);
+        StartCoroutine(GetCard(r));
+
+        Invoke(nameof(ReplayDiceHeartAnimation), 1f);
+    }
+
+    private IEnumerator GetCard(int n)
+    {
+        CenterGameObjectList(m_cardPrefabEmplacements, m_distBetweenBoardCards, n);
+
+        //draw n cards
+        for (int i = 0; i < n; i++)
+        {
+            //draw in deck
+            m_boardCards.Add(m_deck[0]);
+
+            m_deck.RemoveAt(0);
+            if (m_deck.Count < 1)
+                SwitchDescardToDeck();
+
+            //instantiate card
+            GameObject e = m_cardPrefabEmplacements[i];
+            GameObject inst = Instantiate(m_deck[0].m_prebafInBoard, e.transform);
+            Sc_PbCard c = inst.GetComponent<Sc_PbCard>();
+            c.InitDisplayCard(m_deck[0]);
+            c.m_indexPosition = i;
+
+            SetEnableCard(inst, false);
+
+
+            CenterCard(m_cardPrefabEmplacements, m_distBetweenBoardCards, 0, false);
+            MoveBoardCard(inst, () =>
+            {
+                RotateBoardCard(inst);
+            });
+
+            yield return new WaitForSeconds(m_delayBeteweenCards);
+        }
+
+        //next game phase
+        Sc_GameManager.Instance.ToNextPhase(Sc_GameManager.eTurnPhase.Selection);
+        Sc_GameManager.Instance.AddTurn();
+        Sc_TutorialManager.Instance.ShowEventTuto(true);
+    }
+
+    private void ReplayDiceHeartAnimation()
+    {
+        m_canClickDice = true;
+        m_diceAnimation.m_CurrentLife = 14;
     }
 
     public void UpdateEmplacementCard()

@@ -1,10 +1,8 @@
 using System;
 using System.Collections;
-using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
-using Image = UnityEngine.UI.Image;
 
 public enum AttackState
 {
@@ -21,30 +19,32 @@ public enum AbilityState
 public class Sc_InfoDicePopUp : MonoBehaviour
 {
     public Action m_onAttackLaunch;
-    public GameObject m_background;
-    public Text m_attackStateText;
-    public Text m_abilityStateText;
-    public Text m_continueButtonText;
-    public UnityEngine.UI.Button m_continueButton;
-    public Image m_continueImage;
-    public float m_AnimSpeed = 0;
 
-    private float m_alpha = 1;
+    [Header("Components")]
+    [SerializeField] private TMP_Text m_txtAtkState;
+    [SerializeField] private TMP_Text m_txtAbilityState;
+    [SerializeField] private TMP_Text m_txtBtnContinue;
+    [SerializeField] private Button m_btnContinue;
+    private Image m_imgBtnContinue;
 
+    [Header("Params")]
+    [SerializeField] private float m_AnimSpeed = 0;
+
+    private float m_alpha = 0;
+
+    /*--------------------------------------------------------------*/
 
     private void Start()
     {
-        m_alpha = 0;
-        m_attackStateText.color = new Color(m_attackStateText.color.r, m_attackStateText.color.g, m_attackStateText.color.b, m_alpha);
-        m_abilityStateText.color = new Color(m_abilityStateText.color.r, m_abilityStateText.color.g, m_abilityStateText.color.b, m_alpha);
-        m_continueButtonText.color = new Color(m_continueButtonText.color.r, m_continueButtonText.color.g, m_continueButtonText.color.b, m_alpha);
-        m_continueImage.color = new Color(m_continueImage.color.r, m_continueImage.color.g, m_continueImage.color.b, m_alpha);
-        m_continueButton.interactable = false;
+        m_imgBtnContinue = m_btnContinue.GetComponent<Image>();
+        SetAllAlpha();
+        m_btnContinue.interactable = false;
     }
+
+    /*--------------------------------------------------------------*/
 
     public void SetPopUps(bool state)
     {
-        //m_background.SetActive(state);
         if (state)
             StartCoroutine(ActiveAllColors());
         else
@@ -54,45 +54,9 @@ public class Sc_InfoDicePopUp : MonoBehaviour
     public void InitPopUp(bool state)
     {
         gameObject.SetActive(state);
-        //m_background.SetActive(false);
         StartCoroutine(DesactiveAnimation());
 
     }
-
-
-
-    private IEnumerator DesactiveAnimation()
-    {
-        m_continueButton.interactable = false;
-        while(m_alpha > 0)
-        {
-            m_alpha -= m_AnimSpeed * Time.deltaTime;
-            m_attackStateText.color = new Color(m_attackStateText.color.r, m_attackStateText.color.g, m_attackStateText.color.b, m_alpha);
-            m_abilityStateText.color = new Color(m_abilityStateText.color.r, m_abilityStateText.color.g, m_abilityStateText.color.b, m_alpha);
-            m_continueButtonText.color = new Color(m_continueButtonText.color.r, m_continueButtonText.color.g, m_continueButtonText.color.b, m_alpha);
-            m_continueImage.color = new Color(m_continueImage.color.r, m_continueImage.color.g, m_continueImage.color.b, m_alpha);
-            yield return null;
-        }
-        yield return null;
-    }
-
-    private IEnumerator ActiveAllColors()
-    {
-        m_alpha = 0;
-
-        while (m_alpha < 1)
-        {
-            m_alpha += m_AnimSpeed * Time.deltaTime;
-            m_attackStateText.color = new Color(m_attackStateText.color.r, m_attackStateText.color.g, m_attackStateText.color.b, m_alpha);
-            m_abilityStateText.color = new Color(m_abilityStateText.color.r, m_abilityStateText.color.g, m_abilityStateText.color.b, m_alpha);
-            m_continueButtonText.color = new Color(m_continueButtonText.color.r, m_continueButtonText.color.g, m_continueButtonText.color.b, m_alpha);
-            m_continueImage.color = new Color(m_continueImage.color.r, m_continueImage.color.g, m_continueImage.color.b, m_alpha);
-            yield return null;
-        }
-        m_continueButton.interactable = true;
-        yield return null;
-    }
-
 
     public void ContinueButtonClicked()
     {
@@ -107,23 +71,65 @@ public class Sc_InfoDicePopUp : MonoBehaviour
         switch (s)
         {
             case AttackState.Success: txt = "Successful Attack"; break;
-            case AttackState.Failure: txt = "Failed attack";     break;
+            case AttackState.Failure: txt = "Failed attack"; break;
             default: break;
         }
 
-        m_attackStateText.text = txt;
+        m_txtAtkState.text = txt;
     }
     public void SetAbilityStateText(AbilityState s)
     {
         string txt = string.Empty;
 
-        switch (s) 
+        switch (s)
         {
             case AbilityState.CriticalAttack: txt = "Critical Attack"; break;
             case AbilityState.CriticalParade: txt = "Critical Parade"; break;
-            case AbilityState.Nothing:        txt = "";         break;
-        }  
+            case AbilityState.Nothing: txt = ""; break;
+        }
 
-        m_abilityStateText.text = txt;
+        m_txtAbilityState.text = txt;
+    }
+
+    /*--------------------------------------------------------------*/
+
+    private IEnumerator DesactiveAnimation()
+    {
+        m_btnContinue.interactable = false;
+        while(m_alpha > 0)
+        {
+            m_alpha -= m_AnimSpeed * Time.deltaTime;
+            SetAllAlpha();
+            yield return null;
+        }
+        yield return null;
+    }
+
+    private IEnumerator ActiveAllColors()
+    {
+        m_alpha = 0;
+
+        while (m_alpha < 1)
+        {
+            m_alpha += m_AnimSpeed * Time.deltaTime;
+            SetAllAlpha();
+            yield return null;
+        }
+        m_btnContinue.interactable = true;
+        yield return null;
+    }
+
+    private void SetAllAlpha()
+    {
+        m_txtAtkState.color     = SetColorAlpha(m_txtAtkState.color, m_alpha);
+        m_txtAbilityState.color = SetColorAlpha(m_txtAbilityState.color, m_alpha);
+        m_txtBtnContinue.color  = SetColorAlpha(m_txtBtnContinue.color, m_alpha);
+        m_imgBtnContinue.color  = SetColorAlpha(m_imgBtnContinue.color, m_alpha);
+    }
+
+    private Color SetColorAlpha(Color color, float alpha)
+    {
+        color.a = alpha;
+        return color;
     }
 }
