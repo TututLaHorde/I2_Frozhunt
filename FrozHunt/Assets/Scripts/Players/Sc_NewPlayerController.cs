@@ -28,7 +28,6 @@ public class Sc_NewPlayerController : MonoBehaviour
     private int m_Health = 0;
     private int m_maxHealth = 0;
     private int m_damage = 0;
-    [SerializeField] private bool m_canAttack = true;
 
     // Start is called before the first frame update
     void Start()
