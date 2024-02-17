@@ -16,7 +16,6 @@ public class So_AnimalsAttack : So_Instant
         {
             for (int j = 0; j < Sc_GameManager.Instance.playerList.Count; j++)
             {
-                Debug.Log("Give 2 Damage to player index  " + j);
                 Sc_GameManager.Instance.playerList[j].TakeDamage(m_numberOfDamage);
             }
         }
