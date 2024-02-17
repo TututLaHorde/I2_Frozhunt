@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -11,8 +9,6 @@ public class So_Fragile : So_Instant
 
     public override void SelectedCard(GameObject owner)
     {
-        Debug.Log("Fragile");
-
         Sc_FightManager.Instance.m_DamagePlus += m_damagePlus;
         base.SelectedCard(owner);
     }

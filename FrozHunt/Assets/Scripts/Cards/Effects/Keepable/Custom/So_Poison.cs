@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -11,7 +9,6 @@ public class So_Poison : So_Consumable
 
     public override void UseEffect()
     {
-        Debug.Log("Poison");
         Sc_FightManager.Instance.m_Enemy.Power -= m_numberOfPowerToLower;
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Blizzard", menuName = "Card/Instant/Blizzard")]
@@ -12,7 +10,6 @@ public class So_Blizzard : So_Instant
     {
         for (int j = 0; j < Sc_GameManager.Instance.playerList.Count; j++)
         {
-            Debug.Log("Give 2 Damage to player index  " + j);
             Sc_GameManager.Instance.playerList[j].TakeDamage(m_damage);
         }
         base.SelectedCard(owner);

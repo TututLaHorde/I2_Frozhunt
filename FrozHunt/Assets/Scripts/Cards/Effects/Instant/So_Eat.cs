@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Eat", menuName = "Card/Instant/Eat")]
@@ -19,7 +17,6 @@ public class So_Eat : So_Instant
         {
             for (int j = 0; j < Sc_GameManager.Instance.playerList.Count; j++)
             {
-                Debug.Log("Give 2 Damage to player index  " + j);
                 Sc_GameManager.Instance.playerList[j].TakeDamage(m_numberOfDamage);
             }
         }
