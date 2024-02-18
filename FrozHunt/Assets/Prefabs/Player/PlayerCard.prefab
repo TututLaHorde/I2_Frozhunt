@@ -154,7 +154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7622155234535249022
 RectTransform:
   m_ObjectHideFlags: 0
@@ -162,7 +162,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4451963801897301524}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d33cf518f751004eb3a8891ab6b07f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CardInfo: {fileID: 11400000, guid: 03ffad6141c6a9a4689c837a2b1c6201, type: 2}
+  m_CardInfo: {fileID: 11400000, guid: 1b6f6ba72f1ca144faaedd79e54f905d, type: 2}
   m_Image: {fileID: 6833445237178658618}
   m_NameTxt: {fileID: 2898490865459689645}
   m_DamageTxt: {fileID: 3892439932177031441}
@@ -261,9 +261,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rectTransform: {fileID: 7622155234535249022}
-  m_upPositionValue: 275
+  m_upPositionValue: 540
   m_downPositionValue: 0
-  m_animationSpeed: 600
+  m_animationSpeed: 2000
   m_onCardUp:
     m_PersistentCalls:
       m_Calls: []
@@ -336,8 +336,8 @@ MonoBehaviour:
   m_speedLoad: 4
   m_speedAttack: 5
   m_speedReturn: 2
-  m_ShakeDuration: 1
-  m_shakeMagnitude: 30
+  m_ShakeDuration: 0.5
+  m_shakeMagnitude: 18
   m_ShakeObject: {fileID: 0}
   m_AnimationCurve:
     serializedVersion: 2
@@ -1029,7 +1029,7 @@ GameObject:
   - component: {fileID: 6576688149893078766}
   - component: {fileID: 5312985332194062066}
   m_Layer: 0
-  m_Name: Button (1)
+  m_Name: ButtonP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1135,7 +1135,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6576688149893078766}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Sc_FightManager, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 292902862776505602}
+          m_ObjectArgumentAssemblyTypeName: Sc_PlayerCardControler, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8272086060335396156
 GameObject:
   m_ObjectHideFlags: 0
